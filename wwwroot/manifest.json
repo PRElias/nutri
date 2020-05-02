@@ -1,0 +1,24 @@
+{
+    "short_name": "nutri",
+    "name": "nutri",
+    "description": "Sistema para dados controle e acompanhamento de pacientes",
+    "prefer_related_applications": false,
+    "orientation": "portrait",
+    "icons": [
+      {
+        "src": "/images/logo-nutrimaquinas192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/images/logo-nutrimaquinas512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "https://localhost",
+    "background_color": "black",
+    "display": "fullscreen",
+    "scope": "/",
+    "theme_color": "black"
+}

@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Authentication
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - nutri</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin='anonymous' />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome-free-5.9.0-web/css/all.css" />
+    <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet" crossorigin='anonymous' />
+    <script src="~/lib/fontawesome-free-5.9.0-web/js/all.js"></script>
+    <link rel="manifest" href="/manifest.webmanifest">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">nutri</a> *@
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Paciente" asp-action="Index">Pacientes</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <partial name="_Notification" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* <footer class="border-top footer text-muted">
+        <div class="container">
+            <a href="https://paulorobertoelias.com.br" target="_blank">&copy; 2020 - Paulo Roberto Elias</a>
+        </div>
+    </footer> *@
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin='anonymous'></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/r-2.2.3/sp-1.0.1/datatables.min.css" crossorigin='anonymous'/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/r-2.2.3/sp-1.0.1/datatables.min.js" crossorigin='anonymous'></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js" crossorigin='anonymous'></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/dataRender/ellipsis.js"crossorigin='anonymous'></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/dataRender/intl.js" crossorigin='anonymous'></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" crossorigin='anonymous'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
+    <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
+    <script src="~/js/cache.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,73 @@
+@model Paciente
+
+@{
+    ViewBag.Title = "Novo Paciente";
+}
+
+@using (Html.BeginForm("Upsert", "Paciente", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Nome</label>
+            <div class="col-md-10">
+                <input type="text" id="NomeInput" name="Nome" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Data de Nascimento</label>
+            <div class="col-md-10">
+                <input type="text" id="DataNascimentoInput" name="DataNascimento" class="form-control hasDatePicker" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Altura</label>
+            <div class="col-md-10">
+                <input type="text" id="AlturaInput" name="Altura" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Peso</label>
+            <div class="col-md-10">
+                <input type="text" id="PesoInput" name="Peso" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Telefone</label>
+            <div class="col-md-10">
+                <input type="text" id="TelefoneInput" name="Telefone" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Celular</label>
+            <div class="col-md-10">
+                <input type="text" id="CelularInput" name="Celular" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Foto</label>
+            <div class="col-md-10">
+                <input type="file" id="Foto" name="Foto" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Status</label>
+            <div class="col-md-10">
+                <select name="StatusEncomenda" class="custom-select" asp-items="Html.GetEnumSelectList<nutri.Enums.Status>()"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
+                <input type="button" value="Cancelar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+     <script type="text/javascript" src="~/js/pacientes.js"></script>
+}

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AtendimentoNutricional>
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Atendimentos";
+}
+
+
+@Html.ActionLink("Novo Atendimento", "Create", "AtendimentoNutricional", new { id = ViewBag.Paciente.Id
+}, new { @class = "btn btn-primary", @role = "button", @id = "btnNovoAtendimento" })
+
+@using (Html.BeginForm("Upsert", "AtendimentoNutricional"))
+    {
+
+    <partial name="_Paciente" model="ViewBag.Paciente" />
+
+    <h2>Atendimentos nutricionais</h2>
+
+    <table class="table" id="atendimentosTable">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Ações
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var atendimento in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => atendimento.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => atendimento.Data)
+                </td>
+                <td class="none">
+                    <a asp-route-id="@atendimento.Id" asp-controller="AtendimentoNutricional" asp-action="Details"
+                        data-toggle="tooltip" title="Ver atendimento">
+                        <span class="action-icons">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </a>
+                    <a data-toggle="tooltip" title="Excluir atendimento" onclick="ConfirmDialog(@atendimento.Id)">
+                        <span class="action-icons">
+                            <i class="far fa-trash-alt"></i>
+                        </span>
+                    </a>
+                    <a asp-route-id="@atendimento.Id" asp-controller="AtendimentoNutricional" asp-action="Edit"
+                        data-toggle="tooltip" title="Editar">
+                        <span class="action-icons">
+                            <i class="fas fa-edit"></i>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+
+@section Scripts {
+<script type="text/javascript" src="~/js/atendimentonutricional.js" asp-append-version="true"></script>
+}

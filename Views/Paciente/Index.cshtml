@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Paciente>
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+    @{
+    ViewData["Title"] = "Pacientes";
+    }
+
+    <h1>Pacientes</h1>
+    
+    @Html.ActionLink("Novo Paciente", "Create", "Paciente", null, new { @class = "btn btn-primary", @role = "button", @id = "btnNovoPaciente" })
+
+    <table class="table" id="pacientesTable">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    Idade
+                </th>
+                <th>
+                    Altura
+                </th>
+                <th>
+                    Peso
+                </th>
+                <th>
+                    IMC
+                </th>
+                <th>
+                    Telefone
+                </th>
+                <th>
+                    Celular
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Ações
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var paciente in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Idade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Altura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Peso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.IMC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => paciente.Status)
+                </td>
+                <td class="none">
+                    <a asp-route-id="@paciente.Id" asp-controller="Paciente" asp-action="Details" data-toggle="tooltip" title="Ver paciente">
+                        <span class="action-icons">
+                            <i class="fas fa-male"></i>
+                        </span>
+                    </a>
+                    <a data-toggle="tooltip" title="Excluir paciente" onclick="ConfirmDialog(@paciente.Id)">
+                        <span class="action-icons">
+                            <i class="far fa-trash-alt"></i>
+                        </span>
+                    </a>
+                    <a asp-route-id="@paciente.Id" asp-controller="Paciente" asp-action="Edit" data-toggle="tooltip" title="Editar">
+                        <span class="action-icons">
+                            <i class="fas fa-edit"></i>
+                        </span>
+                    </a>
+                    <a asp-route-id="@paciente.Id" asp-controller="AtendimentoNutricional" asp-action="Paciente" data-toggle="tooltip" title="Atendimentos nutricionais">
+                        <span class="action-icons">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+@section Scripts {
+     <script type="text/javascript" src="~/js/pacientes.js" asp-append-version="true"></script>
+}

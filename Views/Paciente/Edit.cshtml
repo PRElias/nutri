@@ -1,0 +1,81 @@
+@model Paciente
+
+@{
+    ViewBag.Title = "Editar Paciente";
+}
+
+@using (Html.BeginForm("Upsert", "Paciente")) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Id</label>
+            <div class="col-md-10">
+                <input type="text" id="Id" name="Id" class="form-control" value="@(Model.Id)" disabled />
+            </div>
+        </div>    
+        <div class="form-group">
+            <label class="control-label col-md-2">Nome</label>
+            <div class="col-md-10">
+                <input type="text" id="NomeInput" name="Nome" class="form-control" value="@(Model.Nome)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Data de Nascimento</label>
+            <div class="col-md-10">
+                <input type="text" id="DataNascimento" name="DataNascimento" class="form-control hasDatePicker" value="@(Model.DataNascimento)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Altura</label>
+            <div class="col-md-10">
+                <input type="text" id="AlturaInput" name="Altura" class="form-control" value="@(Model.Altura)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Peso</label>
+            <div class="col-md-10">
+                <input type="text" id="PesoInput" name="Peso" class="form-control" value="@(Model.Peso)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Telefone</label>
+            <div class="col-md-10">
+                <input type="text" id="TelefoneInput" name="Telefone" class="form-control" value="@(Model.Telefone)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Celular</label>
+            <div class="col-md-10">
+                <input type="text" id="CelularInput" name="Celular" class="form-control" value="@(Model.Altura)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Foto</label>
+            <div class="col-md-10">
+                <input type="image" id="FotoInput" name="Foto" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Status</label>
+            <div class="col-md-10">
+                <select name="StatusEncomenda" class="custom-select" asp-items="Html.GetEnumSelectList<nutri.Enums.Status>()">
+                    <option  value="@((int)Model.Status)" selected>@(Model.Status)</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
+                <input type="button" value="Cancelar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+     <script type="text/javascript" src="~/js/encomenda.js"></script>
+}
