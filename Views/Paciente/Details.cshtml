@@ -72,17 +72,23 @@ ViewData["PacienteId"] = @Model.Id;
                 </div>
             </div>
         </div>
-        
-        @await Component.InvokeAsync("Atendimentos", @Model.Id)
 
-        @await Component.InvokeAsync("Antropometria", @Model.Id)
-        
+        <button id="pacientesDetalhes" class="accordion">Atendimentos Nutricionais</button>
+        <div class="panel">
+            @await Component.InvokeAsync("Atendimentos", @Model.Id)
+        </div>
+        <button id="pacientesDetalhes" class="accordion">Antropometrias</button>
+        <div class="panel">
+            <h5></h5>
+            @await Component.InvokeAsync("Antropometria", @Model.Id)
+        </div>
+
     </div>
 </div>
 
 
 @section Scripts {
-     <script type="text/javascript" src="~/js/pacientes.js" asp-append-version="true"></script>
-     <script type="text/javascript" src="~/js/atendimentonutricional.js" asp-append-version="true"></script>
-     <script type="text/javascript" src="~/js/antropometria.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/pacientes.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/atendimentonutricional.js" asp-append-version="true"></script>
+<script type="text/javascript" src="~/js/antropometria.js" asp-append-version="true"></script>
 }
