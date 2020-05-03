@@ -34,14 +34,14 @@ namespace nutri.Controllers
             _db.Upsert(antropometria);
             var routeValues = new RouteValueDictionary();
             routeValues.Add("id", idPaciente);
-            return RedirectToAction("Paciente", "Antropometria", routeValues);
+            return RedirectToAction("Details", "Paciente", routeValues);
         }
 
         public IActionResult Details(int id)
         {
             ViewBag.Profissional = _db.GetDadosProfissional().Nome;
             ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
-            var atendimento = _db.FindOneAtendimento(id);
+            var atendimento = _db.FindOneAntropometria(id);
             ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
             return View(atendimento);
         }

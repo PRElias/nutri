@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using nutri.Models;
@@ -89,21 +88,5 @@ namespace nutri.Controllers
             }
             return false;
         }
-    }
-
-    public class AtendimentosViewComponent : ViewComponent
-    {
-        private NutriRepository _db;
-
-        public AtendimentosViewComponent([FromServices] NutriRepository db)
-        {
-            _db = db;
-        }
-        public Task<IViewComponentResult> InvokeAsync(int id)
-        {
-            ViewBag.PacienteId = id;
-            return Task.FromResult<IViewComponentResult>(View(_db.FindAtendimentoForPacient(id)));
-        }
-
     }
 }

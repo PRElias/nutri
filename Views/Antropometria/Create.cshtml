@@ -1,0 +1,124 @@
+@using nutri.Enums;
+@model Antropometria
+
+@{
+ViewBag.Title = "Nova Antropometria";
+TempData["PacienteId"] = ViewBag.Paciente.Id;
+}
+
+<h2>Antropometria</h2>
+
+@* @using (Html.BeginForm("Upsert", "AtendimentoNutricional", FormMethod.Post, new { @class = "form-inline"})) *@
+@using (Html.BeginForm("Upsert", "Antropometria"))
+{
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <partial name="_Paciente" model="ViewBag.Paciente" />
+
+    <div class="container">
+        <div class="col-md-12 mx-auto">
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">Classificação</label>
+                    <input type="text" id="ClasssificacaoInput" name="Classificacao" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">% Gordura</label>
+                    <input type="text" id="GorduraInput" name="Gordura" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">% Massa muscular</label>
+                    <input type="text" id="MassaMuscularInput" name="MassaMuscular" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">% Água</label>
+                    <input type="text" id="AguaInput" name="Agua" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">Gordura Abdominal</label>
+                    <input type="text" id="GorduraAbdominalInput" name="GorduraAbdominal"
+                        class="form-control hasDatePicker" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">Circunferência abdominal (cm)</label>
+                    <input type="text" id="CircunferenciaAbdominalInput" name="CircunferenciaAbdominal"
+                        class="form-control" value="@ViewBag.Profissional" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">Cintura (cm)</label>
+                    <input type="text" id="CinturaInput" name="Cintura" class="form-control"
+                        value="@ViewBag.Profissional" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">Quadril (cm)</label>
+                    <input type="text" id="QuadrilInput" name="Quadril" class="form-control"
+                        value="@ViewBag.Profissional" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label class="control-label">Maior Peso</label>
+                    <input type="text" id="MaiorPesoInput" name="MaiorPeso" class="form-control hasDatePicker" />
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label">Menor Peso</label>
+                    <input type="text" id="MenorPesoInput" name="MenorPeso" class="form-control"
+                        value="@ViewBag.Profissional" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">Meta</label>
+                    <input type="text" id="MetaInput" name="Meta" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">VET proposto (Kcal)</label>
+                    <input type="text" id="VETInput" name="VET" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="control-label">Outras Bioimpedâncias</label>
+                    <textarea id="BioimpedanciasInput" name="Bioimpedancias" rows="7" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
+                    <input type="button" value="Cancelar" class="btn btn-primary" role="button"
+                        onClick="history.go(-1)" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+
+@section Scripts {
+<script type="text/javascript" src="~/js/antropometria.js"></script>
+}

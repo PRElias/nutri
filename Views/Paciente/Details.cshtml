@@ -74,6 +74,8 @@ ViewData["PacienteId"] = @Model.Id;
         </div>
         
         @await Component.InvokeAsync("Atendimentos", @Model.Id)
+
+        @await Component.InvokeAsync("Antropometria", @Model.Id)
         
     </div>
 </div>

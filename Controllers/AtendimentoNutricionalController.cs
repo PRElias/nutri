@@ -6,7 +6,7 @@ using nutri.Enums;
 using nutri.Models;
 using nutri.Repositories;
 
-namespace nutri.Controllers
+namespace nutri.Components
 {
     public class AtendimentoNutricionalController : Controller
     {
@@ -35,7 +35,7 @@ namespace nutri.Controllers
             _db.Upsert(atendimento);
             var routeValues = new RouteValueDictionary();
             routeValues.Add("id", idPaciente);
-            return RedirectToAction("Paciente", "AtendimentoNutricional", routeValues);
+            return RedirectToAction("Details", "Paciente", routeValues);
         }
 
         public IActionResult Details(int id)

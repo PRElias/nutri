@@ -21,11 +21,11 @@ $(document).ready(function () {
         }
     ]
 
-    $('#atendimentosTable').DataTable({
+    $('#antropometriasTable').DataTable({
         columns: colunas
     });
 
-    $('#btnNovoAtendimento').prependTo($('.dt-buttons'));
+    $('#btnNovaAntropometria').prependTo($('.dt-buttons'));
 
 });
 
@@ -45,7 +45,7 @@ function ConfirmDialog(id) {
                 Sim: function () {
                     $.ajax({
                         type: "DELETE",
-                        url: "/AtendimentoNutricional/Delete/" + id
+                        url: "/Antropometria/Delete/" + id
                     });
                     $(this).dialog("close");
                     location.reload(true);

@@ -122,7 +122,7 @@ namespace nutri.Repositories
             return antropometria;
         }
 
-        public Antropometria FindOnentropometria(int id)
+        public Antropometria FindOneAntropometria(int id)
         {
             var antropometria = database.GetCollection<Antropometria>().Find(a => a.Id == id).FirstOrDefault();
             return antropometria;
