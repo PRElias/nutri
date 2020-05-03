@@ -3,7 +3,7 @@ Sistema independente de controle de pacientes e atendimentos
 
 #Índice
 * [Introdução](##introducao)
-* [Pré-requisitos](##pre-requisitos
+* [Pré-requisitos](##pre-requisitos)
 * [Instalação](##instalacao)
 * [FAQ](##faq)
 
