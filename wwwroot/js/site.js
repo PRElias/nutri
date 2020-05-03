@@ -80,11 +80,13 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-window.onbeforeprint = function() {
-    $('body').find('*').attr('style', 'border: none !important');
-    $('input[type=button]').attr('style', 'display: none !important');
+//window.onbeforeprint = function() {
+    //$('link[rel="stylesheet"]').attr('disabled', 'disabled');
+    //Não está voltando os botões depois
+    //$('body').find('*').attr('style', 'border: none !important');
+    //$('input[type=button]').attr('style', 'display: none !important');
     // $('input[type=submit]').attr('style', 'display: none !important');
-};
+//};
 
 // window.onbeforeprint = function() {
 //     $('body').find('*').removeAttr('style', 'border: none !important');
