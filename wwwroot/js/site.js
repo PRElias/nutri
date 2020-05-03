@@ -82,6 +82,7 @@ if ('serviceWorker' in navigator) {
 
 window.onbeforeprint = function() {
     $('input[type=button]').attr('style', 'display: none !important');
+    $('input[type=submit]').attr('style', 'display: none !important');
 };
 
 // window.Notification.requestPermission().then(result => {

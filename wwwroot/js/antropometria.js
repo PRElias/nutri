@@ -8,7 +8,7 @@ $(document).ready(function () {
         changeYear: true,
         showOtherMonths: true,
         selectOtherMonths: true ,
-        yearRange: "1930:2020",
+        yearRange: "2020:2030",
         currentText: "Hoje",
         closeText: "Fechar"
     });
