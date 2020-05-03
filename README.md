@@ -1,28 +1,27 @@
 # Nutri
 Sistema independente de controle de pacientes e atendimentos
 
-#Índice
-* [Introdução](##introducao)
-* [Pré-requisitos](##pre-requisitos)
-* [Instalação](##instalacao)
-* [FAQ](##faq)
-
-## Introdução
-
 O sistema, em sua fase atual, pode ser considerado um protótipo e foi desenvolvido para ser disponibilizado de forma gratuita a profissionais do ramo, para um controle mais facilitado de suas atividades.
+
+# Índice
+* [Introdução](#introducao)
+* [Pré-requisitos](#pre-requisitos)
+* [Instalação](#instalacao)
+* [FAQ](#faq)
+
+# Introdução
 
 A aplicação não possui qualquer funcionalidade de segurança sobre os dados e sequer login, sendo para uso exclusivo de um profissional por instância, sendo extremamente recomendado seu uso apenas em máquina local (não servir nem disponibilizar na internet uma instancia com dados).
 
-## Pré-requisitos
+# Pré-requisitos
 
 1. .NET Core 3.1
 
-## Instalação
-
+# Instalação
 
 Para executar, é necessário ter instalado o .NET Core SDK 3.1, que você pode baixar clicando [aqui](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer).
 
-## FAQ
+# FAQ
 
 1. Qual a motivação?
 2. E por que não posso usar online?
