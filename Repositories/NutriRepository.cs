@@ -9,6 +9,7 @@ namespace nutri.Repositories
 {
     public class NutriRepository
     {
+        #region Construtor
         private readonly IConfiguration _config;
         private static LiteDatabase database;
 
@@ -17,7 +18,10 @@ namespace nutri.Repositories
             database = new LiteDatabase("Database.db");
             _config = config;
         }
+        #endregion
 
+        //Pacientes///////////////////////////////////////////
+        #region Pacientes
         public IEnumerable<Paciente> FindAllPacientes()
         {
             var pacientes = database.GetCollection<Paciente>().FindAll().ToList();
@@ -69,14 +73,17 @@ namespace nutri.Repositories
             
             return imc;
         }
+        #endregion
 
-        public IEnumerable<AtendimentoNutricional> FindForAllPacients()
+        //Atendimento Nutricional //////////////////////////////////////
+        #region AtendimentoNutricional
+        public IEnumerable<AtendimentoNutricional> FindAtendimentoForAllPacients()
         {
             var atendimentos = database.GetCollection<AtendimentoNutricional>().FindAll().ToList();
             return atendimentos;
         }
 
-        public IEnumerable<AtendimentoNutricional> FindForPacient(int id)
+        public IEnumerable<AtendimentoNutricional> FindAtendimentoForPacient(int id)
         {
             var atendimentos = database.GetCollection<AtendimentoNutricional>().Find(a => a.Paciente.Id == id).ToList();
             return atendimentos;
@@ -99,7 +106,43 @@ namespace nutri.Repositories
         {
             return database.GetCollection<AtendimentoNutricional>().Upsert(atendimento);
         }
+        #endregion
 
+        //Antropometria
+        #region Antropometria
+        public IEnumerable<Antropometria> FindAntropometriaForAllPacients()
+        {
+            var antropometria = database.GetCollection<Antropometria>().FindAll().ToList();
+            return antropometria;
+        }
+
+        public IEnumerable<Antropometria> FindAntropometriaForPacient(int id)
+        {
+            var antropometria = database.GetCollection<Antropometria>().Find(a => a.Paciente.Id == id).ToList();
+            return antropometria;
+        }
+
+        public Antropometria FindOnentropometria(int id)
+        {
+            var antropometria = database.GetCollection<Antropometria>().Find(a => a.Id == id).FirstOrDefault();
+            return antropometria;
+        }
+
+        public bool DeleteAntropometria(int id)
+        {
+            var antropometria = database.GetCollection<Antropometria>().Find(a => a.Id == id).FirstOrDefault();
+            antropometria.IsDeleted = true;
+            return Upsert(antropometria);
+        }
+
+        public bool Upsert(Antropometria antropometria)
+        {
+            return database.GetCollection<Antropometria>().Upsert(antropometria);
+        }
+        #endregion
+
+        //Dados Profissionais ////////////////////////////////////////////////////
+        #region Profissional
         public Profissional GetDadosProfissional() 
         {
             var teste = database.GetCollection<Profissional>().FindAll().ToList();
@@ -119,5 +162,6 @@ namespace nutri.Repositories
             profissional.Id = 1;
             return database.GetCollection<Profissional>().Upsert(profissional);
         }
+        #endregion
     }
 }

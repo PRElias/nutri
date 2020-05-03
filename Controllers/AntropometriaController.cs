@@ -8,34 +8,33 @@ using nutri.Repositories;
 
 namespace nutri.Controllers
 {
-    public class AtendimentoNutricionalController : Controller
+    public class AntropometriaController : Controller
     {
         private NutriRepository _db;
 
-        public AtendimentoNutricionalController([FromServices] NutriRepository db)
+        public AntropometriaController([FromServices] NutriRepository db)
         {
             _db = db;
         }
         public IActionResult Index()
         {
-            return View(_db.FindAtendimentoForAllPacients().Where(e => e.IsDeleted == false));
+            return View(_db.FindAntropometriaForAllPacients().Where(e => e.IsDeleted == false));
         }
 
         public IActionResult Create(int id)
         {
-            ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
             ViewBag.Paciente = _db.FindOnePaciente(id);
             return View();
         }
 
-        public IActionResult Upsert(AtendimentoNutricional atendimento)
+        public IActionResult Upsert(Antropometria antropometria)
         {
             int idPaciente = Convert.ToInt32(TempData["PacienteId"]);
-            atendimento.Paciente = _db.FindOnePaciente(idPaciente);
-            _db.Upsert(atendimento);
+            antropometria.Paciente = _db.FindOnePaciente(idPaciente);
+            _db.Upsert(antropometria);
             var routeValues = new RouteValueDictionary();
             routeValues.Add("id", idPaciente);
-            return RedirectToAction("Paciente", "AtendimentoNutricional", routeValues);
+            return RedirectToAction("Paciente", "Antropometria", routeValues);
         }
 
         public IActionResult Details(int id)

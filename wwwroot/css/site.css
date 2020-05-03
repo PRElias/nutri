@@ -257,3 +257,12 @@ ul.ui-autocomplete.ui-menu li{
     } */
   }
 }
+
+.img-max {
+  width: 190px;
+  height: 190px;
+}
+
+.myPartials {
+  margin-top: 10px;;
+}

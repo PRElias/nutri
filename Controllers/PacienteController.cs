@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using nutri.Models;
@@ -72,6 +74,8 @@ namespace nutri.Controllers
             return new JsonResult(resultado);
         }
 
+        
+
         private bool UploadFile(IFormFile ufile, string fileName)
         {
             if (ufile != null && ufile.Length > 0)
@@ -85,5 +89,20 @@ namespace nutri.Controllers
             }
             return false;
         }
+    }
+
+    public class AtendimentosViewComponent : ViewComponent
+    {
+        private NutriRepository _db;
+
+        public AtendimentosViewComponent([FromServices] NutriRepository db)
+        {
+            _db = db;
+        }
+        public Task<IViewComponentResult> InvokeAsync(int id)
+        {
+            return Task.FromResult<IViewComponentResult>(View(_db.FindAtendimentoForPacient(id)));
+        }
+
     }
 }

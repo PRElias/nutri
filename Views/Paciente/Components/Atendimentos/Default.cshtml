@@ -1,20 +1,15 @@
 ﻿@model IEnumerable<AtendimentoNutricional>
-@using Microsoft.Extensions.Configuration
-@inject IConfiguration Configuration
+    @using Microsoft.Extensions.Configuration
+    @inject IConfiguration Configuration
 
-@{
+    @{
     ViewData["Title"] = "Atendimentos";
-}
+    }
 
 
-@Html.ActionLink("Novo Atendimento", "Create", "AtendimentoNutricional", new { id = ViewBag.Paciente.Id
-}, new { @class = "btn btn-primary", @role = "button", @id = "btnNovoAtendimento" })
-
-@using (Html.BeginForm("Upsert", "AtendimentoNutricional"))
-    {
-
-    <partial name="_Paciente" model="ViewBag.Paciente" />
-
+    @* @Html.ActionLink("Novo Atendimento", "Create", "AtendimentoNutricional", new { id = ViewBag.Paciente.Id
+    }, new { @class = "btn btn-primary", @role = "button", @id = "btnNovoAtendimento" }) *@
+<div class="myPartials">
     <h2>Atendimentos nutricionais</h2>
 
     <table class="table" id="atendimentosTable">
@@ -64,8 +59,8 @@
             }
         </tbody>
     </table>
-    }
+</div>
 
-@section Scripts {
-<script type="text/javascript" src="~/js/atendimentonutricional.js" asp-append-version="true"></script>
-}
+    @section Scripts {
+    <script type="text/javascript" src="~/js/atendimentonutricional.js" asp-append-version="true"></script>
+    }
