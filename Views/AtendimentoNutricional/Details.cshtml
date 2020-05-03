@@ -32,19 +32,19 @@
 
             <div class="form-group row">
                 <div class="col-md-12">
-                    <label class="control-label col-md-12">Motivo da Conduta</label>
+                    <label class="control-label">Motivo da Conduta</label>
                     <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control" value="@Model.MotivoConduta" disabled />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <label class="control-label col-md-12">História Clínica</label>
+                    <label class="control-label">História Clínica</label>
                     <textarea id="HCInput" name="HistoriaClinica" rows="7" class="form-control"  disabled >@Model.HistoriaClinica</textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <label class="control-label col-md-12">Antecedentes</label>
+                    <label class="control-label">Antecedentes</label>
                     @foreach (nutri.Enums.Antecedentes item in ViewBag.Antecedentes)
                     {
                     <div class="form-check">
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <label class="control-label col-md-12">Medicamentos</label>
+                    <label class="control-label">Medicamentos</label>
                     <textarea id="HCInput" name="Medicamentos" rows="7" class="form-control" disabled >@Model.Medicamentos</textarea>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     <input type="text" id="DataInput" name="Data" class="form-control" value="@Model.Data" disabled />
                 </div>
                 <div class="col-md-6">
-                    <label class="control-label col">Nome do Profissional</label>
+                    <label class="control-label">Nome do Profissional</label>
                     <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control" value="@ViewBag.Profissional" disabled />
                 </div>
             </div>
@@ -76,5 +76,5 @@
 
 
 @section Scripts {
-<script type="text/javascript" src="~/js/imprimir.js"></script>
+<script type="text/javascript" src="~/js/atendimentonutricional.js"></script>
 }
