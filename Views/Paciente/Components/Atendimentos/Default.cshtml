@@ -2,16 +2,20 @@
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
-    @{
-    ViewData["Title"] = "Atendimentos";
-    }
+    
 
-
-    @* @Html.ActionLink("Novo Atendimento", "Create", "AtendimentoNutricional", new { id = ViewBag.Paciente.Id
-    }, new { @class = "btn btn-primary", @role = "button", @id = "btnNovoAtendimento" }) *@
 <div class="myPartials">
-    <h2>Atendimentos nutricionais</h2>
 
+    <div class="row">
+        <div class="col">
+            <h2>Atendimentos nutricionais</h2>
+        </div>
+        <div class="col">
+            @Html.ActionLink("Novo Atendimento", "Create", "AtendimentoNutricional", new { id = ViewBag.PacienteId
+            }, new { @class = "btn btn-primary", @role = "button", @id = "btnNovoAtendimento" })
+        </div>
+    </div>
+    
     <table class="table" id="atendimentosTable">
         <thead>
             <tr>

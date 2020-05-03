@@ -101,6 +101,7 @@ namespace nutri.Controllers
         }
         public Task<IViewComponentResult> InvokeAsync(int id)
         {
+            ViewBag.PacienteId = id;
             return Task.FromResult<IViewComponentResult>(View(_db.FindAtendimentoForPacient(id)));
         }
 
