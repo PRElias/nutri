@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using nutri.Repositories;
@@ -15,7 +16,7 @@ namespace nutri.Controllers
         public Task<IViewComponentResult> InvokeAsync(int id)
         {
             ViewBag.PacienteId = id;
-            return Task.FromResult<IViewComponentResult>(View(_db.FindAtendimentoForPacient(id)));
+            return Task.FromResult<IViewComponentResult>(View(_db.FindAtendimentoForPacient(id).Where(p => p.IsDeleted == false)));
         }
 
     }

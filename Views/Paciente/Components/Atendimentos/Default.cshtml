@@ -47,7 +47,7 @@
                             <i class="far fa-calendar-alt"></i>
                         </span>
                     </a>
-                    <a data-toggle="tooltip" title="Excluir atendimento" onclick="ConfirmDialog(@atendimento.Id)">
+                    <a data-toggle="tooltip" title="Excluir atendimento" onclick="DeleteAtendimentoConfirm(@atendimento.Id)">
                         <span class="action-icons">
                             <i class="far fa-trash-alt"></i>
                         </span>
@@ -64,7 +64,3 @@
         </tbody>
     </table>
 </div>
-
-    @section Scripts {
-    <script type="text/javascript" src="~/js/atendimentonutricional.js" asp-append-version="true"></script>
-    }

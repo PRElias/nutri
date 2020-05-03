@@ -20,8 +20,8 @@ $(document).ready(function () {
         },
         {
             "data": "data",
-            "title": "Data"
-
+            "title": "Data",
+            render: $.fn.dataTable.render.intlDateTime('en-UK')
         },
         {
             "data": "",
@@ -33,12 +33,12 @@ $(document).ready(function () {
         columns: colunas
     });
 
-    $('#btnNovaAntropometria').prependTo($('.dt-buttons'));
+    $('#btnNovaAntropometria').prependTo($('#antropometriasTable_wrapper .dt-buttons'));
 
 });
 
 
-function ConfirmDialog(id) {
+function DeleteAntropometriaConfirm(id) {
     $('<div></div>').appendTo('body')
         .html('<div><h6>Tem certeza que deseja excluir? Essa ação não pode ser desfeita!</h6></div>')
         .dialog({

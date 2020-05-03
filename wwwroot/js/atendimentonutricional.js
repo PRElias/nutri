@@ -20,8 +20,8 @@ $(document).ready(function () {
         },
         {
             "data": "data",
-            "title": "Data"
-
+            "title": "Data",
+            render: $.fn.dataTable.render.intlDateTime('en-UK')
         },
         {
             "data": "",
@@ -33,12 +33,12 @@ $(document).ready(function () {
         columns: colunas
     });
 
-    $('#btnNovoAtendimento').prependTo($('.dt-buttons'));
+    $('#btnNovoAtendimento').prependTo($('#atendimentosTable_wrapper .dt-buttons'));
 
 });
 
 
-function ConfirmDialog(id) {
+function DeleteAtendimentoConfirm(id) {
     $('<div></div>').appendTo('body')
         .html('<div><h6>Tem certeza que deseja excluir? Essa ação não pode ser desfeita!</h6></div>')
         .dialog({

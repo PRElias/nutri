@@ -20,7 +20,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.1" Condition="'$(Configuration)' == 'Debug'" />
     <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.59" />
     <Watch Include="**\*.js" Exclude="node_modules\**\*;**\*.js.map;obj\**\*;bin\**\*" />
-    <Watch Include="**\*.cshtml" Exclude="obj\**\*;bin\**\*" />
+    <!-- <Watch Include="**\*.cshtml" Exclude="obj\**\*;bin\**\*" /> -->
     <Watch Include="**\*.css" Exclude="node_modules\**\*;obj\**\*;bin\**\*" />
   </ItemGroup>
 

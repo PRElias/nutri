@@ -72,9 +72,6 @@ namespace nutri.Controllers
             var resultado = _db.DeletePaciente(id);
             return new JsonResult(resultado);
         }
-
-        
-
         private bool UploadFile(IFormFile ufile, string fileName)
         {
             if (ufile != null && ufile.Length > 0)

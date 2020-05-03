@@ -24,82 +24,85 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">Classificação</label>
-                    <input type="text" id="ClasssificacaoInput" name="Classificacao" class="form-control" />
+                    <input type="text" id="ClasssificacaoInput" name="Classificacao" class="form-control" value="@Model.Classificacao" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">% Gordura</label>
-                    <input type="text" id="GorduraInput" name="Gordura" class="form-control" />
+                    <input type="text" id="GorduraInput" name="Gordura" class="form-control" value="@Model.Gordura" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">% Massa muscular</label>
-                    <input type="text" id="MassaMuscularInput" name="MassaMuscular" class="form-control" />
+                    <input type="text" id="MassaMuscularInput" name="MassaMuscular" class="form-control" value="@Model.MassaMuscular" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">% Água</label>
-                    <input type="text" id="AguaInput" name="Agua" class="form-control" />
+                    <input type="text" id="AguaInput" name="Agua" class="form-control" value="@Model.Agua" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">Gordura Abdominal</label>
                     <input type="text" id="GorduraAbdominalInput" name="GorduraAbdominal"
-                        class="form-control" />
+                        class="form-control" value="@Model.GorduraAbdominal" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">Circunferência abdominal (cm)</label>
                     <input type="text" id="CircunferenciaAbdominalInput" name="CircunferenciaAbdominal"
-                        class="form-control" />
+                        class="form-control" value="@Model.CircunferenciaAbdominal" />
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">Cintura (cm)</label>
-                    <input type="text" id="CinturaInput" name="Cintura" class="form-control" />
+                    <input type="text" id="CinturaInput" name="Cintura" class="form-control"
+                        value="@Model.Cintura" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">Quadril (cm)</label>
-                    <input type="text" id="QuadrilInput" name="Quadril" class="form-control" />
+                    <input type="text" id="QuadrilInput" name="Quadril" class="form-control"
+                        value="@Model.Quadril" />
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-6">
                     <label class="control-label">Maior Peso</label>
-                    <input type="text" id="MaiorPesoInput" name="MaiorPeso" class="form-control" />
+                    <input type="text" id="MaiorPesoInput" name="MaiorPeso" class="form-control" value="@Model.MaiorPeso" />
                 </div>
                 <div class="col-md-6">
                     <label class="control-label">Menor Peso</label>
-                    <input type="text" id="MenorPesoInput" name="MenorPeso" class="form-control" />
+                    <input type="text" id="MenorPesoInput" name="MenorPeso" class="form-control"
+                        value="@Model.MenorPeso" />
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">Meta</label>
-                    <input type="text" id="MetaInput" name="Meta" class="form-control" />
+                    <input type="text" id="MetaInput" name="Meta" class="form-control" value="@Model.Meta" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">VET proposto (Kcal)</label>
-                    <input type="text" id="VETInput" name="VET" class="form-control" />
+                    <input type="text" id="VETInput" name="VET" class="form-control" value="@Model.VET" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="control-label">Outras Bioimpedâncias</label>
-                    <textarea id="BioimpedanciasInput" name="Bioimpedancias" rows="7" class="form-control"></textarea>
+                    <textarea id="BioimpedanciasInput" name="Bioimpedancias" rows="7" class="form-control">@Model.BioImpedancias</textarea>
                 </div>
             </div>
 

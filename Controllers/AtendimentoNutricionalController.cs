@@ -46,5 +46,19 @@ namespace nutri.Components
             ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
             return View(atendimento);
         }
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Profissional = _db.GetDadosProfissional().Nome;
+            ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
+            var atendimento = _db.FindOneAtendimento(id);
+            ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
+            return View(atendimento);
+        }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var resultado = _db.DeleteAtendimento(id);
+            return new JsonResult(resultado);
+        }
     }
 }
