@@ -99,5 +99,25 @@ namespace nutri.Repositories
         {
             return database.GetCollection<AtendimentoNutricional>().Upsert(atendimento);
         }
+
+        public Profissional GetDadosProfissional() 
+        {
+            var teste = database.GetCollection<Profissional>().FindAll().ToList();
+            if (teste.Count == 0)
+            {
+                Profissional profissional = new Profissional();
+                profissional.Id = 1;
+                profissional.Nome = "Configure o nome";
+                profissional.CRN = "Configure o CRN";
+                database.GetCollection<Profissional>().Upsert(profissional);
+            }
+            return database.GetCollection<Profissional>().Find(x => x.Id == 1).FirstOrDefault();;
+        }
+
+        public bool Upsert(Profissional profissional)
+        {
+            profissional.Id = 1;
+            return database.GetCollection<Profissional>().Upsert(profissional);
+        }
     }
 }

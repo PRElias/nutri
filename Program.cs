@@ -16,18 +16,17 @@ namespace nutri
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("https://localhost:443");
                     webBuilder.UseStartup<Startup>();
                 }).ConfigureWebHost(webBuilder =>
                 {
-                    // webBuilder.UseKestrel(options =>
-                    // {
-                    //     options.Listen(System.Net.IPAddress.Parse("192.168.0.16"), 15443, listenOptions =>
-                    //     {
-                    //         var serverCertificate = LoadCertificate();
-                    //         listenOptions.UseHttps(serverCertificate); // <- Configures SSL
-                    //     });
-                    // });
+                    webBuilder.UseKestrel(options =>
+                    {
+                        options.Listen(System.Net.IPAddress.Parse("192.168.0.16"), 15443, listenOptions =>
+                        {
+                            // var serverCertificate = LoadCertificate();
+                            // listenOptions.UseHttps(serverCertificate); // <- Configures SSL
+                        });
+                    });
                 });
 
         private static X509Certificate2 LoadCertificate()

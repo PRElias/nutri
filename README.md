@@ -6,4 +6,4 @@ O sistema, em sua fase atual, pode ser considerado um protótipo e foi desenvolv
 
 A aplicação não possui qualquer funcionalidade de segurança sobre os dados e sequer login, sendo para uso exclusivo de um profissional por instância, sendo extremamente recomendado seu uso apenas em máquina local (não servir nem disponibilizar na internet uma instancia com dados).
 
-Para executar, é necessário ter instalado o .NET Core SDK 3.1, que você pode baixar clicando [aqui](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+Para executar, é necessário ter instalado o .NET Core SDK 3.1, que você pode baixar clicando [aqui](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer).

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -11,39 +10,46 @@ namespace nutri.Controllers
 {
     public class AtendimentoNutricionalController : Controller
     {
-        public IActionResult Index([FromServices] NutriRepository db)
+        private NutriRepository _db;
+
+        public AtendimentoNutricionalController([FromServices] NutriRepository db)
         {
-            return View(db.FindForAllPacients().Where(e => e.IsDeleted == false));
+            _db = db;
+        }
+        public IActionResult Index()
+        {
+            return View(_db.FindForAllPacients().Where(e => e.IsDeleted == false));
         }
 
-        public IActionResult Paciente(int id, [FromServices] NutriRepository db)
+        public IActionResult Paciente(int id)
         {
-            ViewBag.Paciente = db.FindOnePaciente(id);
-            return View(db.FindForPacient(id));
+            ViewBag.Paciente = _db.FindOnePaciente(id);
+            return View(_db.FindForPacient(id));
         }
 
-        public IActionResult Create(int id, [FromServices] NutriRepository db)
+        public IActionResult Create(int id)
         {
             ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
-            ViewBag.Paciente = db.FindOnePaciente(id);
+            ViewBag.Paciente = _db.FindOnePaciente(id);
             return View();
         }
 
-        public IActionResult Upsert(AtendimentoNutricional atendimento, [FromServices] NutriRepository db)
+        public IActionResult Upsert(AtendimentoNutricional atendimento)
         {
             int idPaciente = Convert.ToInt32(TempData["PacienteId"]);
-            atendimento.Paciente = db.FindOnePaciente(idPaciente);
-            db.Upsert(atendimento);
+            atendimento.Paciente = _db.FindOnePaciente(idPaciente);
+            _db.Upsert(atendimento);
             var routeValues = new RouteValueDictionary();
             routeValues.Add("id", idPaciente);
             return RedirectToAction("Paciente", "AtendimentoNutricional", routeValues);
         }
 
-        public IActionResult Details(int id, [FromServices] NutriRepository db)
+        public IActionResult Details(int id)
         {
+            ViewBag.Profissional = _db.GetDadosProfissional().Nome;
             ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
-            var atendimento = db.FindOneAtendimento(id);
-            ViewBag.Paciente = db.FindOnePaciente(atendimento.Paciente.Id);
+            var atendimento = _db.FindOneAtendimento(id);
+            ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
             return View(atendimento);
         }
     }

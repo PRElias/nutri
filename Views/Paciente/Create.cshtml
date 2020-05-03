@@ -12,50 +12,56 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <label class="control-label col-md-2">Nome</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Nome</label>
+            <div class="col-md-12">
                 <input type="text" id="NomeInput" name="Nome" class="form-control" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2">Data de Nascimento</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Código</label>
+            <div class="col-md-12">
+                <input type="text" id="CodigoInput" name="Codigo" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-12">Data de Nascimento</label>
+            <div class="col-md-12">
                 <input type="text" id="DataNascimentoInput" name="DataNascimento" class="form-control hasDatePicker" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2">Altura</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Altura</label>
+            <div class="col-md-12">
                 <input type="text" id="AlturaInput" name="Altura" class="form-control" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2">Peso</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Peso</label>
+            <div class="col-md-12">
                 <input type="text" id="PesoInput" name="Peso" class="form-control" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2">Telefone</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Telefone</label>
+            <div class="col-md-12">
                 <input type="text" id="TelefoneInput" name="Telefone" class="form-control" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2">Celular</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Celular</label>
+            <div class="col-md-12">
                 <input type="text" id="CelularInput" name="Celular" class="form-control" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2">Foto</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Foto</label>
+            <div class="col-md-12">
                 <input type="file" id="Foto" name="Foto" class="form-control" />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2">Status</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-12">Status</label>
+            <div class="col-md-12">
                 <select name="StatusEncomenda" class="custom-select" asp-items="Html.GetEnumSelectList<nutri.Enums.Status>()"></select>
             </div>
         </div>
