@@ -2,7 +2,15 @@ $(document).ready(function () {
     
 
     $("#DataInput").datepicker({
-        dateFormat: 'dd/mm/yy'
+        dateFormat: 'dd/mm/yy',
+        showButtonPanel: true,
+        changeMonth: true,
+        changeYear: true,
+        showOtherMonths: true,
+        selectOtherMonths: true ,
+        yearRange: "1930:2020",
+        currentText: "Hoje",
+        closeText: "Fechar"
     });
 
     //Table
