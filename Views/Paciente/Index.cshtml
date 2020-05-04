@@ -84,22 +84,22 @@
                 <td class="none">
                     <a asp-route-id="@paciente.Id" asp-controller="Paciente" asp-action="Details" data-toggle="tooltip" title="Ver paciente">
                         <span class="action-icons">
-                            <i class="fas fa-male"></i>
+                            <i class="fas fa-male fa-lg"></i>
                         </span>
                     </a>
                     <a data-toggle="tooltip" title="Excluir paciente" onclick="ConfirmDialog(@paciente.Id)">
                         <span class="action-icons">
-                            <i class="far fa-trash-alt"></i>
+                            <i class="far fa-trash-alt fa-lg"></i>
                         </span>
                     </a>
                     <a asp-route-id="@paciente.Id" asp-controller="Paciente" asp-action="Edit" data-toggle="tooltip" title="Editar">
                         <span class="action-icons">
-                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit fa-lg"></i>
                         </span>
                     </a>
                     <a asp-route-id="@paciente.Id" asp-controller="AtendimentoNutricional" asp-action="Paciente" data-toggle="tooltip" title="Atendimentos nutricionais">
                         <span class="action-icons">
-                            <i class="far fa-calendar-alt"></i>
+                            <i class="far fa-calendar-alt fa-lg"></i>
                         </span>
                     </a>
                 </td>

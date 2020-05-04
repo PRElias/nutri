@@ -19,58 +19,87 @@ $(document).ready(function () {
 
     //Table
     var colunas = [{
+            //0
             "data": "id",
-            "title": "Id"
-            // width: "7%"
+            "title": "",
+            width: "5%"
         },
         {
+            //1
             "data": "nome",
             "title": "Nome"
         },
         {
+            //2
             "data": "idade",
             "title": "Idade",
+            className: "none"
         },
         {
+            //3
             "data": "altura",
             "title": "Altura",
             className: "none"
-            // width: "12%"
         },
         {
+            //4
             "data": "peso",
             "title": "Peso",
             className: "none"
         },
         {
+            //5
             "data": "imc",
-            "title": "IMC"
+            "title": "IMC",
+            className: "none"
         },
         {
+            //6
             "data": "telefone",
             "title": "Telefone",
             className: "none"
         },
         {
+            //7
             "data": "celular",
-            "title": "Celular"
+            "title": "Celular",
+            className: "none"
         },
         {
+            //8
             "data": "status",
             "title": "Status",
             className: "none"
         },
         {
+            //9
             "data": "",
-            "title": "Ações"
+            "title": "Ações",
+            className: "none",
+            width: "20%"
         }
     ]
+    
+    //Removendo a classe none em mobile para exibir o botão + de child rows
+    if ($(window).width() >= 700) {
+        delete colunas[5].className;
+        delete colunas[7].className;
+        delete colunas[9].className;
+        // delete colunas[0].width;
+        // delete colunas[9].width;
+    }
 
     $('#pacientesTable').DataTable({
-        columns: colunas
+        columns: colunas,
+        bAutoWidth:false,
+        columnDefs: [
+            { width: 200, targets: 0 }
+        ],
     });
 
     $('#btnNovoPaciente').prependTo($('.dt-buttons'));
+
+        
 
 });
 
