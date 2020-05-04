@@ -20,6 +20,5 @@ namespace nutri.Models
         public string Celular { get; set; }
         public string Foto {get; set;}
         public Status Status { get; set; }
-        public List<Antecedentes> Antecedentes {get; set;}
     }
 }

@@ -10,82 +10,74 @@ ViewData["PacienteId"] = @Model.Id;
     <input type="" value="Gerar receita" class="btn btn-primary" role="button" />
 </div> *@
 
-<div class="container">
-    <div class="col-md-12 mx-auto">
 
-        <div class="form-group row">
-            <div class="col-md-4">
-                <img src="~/images/@Model.Foto" class="rounded mx-auto d-block img-max">
-            </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <label class="control-label">Id</label>
-                    <input type="text" id="Id" name="Id" class="form-control" value="@(Model.Id)" disabled />
-                </div>
-                <div class="row">
-                    <label class="control-label">Nome</label>
-                    <input type="text" id="NomeInput" name="Nome" class="form-control" value="@(Model.Nome)" disabled />
-                </div>
-                <div class="row">
-                    <label class="control-label">Data de Nascimento</label>
-                    <input type="text" id="DataNascimento" name="DataNascimento" class="form-control hasDatePicker"
-                        value="@(Model.DataNascimento)" disabled />
-                </div>
-            </div>
+<div class="form-group row">
+    <div class="col-md-4">
+        <img src="~/images/@Model.Foto" class="rounded mx-auto d-block img-max">
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <label class="control-label">Id</label>
+            <input type="text" id="Id" name="Id" class="form-control" value="@(Model.Id)" disabled />
         </div>
-
-
-        <div class="form-group row">
-            <div class="col ml-2">
-                <div class="row">
-                    <label class="control-label col-md-2">Peso</label>
-                    <input type="text" id="PesoInput" name="Peso" class="form-control" value="@(Model.Peso)" disabled />
-                </div>
-                <div class="row">
-                    <label class="control-label">Altura</label>
-                    <input type="text" id="AlturaInput" name="Altura" class="form-control" value="@(Model.Altura)"
-                        disabled />
-                </div>
-            </div>
-            <div class="col ml-2">
-                <div class="row">
-                    <label class="control-label">Telefone</label>
-                    <input type="text" id="TelefoneInput" name="Telefone" class="form-control" value="@(Model.Telefone)"
-                        disabled />
-                </div>
-                <div class="row">
-                    <label class="control-label">Celular</label>
-                    <input type="text" id="CelularInput" name="Celular" class="form-control" value="@(Model.Altura)"
-                        disabled />
-                </div>
-            </div>
+        <div class="row">
+            <label class="control-label">Nome</label>
+            <input type="text" id="NomeInput" name="Nome" class="form-control" value="@(Model.Nome)" disabled />
         </div>
-
-        <div class="form-group row">
-            <div class="col ml-2">
-                <div class="row">
-                    <label class="control-label">Status</label>
-                    <select name="StatusEncomenda" class="custom-select"
-                        asp-items="Html.GetEnumSelectList<nutri.Enums.Status>()" disabled>
-                        <option value="@((int)Model.Status)" selected>@(Model.Status)</option>
-                    </select>
-                </div>
-            </div>
+        <div class="row">
+            <label class="control-label">Data de Nascimento</label>
+            <input type="text" id="DataNascimento" name="DataNascimento" class="form-control hasDatePicker"
+                value="@(Model.DataNascimento)" disabled />
         </div>
-
-        <button id="pacientesDetalhes" class="accordion">Atendimentos Nutricionais</button>
-        <div class="panel">
-            @await Component.InvokeAsync("Atendimentos", @Model.Id)
-        </div>
-        <button id="pacientesDetalhes" class="accordion">Antropometrias</button>
-        <div class="panel">
-            <h5></h5>
-            @await Component.InvokeAsync("Antropometria", @Model.Id)
-        </div>
-
     </div>
 </div>
 
+
+<div class="form-group row">
+    <div class="col ml-2">
+        <div class="row">
+            <label class="control-label col-md-2">Peso</label>
+            <input type="text" id="PesoInput" name="Peso" class="form-control" value="@(Model.Peso)" disabled />
+        </div>
+        <div class="row">
+            <label class="control-label">Altura</label>
+            <input type="text" id="AlturaInput" name="Altura" class="form-control" value="@(Model.Altura)" disabled />
+        </div>
+    </div>
+    <div class="col ml-2">
+        <div class="row">
+            <label class="control-label">Telefone</label>
+            <input type="text" id="TelefoneInput" name="Telefone" class="form-control" value="@(Model.Telefone)"
+                disabled />
+        </div>
+        <div class="row">
+            <label class="control-label">Celular</label>
+            <input type="text" id="CelularInput" name="Celular" class="form-control" value="@(Model.Altura)" disabled />
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col ml-2">
+        <div class="row">
+            <label class="control-label">Status</label>
+            <select name="StatusEncomenda" class="custom-select"
+                asp-items="Html.GetEnumSelectList<nutri.Enums.Status>()" disabled>
+                <option value="@((int)Model.Status)" selected>@(Model.Status)</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<button id="pacientesDetalhes" class="accordion">Atendimentos Nutricionais</button>
+<div class="panel">
+    @await Component.InvokeAsync("Atendimentos", @Model.Id)
+</div>
+<button id="pacientesDetalhes" class="accordion">Antropometrias</button>
+<div class="panel">
+    <h5></h5>
+    @await Component.InvokeAsync("Antropometria", @Model.Id)
+</div>
 
 @section Scripts {
 <script type="text/javascript" src="~/js/pacientes.js" asp-append-version="true"></script>

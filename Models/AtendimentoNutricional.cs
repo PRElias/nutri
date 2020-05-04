@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using nutri.Enums;
 
 namespace nutri.Models
@@ -12,7 +13,6 @@ namespace nutri.Models
         public string CID {get; set;}
         public string MotivoConduta {get; set;}
         public string HistoriaClinica {get; set;}
-        public Antecedentes Antecedentes {get; set;}
         public string Medicamentos {get; set;}
         public DateTime Data {get; set;}
         public string Hemograma {get; set;}
@@ -28,6 +28,14 @@ namespace nutri.Models
         public string Creatinina {get; set;}
         public string TGO {get; set;}
         public string TGP {get; set;}
+        public bool Diabetes {get; set;}
+        [Display(Name="Hipertensão")]
+        public bool Hipertensao {get; set;}
+        public bool Hipertrigliciridemia {get; set;}
+        public bool Hipercolesterolemia {get; set;}
+        public bool Hipotireoidismo {get; set;}
+        [Display(Name="Esteatose Hepática")]
+        public bool EsteatoseHepatica {get; set;}
         public bool IsDeleted {get; set;}
     }
 }

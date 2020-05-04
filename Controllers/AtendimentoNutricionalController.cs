@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
-using nutri.Enums;
 using nutri.Models;
 using nutri.Repositories;
 
@@ -23,7 +22,6 @@ namespace nutri.Components
 
         public IActionResult Create(int id)
         {
-            ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
             ViewBag.Paciente = _db.FindOnePaciente(id);
             ViewBag.Profissional = _db.GetDadosProfissional();
             return View();
@@ -42,7 +40,6 @@ namespace nutri.Components
         public IActionResult Details(int id)
         {
             ViewBag.Profissional = _db.GetDadosProfissional().Nome;
-            ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
             var atendimento = _db.FindOneAtendimento(id);
             ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
             return View(atendimento);
@@ -50,7 +47,6 @@ namespace nutri.Components
         public IActionResult Edit(int id)
         {
             ViewBag.Profissional = _db.GetDadosProfissional().Nome;
-            ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
             var atendimento = _db.FindOneAtendimento(id);
             ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
             return View(atendimento);

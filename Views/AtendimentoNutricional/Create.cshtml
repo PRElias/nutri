@@ -19,71 +19,77 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
 
     <partial name="_Paciente" model="ViewBag.Paciente" />
 
-    <div class="container">
-        <div class="col-md-12 mx-auto">
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label class="control-label">Encaminhado por</label>
-                    <input type="text" id="EncaminhadoPorInput" name="EncaminhadoPor" class="form-control" />
-                </div>
-                <div class="col-md-6">
-                    <label class="control-label">CID</label>
-                    <input type="text" id="CIDInput" name="CID" class="form-control" />
-                </div>
-            </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label class="control-label">Encaminhado por</label>
+            <input type="text" id="EncaminhadoPorInput" name="EncaminhadoPor" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">CID</label>
+            <input type="text" id="CIDInput" name="CID" class="form-control" />
+        </div>
+    </div>
 
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label col-md-12">Motivo da Conduta</label>
-                    <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label col-md-12">História Clínica</label>
-                    <textarea id="HCInput" name="HistoriaClinica" rows="7" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label col-md-12">Antecedentes</label>
-                    @foreach (Antecedentes item in ViewBag.Antecedentes)
-                    {
-                    <div class="form-check">
-                        @* var option = Enum.GetName(typeof(Antecedentes), item); *@
-                        @* @Html.CheckBox("Antecedentes", (Model.Antecedentes.HasFlag(item)), new { value = item }) *@
-                        @Html.CheckBox("Antecedentes", false, new { value = item , @class = "form-check-input"})
-                        @Html.Label("Antecedentes", item.ToString(), new { @class = "form-check-label"})
-                    </div>
-                    }
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label col-md-12">Medicamentos</label>
-                    <textarea id="HCInput" name="Medicamentos" rows="7" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label class="control-label">Data</label>
-                    <input type="text" id="DataInput" name="Data" class="form-control hasDatePicker" autocomplete="off" />
-                </div>
-                <div class="col-md-6">
-                    <label class="control-label col">Nome do Profissional</label>
-                    <input type="text" id="ProfissionalInput" name="Profissional" class="form-control" value="@ViewBag.Profissional.Nome" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
-                    <input type="button" value="Cancelar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
-                    <input type="button" value="Limpar" class="btn btn-primary" role="button" onClick="$('form').get(0).reset()" />
-                </div>
-            </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Motivo da Conduta</label>
+            <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">História Clínica</label>
+            <textarea id="HCInput" name="HistoriaClinica" rows="7" class="form-control"></textarea>
+        </div>
+    </div>
+    <label class="control-label">Antecedentes</label>
+    <div class="form-check">
+        @Html.CheckBoxFor(m => m.Diabetes, new {@class = "form-check-input"})
+        @Html.LabelFor(m => m.Diabetes, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipertensao, new {@class = "form-check-input"})
+        @Html.LabelFor(m => m.Hipertensao, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipertrigliciridemia, new {@class = "form-check-input"})
+        @Html.LabelFor(m => m.Hipertrigliciridemia, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipercolesterolemia, new {@class = "form-check-input"})
+        @Html.LabelFor(m => m.Hipercolesterolemia, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipotireoidismo, new {@class = "form-check-input"})
+        @Html.LabelFor(m => m.Hipotireoidismo, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.EsteatoseHepatica, new {@class = "form-check-input"})
+        @Html.LabelFor(m => m.EsteatoseHepatica, new {@class = "form-check-label"})
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Medicamentos</label>
+            <textarea id="HCInput" name="Medicamentos" rows="7" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label class="control-label">Data</label>
+            <input type="text" id="DataInput" name="Data" class="form-control hasDatePicker" autocomplete="off" />
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Nome do Profissional</label>
+            <input type="text" id="ProfissionalInput" name="Profissional" class="form-control"
+                value="@ViewBag.Profissional.Nome" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
+            <input type="button" value="Cancelar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
+            <input type="button" value="Limpar" class="btn btn-primary" role="button"
+                onClick="$('form').get(0).reset()" />
         </div>
     </div>
 </div>
+
+
 }
 
 @section Scripts {

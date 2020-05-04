@@ -21,7 +21,7 @@ $(document).ready(function () {
         {
             "data": "data",
             "title": "Data",
-            render: $.fn.dataTable.render.intlDateTime('en-UK')
+            render: $.fn.dataTable.render.intlDateTime('pt-BR')
         },
         {
             "data": "",

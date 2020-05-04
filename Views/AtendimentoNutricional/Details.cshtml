@@ -1,75 +1,85 @@
 @model AtendimentoNutricional
 
 @{
-    ViewBag.Title = "Detalhes";
+ViewBag.Title = "Detalhes";
 }
 
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
-        <input type="button" value="Imprimir" class="btn btn-primary" role="button" onClick="window.print();return false;" />
+        <input type="button" value="Imprimir" class="btn btn-primary" role="button"
+            onClick="window.print();return false;" />
         <input type="button" value="Voltar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
     </div>
 </div>
 
 <div class="form-horizontal">
 
-<h2>Atendimento Nutricional</h2>
+    <h2>Atendimento Nutricional</h2>
 
     <partial name="_Paciente" model="ViewBag.Paciente" />
 
-    <div class="container">
-        <div class="col-md-12 mx-auto">
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label class="control-label">Encaminhado por</label>
-                    <input type="text" id="EncaminhadoPorInput" name="EncaminhadoPor" class="form-control" value="@Model.EncaminhadoPor" disabled />
-                </div>
-                <div class="col-md-6">
-                    <label class="control-label">CID</label>
-                    <input type="text" id="CIDInput" name="CID" class="form-control" value="@Model.CID" disabled />
-                </div>
-            </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label class="control-label">Encaminhado por</label>
+            <input type="text" id="EncaminhadoPorInput" name="EncaminhadoPor" class="form-control"
+                value="@Model.EncaminhadoPor" disabled />
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">CID</label>
+            <input type="text" id="CIDInput" name="CID" class="form-control" value="@Model.CID" disabled />
+        </div>
+    </div>
 
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label">Motivo da Conduta</label>
-                    <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control" value="@Model.MotivoConduta" disabled />
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label">História Clínica</label>
-                    <textarea id="HCInput" name="HistoriaClinica" rows="7" class="form-control"  disabled >@Model.HistoriaClinica</textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label">Antecedentes</label>
-                    @foreach (nutri.Enums.Antecedentes item in ViewBag.Antecedentes)
-                    {
-                    <div class="form-check">
-                        @Html.CheckBox("Antecedentes", false, new { value = item , @class = "form-check-input", @disabled = "disabled" })
-                        @Html.Label("Antecedentes", item.ToString(), new { @class = "form-check-label" })
-                    </div>
-                    }
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="control-label">Medicamentos</label>
-                    <textarea id="HCInput" name="Medicamentos" rows="7" class="form-control" disabled >@Model.Medicamentos</textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <label class="control-label">Data</label>
-                    <input type="text" id="DataInput" name="Data" class="form-control" value="@Model.Data" disabled />
-                </div>
-                <div class="col-md-6">
-                    <label class="control-label">Nome do Profissional</label>
-                    <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control" value="@ViewBag.Profissional" disabled />
-                </div>
-            </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Motivo da Conduta</label>
+            <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control"
+                value="@Model.MotivoConduta" disabled />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">História Clínica</label>
+            <textarea id="HCInput" name="HistoriaClinica" rows="7" class="form-control"
+                disabled>@Model.HistoriaClinica</textarea>
+        </div>
+    </div>
+    <label class="control-label">Antecedentes</label>
+    <div class="form-check">
+        @Html.CheckBoxFor(m => m.Diabetes, new {@class = "form-check-input", @disabled = "disabled"})
+        @Html.LabelFor(m => m.Diabetes, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipertensao, new {@class = "form-check-input", @disabled = "disabled"})
+        @Html.LabelFor(m => m.Hipertensao, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipertrigliciridemia, new {@class = "form-check-input", @disabled = "disabled"})
+        @Html.LabelFor(m => m.Hipertrigliciridemia, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipercolesterolemia, new {@class = "form-check-input", @disabled = "disabled"})
+        @Html.LabelFor(m => m.Hipercolesterolemia, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.Hipotireoidismo, new {@class = "form-check-input", @disabled = "disabled"})
+        @Html.LabelFor(m => m.Hipotireoidismo, new {@class = "form-check-label"})
+
+        @Html.CheckBoxFor(m => m.EsteatoseHepatica, new {@class = "form-check-input", @disabled = "disabled"})
+        @Html.LabelFor(m => m.EsteatoseHepatica, new {@class = "form-check-label"})
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Medicamentos</label>
+            <textarea id="HCInput" name="Medicamentos" rows="7" class="form-control"
+                disabled>@Model.Medicamentos</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label class="control-label">Data</label>
+            <input type="text" id="DataInput" name="Data" class="form-control" value="@Model.Data" disabled />
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Nome do Profissional</label>
+            <input type="text" id="MotivoCondutaInput" name="MotivoConduta" class="form-control"
+                value="@ViewBag.Profissional" disabled />
         </div>
     </div>
 </div>
