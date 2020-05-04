@@ -1,0 +1,22 @@
+@model Habitos
+
+@{
+ViewBag.Title = "Detalhes";
+}
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Imprimir" class="btn btn-primary" role="button"
+            onClick="window.print();return false;" />
+        <input type="button" value="Voltar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
+    </div>
+</div>
+
+<div class="form-horizontal">
+
+    <partial name="_Paciente" model="ViewBag.Paciente" />
+
+
+@section Scripts {
+<script type="text/javascript" src="~/js/habitos.js"></script>
+}

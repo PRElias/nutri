@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Habitos>
+    @using Microsoft.Extensions.Configuration
+    @inject IConfiguration Configuration
+
+    
+
+<div class="myPartials">
+
+    <div class="row">
+        <div class="col">
+            @Html.ActionLink("Novo registro de hábitos", "Create", "Habitos", new { id = ViewBag.PacienteId
+            }, new { @class = "btn btn-primary", @role = "button", @id = "btnNovoHabitos" })
+        </div>
+    </div>
+    
+    <table class="table" id="habitosTable">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Data
+                </th>
+                <th>
+                    Ações
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var habitos in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => habitos.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => habitos.Data)
+                </td>
+                <td class="none">
+                    <a asp-route-id="@habitos.Id" asp-controller="Habitos" asp-action="Details"
+                        data-toggle="tooltip" title="Ver registro de hábitos">
+                        <span class="action-icons">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </a>
+                    <a data-toggle="tooltip" title="Excluir registro de hábitos" onclick="DeleteHabitosConfirm(@habitos.Id)">
+                        <span class="action-icons">
+                            <i class="far fa-trash-alt"></i>
+                        </span>
+                    </a>
+                    <a asp-route-id="@habitos.Id" asp-controller="Habitos" asp-action="Edit"
+                        data-toggle="tooltip" title="Editar">
+                        <span class="action-icons">
+                            <i class="fas fa-edit"></i>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

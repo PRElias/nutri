@@ -20,7 +20,6 @@ namespace nutri.Repositories
         }
         #endregion
 
-        //Pacientes///////////////////////////////////////////
         #region Pacientes
         public IEnumerable<Paciente> FindAllPacientes()
         {
@@ -75,7 +74,6 @@ namespace nutri.Repositories
         }
         #endregion
 
-        //Atendimento Nutricional //////////////////////////////////////
         #region AtendimentoNutricional
         public IEnumerable<AtendimentoNutricional> FindAtendimentoForAllPacients()
         {
@@ -108,7 +106,6 @@ namespace nutri.Repositories
         }
         #endregion
 
-        //Antropometria
         #region Antropometria
         public IEnumerable<Antropometria> FindAntropometriaForAllPacients()
         {
@@ -141,7 +138,6 @@ namespace nutri.Repositories
         }
         #endregion
 
-        //Dados Profissionais ////////////////////////////////////////////////////
         #region Profissional
         public Profissional GetDadosProfissional() 
         {
@@ -163,5 +159,32 @@ namespace nutri.Repositories
             return database.GetCollection<Profissional>().Upsert(profissional);
         }
         #endregion
+
+        #region Habitos
+        public IEnumerable<Habitos> FindHabitosForPacient(int id)
+        {
+            var habitos = database.GetCollection<Habitos>().Find(a => a.Paciente.Id == id).ToList();
+            return habitos;
+        }
+
+        public Habitos FindOneHabitos(int id)
+        {
+            var habitos = database.GetCollection<Habitos>().Find(a => a.Id == id).FirstOrDefault();
+            return habitos;
+        }
+
+        public bool DeleteHabitos(int id)
+        {
+            var habitos = database.GetCollection<Habitos>().Find(a => a.Id == id).FirstOrDefault();
+            habitos.IsDeleted = true;
+            return Upsert(habitos);
+        }
+
+        public bool Upsert(Habitos habitos)
+        {
+            return database.GetCollection<Habitos>().Upsert(habitos);
+        }
+        #endregion
+
     }
 }

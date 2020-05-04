@@ -9,7 +9,6 @@ namespace nutri.Models
         public int Id { get; set; }
         public string Codigo {get; set;}
         public string Nome { get; set; }
-        public bool IsDeleted { get; set; }
         public DateTime DataCriacao { get; set; }
         public DateTime DataNascimento { get; set; }
         public int? Idade { get; set; }
@@ -20,5 +19,7 @@ namespace nutri.Models
         public string Celular { get; set; }
         public string Foto {get; set;}
         public Status Status { get; set; }
+        public char Sexo {get; set;}
+        public bool IsDeleted { get; set; }
     }
 }

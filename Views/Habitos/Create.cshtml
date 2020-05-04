@@ -1,0 +1,305 @@
+@using nutri.Enums;
+@model Habitos
+
+@{
+ViewBag.Title = "Novo registro de hábitos";
+TempData["PacienteId"] = ViewBag.Paciente.Id;
+}
+
+<h2>Antropometria</h2>
+
+@using (Html.BeginForm("Upsert", "Habitos"))
+{
+@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <partial name="_Paciente" model="ViewBag.Paciente" />
+
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Atividade Física</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                <input type="radio" id="AtividadeFisicaSim" name="AtividadeFisica" value=true class="form-check-input" />
+                <label class="form-check-label" for="SonoBom">Sim</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="AtividadeFisicaSim" name="AtividadeFisica" value=false class="form-check-input" />
+                <label class="form-check-label" for="SonoBom">Não</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" id="atividades_fisicas">
+        <div class="col-md-12">
+            <label class="control-label">Tipo</label>
+            <input type="text" id="AtividadeFisicaTipoInput" name="AtividadeFisica.Tipo" class="form-control" />
+        </div>
+        <div class="col-md-12">
+            <label class="control-label">Frequência semanal</label>
+            <input type="text" id="AtividadeFisicaFreqInput" name="AtividadeFisica.FrequenciaSemanal"
+                class="form-control" />
+        </div>
+        <div class="col-md-12">
+            <label class="control-label">Horário</label>
+            <input type="text" id="AtividadeFisicaHorarioInput" name="AtividadeFisica.Horario" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Local e horário da última refeição antes da academia</label>
+            <input type="text" id="LocalHorarioUltimaRefeicaoInput" name="LocalHorarioUltimaRefeicao"
+                class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Horário de trabalho/escola/faculdade</label>
+            <input type="text" id="HorarioInput" name="HorarioTrabalhoEscolaFaculdade" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Sono</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                <input type="radio" id="SonoBomBom" name="SonoBom" value=true class="form-check-input" />
+                <label class="form-check-label" for="SonoBom">Bom</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="SonoBomRuim" name="SonoBom" value=false class="form-check-input" />
+                <label class="form-check-label" for="SonoBom">Ruim</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label class="control-label">Acorda às</label>
+            <input type="text" id="AcordaAsInput" name="AcordaAs" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Dorme às</label>
+            <input type="text" id="DormeAsInput" name="DormeAs" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row radiobutton-bottom-border">
+        <div class="col-md-4">
+            <label class="control-label">Fumante</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                <input type="radio" id="FumanteSim" name="Fumante" value=true class="form-check-input" />
+                <label class="form-check-label" for="Fumante">Sim</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="FumanteNao" name="Fumante" value=false class="form-check-input" />
+                <label class="form-check-label" for="Fumante">Não</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Consumo de café</label>
+        </div>
+        <div class="col-md-4">
+            <div class="form-check">
+                <input type="radio" id="ConsomeCafe" name="ConsomeCafe" value=true class="form-check-input" />
+                <label class="form-check-label" for="ConsomeCafe">Sim</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="ConsomeCafe" name="ConsomeCafe" value=false class="form-check-input" />
+                <label class="form-check-label" for="ConsomeCafe">Não</label>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-check">
+                @Html.RadioButtonFor(m => m.FormaDoce, "Adocado", new {@class = "form-check-input"})
+                <label class="form-check-label" for="Adocado">Adoçado</label>
+            </div>
+            <div class="form-check">
+                @Html.RadioButtonFor(m => m.FormaDoce, "NaoAdocado", new {@class = "form-check-input"})
+                <label class="form-check-label" for="NaoAdocado">Não adoçado</label>
+            </div>
+            <div class="form-check">
+                @Html.RadioButtonFor(m => m.FormaDoce, "Adocante", new {@class = "form-check-input"})
+                <label class="form-check-label" for="Adocante">Adoçante</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quantos</label>
+            <input type="text" id="CafeQuantidadeInput" name="CafeQuantidade" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Ingestão hídrica</label>
+            <input type="text" id="IngestaoHidricaInput" name="IngestaoHidrica" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Hábito urinário</label>
+            <input type="text" id="HabitoUrinarioInput" name="HabitoUrinario" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Onde faz as principais refeições</label>
+            <input type="text" id="LocalPrincipaisRefeicoesInput" name="LocalPrincipaisRefeicoes"
+                class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quantas pessoas moram na casa</label>
+            <input type="text" id="NrPessoasNaCasaInput" name="NrPessoasNaCasa" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quem cozinha em casa</label>
+            <input type="text" id="QuemCozinhaInput" name="QuemCozinha" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quem faz as compras</label>
+            <input type="text" id="QuemCompraInput" name="QuemCompra" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row radiobutton-bottom-border">
+        <div class="col-md-4">
+            <label class="control-label">Apetite</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                <input type="radio" id="ApetiteNormal" name="Normal" value=true class="form-check-input" />
+                <label class="form-check-label" for="Normal">Normal</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="ApetiteAumentado" name="Aumentado" value=false class="form-check-input" />
+                <label class="form-check-label" for="Aumentado">Aumentado</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="ApetiteDiminuido" name="Diminuido" value=false class="form-check-input" />
+                <label class="form-check-label" for="Diminuido">Diminuido</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row radiobutton-bottom-border">
+        <div class="col-md-4">
+            <label class="control-label">Mastigação</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                <input type="radio" id="MastigacaoNormal" name="Normal" value=true class="form-check-input" />
+                <label class="form-check-label" for="Normal">Normal</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="MastigacaoRapida" name="Rapida" value=false class="form-check-input" />
+                <label class="form-check-label" for="Rapida">Rápida</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="MastigacaoLenta" name="Lenta" value=false class="form-check-input" />
+                <label class="form-check-label" for="Lenta">Lenta</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Hábito intestinal</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                <input type="radio" id="HabitoIntestinalNormal" name="Normal" value=true class="form-check-input" />
+                <label class="form-check-label" for="Normal">Normal</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="HabitoIntestinalDiarreico" name="Diarreico" value=false class="form-check-input" />
+                <label class="form-check-label" for="Diarreico">Diarréico</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="HabitoIntestinalConstipante" name="Constipante" value=false class="form-check-input" />
+                <label class="form-check-label" for="Constipante">Constipante</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="HabitoIntestinalVariado" name="Variado" value=false class="form-check-input" />
+                <label class="form-check-label" for="Variado">Variado</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-md-4">
+        <label class="control-label">Frequência de evacuação</label>
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="FrequenciaEvacuacaoDiaInput" name="FrequenciaEvacuacaoDia" class="form-control" placeholder="vezes por dia" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="FrequenciaEvacuacaoSemanaInput" name="FrequenciaEvacuacaoSemana"
+                class="form-control" placeholder="vezes por semana" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+        <label class="control-label">Escala de Bristol</label>
+        </div>
+        <div class="col-md-8">
+            Consistência
+            <input type="text" id="BristolConsistenciaInput" name="BristolConsistencia" class="form-control" />
+            Formato
+            <input type="text" id="BristolFormatoSemanaInput" name="BristolFormato" class="form-control" />
+            Cor
+            <input type="text" id="BristolCorSemanaInput" name="BristolCor" class="form-control" />
+        </div>
+    </div>
+
+    @* @{
+    if(ViewBag.Sexo == "f")
+    {
+
+    }
+    } *@
+
+
+    <div class="form-group row">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
+            <input type="button" value="Cancelar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
+            <input type="button" value="Limpar" class="btn btn-primary" role="button"
+                onClick="$('form').get(0).reset()" />
+        </div>
+    </div>
+
+</div>
+}
+
+@section Scripts {
+<script type="text/javascript" src="~/js/habitos.js"></script>
+}

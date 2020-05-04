@@ -296,6 +296,19 @@ ul.ui-autocomplete.ui-menu li {
   font-weight: bold;
 }
 
+.panel {
+  width: -webkit-fill-available !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.column-left { padding-right: 5px; }
+.column-right { padding-left: 5px; }
+
+.radiobutton-bottom-border {
+  border-bottom: 1px solid #ced4da;
+}
+
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
   background-color: #ccc;
