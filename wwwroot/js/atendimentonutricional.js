@@ -30,7 +30,9 @@ $(document).ready(function () {
     ]
 
     $('#atendimentosTable').DataTable({
-        columns: colunas
+        columns: colunas,
+        paging: false,
+        bInfo: false
     });
 
     $('#btnNovoAtendimento').prependTo($('#atendimentosTable_wrapper .dt-buttons'));

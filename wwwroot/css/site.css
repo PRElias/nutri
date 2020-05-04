@@ -78,7 +78,7 @@ body {
 .label {
   margin-bottom: 20px;
   margin-top: 25px;
-  width: 85px;
+  /* width: 85px; */
   font-size: 0.7em;
   text-align: left;
 }
@@ -155,7 +155,7 @@ span svg:hover {
   float: left;
   display: none;
   min-width: 160px;
-  width: 160px;
+  /* width: 160px; */
   padding: 4px 0;
   margin: 2px 0 0 0;
   list-style: none;
@@ -209,8 +209,12 @@ ul.ui-autocomplete.ui-menu li {
 }
 
 .dataTables_filter input {
-  width: 300px;
+  /* width: 300px; */
   display: inline-block;
+}
+
+.dataTables_wrapper {
+  padding-bottom: 15px !important;
 }
 
 .dtr-details {
@@ -246,8 +250,8 @@ ul.ui-autocomplete.ui-menu li {
 }
 
 .img-max {
-  width: 190px;
-  height: 190px;
+  max-width: 190px;
+  max-height: 190px;
 }
 
 .myPartials {

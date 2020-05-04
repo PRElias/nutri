@@ -30,7 +30,9 @@ $(document).ready(function () {
     ]
 
     $('#antropometriasTable').DataTable({
-        columns: colunas
+        columns: colunas,
+        paging: false,
+        bInfo: false
     });
 
     $('#btnNovaAntropometria').prependTo($('#antropometriasTable_wrapper .dt-buttons'));

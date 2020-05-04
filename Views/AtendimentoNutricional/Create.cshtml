@@ -28,7 +28,7 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
                 </div>
                 <div class="col-md-6">
                     <label class="control-label">CID</label>
-                    <input type="text" id="EncaminhadoPorInput" name="EncaminhadoPor" class="form-control" />
+                    <input type="text" id="CIDInput" name="CID" class="form-control" />
                 </div>
             </div>
 
@@ -71,7 +71,7 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
                 </div>
                 <div class="col-md-6">
                     <label class="control-label col">Nome do Profissional</label>
-                    <input type="text" id="ProfissionalInput" name="Profissional" class="form-control" value="@ViewBag.Profissional" />
+                    <input type="text" id="ProfissionalInput" name="Profissional" class="form-control" value="@ViewBag.Profissional.Nome" />
                 </div>
             </div>
             <div class="form-group row">

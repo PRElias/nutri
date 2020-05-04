@@ -10,7 +10,7 @@ $.extend($.fn.dataTable.defaults, {
     language: {
         lengthMenu: "Exibe _MENU_ Registros por página",
         search: "",
-        searchPlaceholder: "Digite aqui para procurar em todos os campos",
+        searchPlaceholder: "Digite aqui para procurar",
         paginate: {
             "previous": "<",
             "next": ">"

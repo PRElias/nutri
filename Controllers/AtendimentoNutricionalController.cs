@@ -25,6 +25,7 @@ namespace nutri.Components
         {
             ViewBag.Antecedentes = Enum.GetValues(typeof(Antecedentes));
             ViewBag.Paciente = _db.FindOnePaciente(id);
+            ViewBag.Profissional = _db.GetDadosProfissional();
             return View();
         }
 
