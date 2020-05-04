@@ -55,7 +55,7 @@ ViewData["PacienteId"] = @Model.Id;
         </div>
         <div class="row column-right">
             <label class="control-label">Celular</label>
-            <input type="text" id="CelularInput" name="Celular" class="form-control" value="@(Model.Altura)" disabled />
+            <input type="text" id="CelularInput" name="Celular" class="form-control" value="@(Model.Celular)" disabled />
         </div>
     </div>
 </div>
@@ -95,3 +95,9 @@ ViewData["PacienteId"] = @Model.Id;
 <script type="text/javascript" src="~/js/antropometria.js" asp-append-version="true"></script>
 <script type="text/javascript" src="~/js/habitos.js" asp-append-version="true"></script>
 }
+
+<style>
+    body::-webkit-scrollbar {
+       width: 0 !important
+    }
+</style>
