@@ -45,22 +45,28 @@ ViewBag.Title = "Detalhes";
         </div>
     </div>
     <label class="control-label">Antecedentes</label>
+    <label class="control-label">Antecedentes</label>
     <div class="form-check">
         @Html.CheckBoxFor(m => m.Diabetes, new {@class = "form-check-input", @disabled = "disabled"})
         @Html.LabelFor(m => m.Diabetes, new {@class = "form-check-label"})
-
+    </div>
+    <div class="form-check">
         @Html.CheckBoxFor(m => m.Hipertensao, new {@class = "form-check-input", @disabled = "disabled"})
         @Html.LabelFor(m => m.Hipertensao, new {@class = "form-check-label"})
-
+    </div>
+    <div class="form-check">
         @Html.CheckBoxFor(m => m.Hipertrigliciridemia, new {@class = "form-check-input", @disabled = "disabled"})
         @Html.LabelFor(m => m.Hipertrigliciridemia, new {@class = "form-check-label"})
-
+    </div>
+    <div class="form-check">
         @Html.CheckBoxFor(m => m.Hipercolesterolemia, new {@class = "form-check-input", @disabled = "disabled"})
         @Html.LabelFor(m => m.Hipercolesterolemia, new {@class = "form-check-label"})
-
+    </div>
+    <div class="form-check">
         @Html.CheckBoxFor(m => m.Hipotireoidismo, new {@class = "form-check-input", @disabled = "disabled"})
         @Html.LabelFor(m => m.Hipotireoidismo, new {@class = "form-check-label"})
-
+    </div>
+    <div class="form-check">
         @Html.CheckBoxFor(m => m.EsteatoseHepatica, new {@class = "form-check-input", @disabled = "disabled"})
         @Html.LabelFor(m => m.EsteatoseHepatica, new {@class = "form-check-label"})
     </div>
