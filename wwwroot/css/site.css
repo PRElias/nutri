@@ -66,6 +66,11 @@ body {
   margin-bottom: 60px;
 }
 
+.my-form {
+  margin: 30px;
+  width: initial;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
