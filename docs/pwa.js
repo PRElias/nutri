@@ -6,3 +6,20 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+
+console.log('pwa.js carregado');
+
+var imc, peso, altura;
+
+function calculaIMC() {
+    if (peso > 0 && altura > 0) {
+        imc.value = peso / (altura * altura);
+    }
+}
+
+$(document).ready(function () {
+    imc = $("IMC");
+    peso = $("Peso");
+    altura = $("Altura");
+    calculaIMC();
+});

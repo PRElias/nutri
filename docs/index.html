@@ -32,7 +32,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
     <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script type="text/javascript" href="/pwa.js"></script>
+    <script type="text/javascript" href="pwa.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-1"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -65,7 +65,8 @@
                                 asp-action="Edit">Calcular</a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="https://github.com/PRElias/nutri/blob/master/README.md">Ajuda</a>
+                            <a class="nav-link text-dark"
+                                href="https://github.com/PRElias/nutri/blob/master/README.md">Ajuda</a>
                         </li>
                     </ul>
                 </div>
@@ -76,12 +77,95 @@
     <div class="container-fluid my-form">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
-                <div class="form-group row">
-                    <div class="col-md-4">
-                        <label class="control-label">Peso</label>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Peso (kg)</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="Peso" name="Peso" />
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <input type="text" id="Peso" name="Peso" />
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Altura (m)</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="Altura" name="Altura" />
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Peso Ideal</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="PesoIdeal" name="PesoIdeal" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Peso ajustado</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="PesoAjustado" name="PesoAjustado" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Peso corrigido</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="PesoCorrigido" name="PesoCorrigido" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Peso estimado</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="PesoEstimado" name="PesoEstimado" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Altura estimada</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="AlturaEstimada" name="AlturaEstimada" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">IMC</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="IMC" name="IMC" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Adequação do peso</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="AdequacaoPeso" name="AdequacaoPeso" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">Relação cintura-quadril</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="RelacaoCinturaQuadril" name="RelacaoCinturaQuadril" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label class="control-label">GET Gasto Energético Total</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="GastoEnergeticoTotal" name="GastoEnergeticoTotal" />
+                        </div>
                     </div>
                 </div>
             </div>
