@@ -72,14 +72,17 @@
                 </td>
                 <td>
                     @{
-                        var celularNumero = "+55" + paciente.Celular;
+                        if (!String.IsNullOrEmpty(paciente.Celular))
+                        {
+                            var celularNumero = "+55" + paciente.Celular;
+                            <a href='@Configuration["whatsappAPIURL"]@celularNumero' target="_blank"> 
+                                <span style="color: green;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </span>
+                            </a>
+                            @Html.DisplayFor(modelItem => paciente.Celular)
+                        }
                     }
-                    <a href='@Configuration["whatsappAPIURL"]@celularNumero' target="_blank"> 
-                        <span style="color: green;">
-                            <i class="fab fa-whatsapp"></i>
-                        </span>
-                    </a>
-                    @Html.DisplayFor(modelItem => paciente.Celular)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => paciente.Status)

@@ -95,7 +95,14 @@ $(document).ready(function () {
         bAutoWidth:false,
         columnDefs: [
             { width: 200, targets: 0 }
-        ],
+        ]
+        // aoColumnDefs: [{
+        //     aTargets: [7],
+        //     mData: "celular",
+        //     mRender: function ( data, type, full ) {
+        //       return '(' + data.substring(0,2) + ')' + data.substring(2,8);
+        //     }
+        // }]
     });
 
     $('#btnNovoPaciente').prependTo($('.dt-buttons'));
