@@ -39,7 +39,10 @@ namespace nutri.Components
 
         public IActionResult Details(int id)
         {
-            ViewBag.Profissional = _db.GetDadosProfissional().Nome;
+            var Profissional = _db.GetDadosProfissional();
+            ViewBag.Profissional = Profissional.Nome;
+            ViewBag.LogoEmpresa = Profissional.LogoEmpresa;
+            ViewBag.LogoParticular = Profissional.LogoParticular;
             var atendimento = _db.FindOneAtendimento(id);
             ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
             return View(atendimento);
