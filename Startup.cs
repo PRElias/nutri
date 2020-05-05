@@ -69,8 +69,8 @@ namespace nutri
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory())),
-                RequestPath = "/wwwroot/images"
+                Path.Combine(Directory.GetCurrentDirectory(), "./docs")),
+                RequestPath = "/pwa"
             });
 
             //app.UseHttpsRedirection();
