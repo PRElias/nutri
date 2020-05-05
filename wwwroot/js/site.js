@@ -69,6 +69,7 @@ $('form').submit(function (e) {
     $(':disabled').each(function (e) {
         $(this).removeAttr('disabled');
     })
+    $('#CelularInput').unmask();
 });
 
 if ('serviceWorker' in navigator) {

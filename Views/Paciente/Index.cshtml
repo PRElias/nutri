@@ -71,7 +71,10 @@
                     @Html.DisplayFor(modelItem => paciente.Telefone)
                 </td>
                 <td>
-                    <a href='@Configuration["whatsappAPIURL"]@paciente.Celular' target="_blank"> 
+                    @{
+                        var celularNumero = "+55" + paciente.Celular;
+                    }
+                    <a href='@Configuration["whatsappAPIURL"]@celularNumero' target="_blank"> 
                         <span style="color: green;">
                             <i class="fab fa-whatsapp"></i>
                         </span>
