@@ -16,7 +16,7 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "https://localhost",
+    "start_url": "https://prelias.github.io/nutri/",
     "background_color": "black",
     "display": "fullscreen",
     "scope": "/",

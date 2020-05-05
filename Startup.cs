@@ -45,7 +45,7 @@ namespace nutri
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddSingleton<NutriRepository>();
-            services.AddProgressiveWebApp();
+            // services.AddProgressiveWebApp();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
