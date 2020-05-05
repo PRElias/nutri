@@ -60,10 +60,9 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Profissional"
-                                asp-action="Edit">Calcular</a>
-                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="*">Instalar</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark"
                                 href="https://github.com/PRElias/nutri/blob/master/README.md">Ajuda</a>
@@ -182,6 +181,26 @@
                         console.log('Service worker registered.', reg);
                     });
             });
+        }
+
+        function addToHomeScreen() {
+            // show the install app prompt
+            window.promptEvent.prompt();
+
+            // handle the Decline/Accept choice of the user
+            window.promptEvent.userChoice.then(function (choiceResult) {
+                // hide the prompt banner here
+                // …
+
+                if (choiceResult.outcome === 'accepted') {
+                    console.info('mm User accepted the A2HS prompt');
+                } else {
+                    console.info('mm User dismissed the A2HS prompt');
+                }
+
+                window.promptEvent = null;
+            });
+
         }
 
         $("#Altura").mask("0.00");
