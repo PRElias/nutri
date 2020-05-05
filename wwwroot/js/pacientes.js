@@ -4,6 +4,7 @@ $(document).ready(function () {
     //     collapsible: true,
     //     autoHeight: false
     // });
+    $('#CelularInput').mask('(00) 00000-0000');
 
     $("#DataNascimentoInput").datepicker({
         dateFormat: 'dd/mm/yy',
@@ -98,8 +99,6 @@ $(document).ready(function () {
     });
 
     $('#btnNovoPaciente').prependTo($('.dt-buttons'));
-
-        
 
 });
 
