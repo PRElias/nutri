@@ -73,7 +73,7 @@ namespace nutri
                 RequestPath = "/wwwroot/images"
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             //app.UseCookiePolicy();

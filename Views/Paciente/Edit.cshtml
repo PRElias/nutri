@@ -62,8 +62,8 @@
         <div class="form-group">
             <label class="control-label col-md-2">Status</label>
             <div class="col-md-10">
-                <select name="StatusEncomenda" class="custom-select" asp-items="Html.GetEnumSelectList<nutri.Enums.Status>()">
-                    <option  value="@((int)Model.Status)" selected>@(Model.Status)</option>
+                <select name="Status" class="custom-select" asp-items="Html.GetEnumSelectList<nutri.Enums.Status>()">
+                    <option  value="@((int)Model.Status)" for="Status" selected>@(Model.Status)</option>
                 </select>
             </div>
         </div>
