@@ -17,11 +17,11 @@ ViewBag.Title = "Detalhes";
     @{
         if (!String.IsNullOrEmpty(ViewBag.LogoEmpresa))
         {
-            <div class="form-group row">
-                <div class="col-md-6">
+            <div class="form-group row ml-1">
+                <div class="col-md-4">
                     <img src="~/images/@ViewBag.LogoEmpresa" class="rounded mx-auto d-block img-max" alt="Sem foto">
                 </div>
-                <div class="col-md-6">
+                <div class="ml-auto mr-8" style="padding-right: 15px;padding-top: 10px;">
                     <h2>Atendimento Nutricional</h2>
                 </div>
             </div>
