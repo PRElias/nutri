@@ -41,7 +41,7 @@ namespace nutri.Controllers
             if (HttpContext.Request.Form.Files.Count > 0)
             {
                 var fileName = paciente.Id.ToString() + Path.GetExtension(HttpContext.Request.Form.Files[0].FileName);
-                UploadFile(HttpContext.Request.Form.Files[0], fileName);
+                nutri.Util.File.UploadFile(HttpContext.Request.Form.Files[0], fileName);
                 paciente.Foto = fileName;
                 _db.Upsert(paciente);
             }
@@ -71,19 +71,6 @@ namespace nutri.Controllers
         {
             var resultado = _db.DeletePaciente(id);
             return new JsonResult(resultado);
-        }
-        private bool UploadFile(IFormFile ufile, string fileName)
-        {
-            if (ufile != null && ufile.Length > 0)
-            {
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\images", fileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    ufile.CopyTo(fileStream);
-                }
-                return true;
-            }
-            return false;
         }
     }
 }

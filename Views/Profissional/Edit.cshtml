@@ -1,6 +1,6 @@
 @model Profissional
 
-@using (Html.BeginForm("Upsert", "Profissional"))
+@using (Html.BeginForm("Upsert", "Profissional", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 @Html.AntiForgeryToken()
 
@@ -14,6 +14,18 @@
     <div class="col-md-12">
         <label class="control-label">CRN</label>
         <input type="text" id="CRN" name="CRN" class="form-control" value="@Model.CRN" />
+    </div>
+</div>
+<div class="form-group row">
+    <label class="control-label">Logo Particular</label>
+    <div class="col-md-12">
+        <input type="file" id="LogoParticular" name="LogoParticular" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <label class="control-label">Logo Empresa</label>
+    <div class="col-md-12">
+        <input type="file" id="LogoEmpresa" name="LogoEmpresa" class="form-control" />
     </div>
 </div>
 <div class="form-group row">
