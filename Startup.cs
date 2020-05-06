@@ -70,7 +70,7 @@ namespace nutri
             {
                 FileProvider = new PhysicalFileProvider(
                 Path.Combine(Directory.GetCurrentDirectory(), "./docs")),
-                RequestPath = "/pwa"
+                RequestPath = "/nutri"
             });
 
             //app.UseHttpsRedirection();

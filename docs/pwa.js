@@ -7,19 +7,31 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-console.log('pwa.js carregado');
+function addToHomeScreen() {
+    // show the install app prompt
+    window.promptEvent.prompt();
 
-var imc, peso, altura;
+    // handle the Decline/Accept choice of the user
+    window.promptEvent.userChoice.then(function (choiceResult) {
+        // hide the prompt banner here
+        // …
 
-function calculaIMC() {
-    if (peso > 0 && altura > 0) {
-        imc.value = peso / (altura * altura);
-    }
+        if (choiceResult.outcome === 'accepted') {
+            console.info('mm User accepted the A2HS prompt');
+        } else {
+            console.info('mm User dismissed the A2HS prompt');
+        }
+
+        window.promptEvent = null;
+    });
+
 }
 
+
+function calcula() {
+    $("#IMC").val(($("#Peso").val() / ($("#Altura").val() * $("#Altura").val())));
+};
+
 $(document).ready(function () {
-    imc = $("IMC");
-    peso = $("Peso");
-    altura = $("Altura");
-    calculaIMC();
+    $("#Altura").mask("0.00");
 });

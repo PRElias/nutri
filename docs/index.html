@@ -32,7 +32,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
     <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script type="text/javascript" href="pwa.js"></script>
+    <script type="text/javascript" src="/nutri/pwa.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-1"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -60,9 +60,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link text-dark" href="*" onclick="addToHomeScreen()">Instalar</a>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link text-dark"
                                 href="https://github.com/PRElias/nutri/blob/master/README.md">Ajuda</a>
@@ -72,25 +69,40 @@
             </div>
         </nav>
     </header>
-
     <div class="container-fluid my-form">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Peso (kg)</label>
+                            <label >Peso (kg)</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="Peso" name="Peso" />
+                            <input type="text" class="form-control" id="Peso" name="Peso" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Altura (m)</label>
+                            <label >Altura (m)</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="Altura" name="Altura" />
+                            <input type="text" class="form-control" id="Altura" name="Altura" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col ms-3">
+                            <label >Idade</label>
+                        </div>
+                        <div class="col ms-9">
+                            <input type="text" class="form-control" id="Idade" name="Idade" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col ms-3">
+                            <label >Sexo</label>
+                        </div>
+                        <div class="col ms-9">
+                            <input type="text" class="form-control" id="Sexo" name="Sexo" />
                         </div>
                     </div>
                     <div class="row">
@@ -104,117 +116,79 @@
                     <hr />
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Peso Ideal</label>
+                            <label >Peso Ideal</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="PesoIdeal" name="PesoIdeal" disabled />
+                            <input type="text" class="form-control" id="PesoIdeal" name="PesoIdeal" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Peso ajustado</label>
+                            <label >Peso ajustado</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="PesoAjustado" name="PesoAjustado" disabled />
+                            <input type="text" class="form-control" id="PesoAjustado" name="PesoAjustado" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Peso corrigido</label>
+                            <label >Peso corrigido</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="PesoCorrigido" name="PesoCorrigido" disabled />
+                            <input type="text" class="form-control" id="PesoCorrigido" name="PesoCorrigido" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Peso estimado</label>
+                            <label >Peso estimado</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="PesoEstimado" name="PesoEstimado" disabled />
+                            <input type="text" class="form-control" id="PesoEstimado" name="PesoEstimado" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Altura estimada</label>
+                            <label >Altura estimada</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="AlturaEstimada" name="AlturaEstimada" disabled />
+                            <input type="text" class="form-control" id="AlturaEstimada" name="AlturaEstimada" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">IMC</label>
+                            <label >IMC</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="IMC" name="IMC" disabled />
+                            <input type="text" class="form-control" id="IMC" name="IMC" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Adequação do peso</label>
+                            <label >Adequação do peso</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="AdequacaoPeso" name="AdequacaoPeso" disabled />
+                            <input type="text" class="form-control" id="AdequacaoPeso" name="AdequacaoPeso" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">Relação cintura-quadril</label>
+                            <label >Relação cintura-quadril</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="RelacaoCinturaQuadril" name="RelacaoCinturaQuadril" disabled />
+                            <input type="text" class="form-control" id="RelacaoCinturaQuadril" name="RelacaoCinturaQuadril" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label class="control-label">GET Gasto Energético Total</label>
+                            <label >GET Gasto Energético Total</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" id="GastoEnergeticoTotal" name="GastoEnergeticoTotal" disabled />
+                            <input type="text" class="form-control" id="GastoEnergeticoTotal" name="GastoEnergeticoTotal" disabled />
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/nutri/service-worker.js')
-                    .then((reg) => {
-                        console.log('Service worker registered.', reg);
-                    });
-            });
-        }
-
-        function addToHomeScreen() {
-            // show the install app prompt
-            window.promptEvent.prompt();
-
-            // handle the Decline/Accept choice of the user
-            window.promptEvent.userChoice.then(function (choiceResult) {
-                // hide the prompt banner here
-                // …
-
-                if (choiceResult.outcome === 'accepted') {
-                    console.info('mm User accepted the A2HS prompt');
-                } else {
-                    console.info('mm User dismissed the A2HS prompt');
-                }
-
-                window.promptEvent = null;
-            });
-
-        }
-
-        $("#Altura").mask("0.00");
-
-        function calcula() {
-            $("#IMC").val(($("#Peso").val() / ($("#Altura").val() * $("#Altura").val())));
-        };
-    </script>
-
 </body>
-
 </html>
