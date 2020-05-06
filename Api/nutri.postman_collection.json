@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "aa2d4fdd-5631-4247-bbba-67166941f403",
+		"name": "nutri",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ImportaPaciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Nome\": \"Paulo Roberto Elias\",\n\t\"Peso\": \"\",\n\t\"Altura\": \"1.83\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.0.16:15443/api/NutriApi/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"16"
+					],
+					"port": "15443",
+					"path": [
+						"api",
+						"NutriApi",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
