@@ -28,7 +28,10 @@ function addToHomeScreen() {
 }
 
 function calculaIMC(){
-    $("#IMC").val(($("#Peso").val() / ($("#Altura").val() * $("#Altura").val())));
+    if ($("#IMC").val() === "")
+    {
+        $("#IMC").val(($("#Peso").val() / ($("#Altura").val() * $("#Altura").val())));
+    }
 };
 
 function calculaPesoIdeal() {
@@ -43,6 +46,7 @@ function calculaPesoIdeal() {
 function calcula() {
     calculaIMC();
     calculaPesoIdeal();
+    salvaCache();
 };
 
 function salvaCache() {
@@ -50,7 +54,8 @@ function salvaCache() {
         Nome: $("#Nome").val(), 
         Idade: $("#Idade").val(), 
         Peso: $("#Peso").val(), 
-        Altura: $("#Altura").val()
+        Altura: $("#Altura").val(),
+        Sexo: $("#Sexo").val()
     };
     localStorage.setItem(paciente.Nome, JSON.stringify(paciente));
     //$('#form').get(0).reset();
@@ -60,12 +65,6 @@ function salvaCache() {
 //Utilizada essa função por não ser um form HTML real, já que assim ele apagaria ao submeter
 function formReset(){
     $(':input','#form')
-    .not(':button, :submit, :reset, :hidden')
-    .val('')
-    .removeAttr('checked')
-    .removeAttr('selected');
-
-    $(':input','#calculados')
     .not(':button, :submit, :reset, :hidden')
     .val('')
     .removeAttr('checked')
@@ -93,4 +92,8 @@ function sincroniza() {
 
 $(document).ready(function () {
     $("#Altura").mask("0.00");
+
+    $("form").submit(function(event){
+        event.preventDefault()
+    });
 });

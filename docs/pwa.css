@@ -101,10 +101,10 @@ body {
   height: 30px !important;
 }
 
-button.btn-primary {
+/* button.btn-primary {
   margin: 20px !important;
   height: 100% !important;
-}
+} */
 
 input.form-control-sm {
   height: 40px !important;

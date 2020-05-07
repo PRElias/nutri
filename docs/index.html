@@ -33,6 +33,7 @@
     <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script type="text/javascript" src="/nutri/pwa.js"></script>
+    <link rel="stylesheet" href="/nutri/pwa.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-1"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -69,66 +70,73 @@
             </div>
         </nav>
     </header>
-    <div class="container-fluid my-form">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
-                <h5>Escreva o nome completo. Caso utilize o sistema em seu computador, você poderá importar esses dados
-                    para guardar e gerar documentos e histórico de atendimentos</h5>
-                <div class="form-group" id="form">
+                <form id="myForm">
                     <div class="row">
-                        <div class="col ms-3">
-                            <label>Nome</label>
-                        </div>
-                        <div class="col ms-9">
-                            <input type="text" class="form-control" id="Nome" name="Nome" />
+                        <div class="col ms-12">
+                            <p class="text-info">Escreva o nome completo. Caso utilize o sistema em seu computador, você poderá importar
+                                esses dados
+                                para guardar e gerar documentos e histórico de atendimentos</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col ms-3">
-                            <label>Idade</label>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col ms-3">
+                                <label>Nome</label>
+                            </div>
+                            <div class="col ms-9">
+                                <input type="text" class="form-control" id="Nome" name="Nome" required />
+                            </div>
                         </div>
-                        <div class="col ms-9">
-                            <input type="text" class="form-control" id="Idade" name="Idade" />
+                        <div class="row">
+                            <div class="col ms-3">
+                                <label>Idade</label>
+                            </div>
+                            <div class="col ms-9">
+                                <input type="text" class="form-control" id="Idade" name="Idade" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col ms-3">
+                                <label>Peso (kg)</label>
+                            </div>
+                            <div class="col ms-9">
+                                <input type="text" class="form-control" id="Peso" name="Peso" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col ms-3">
+                                <label>Altura (m)</label>
+                            </div>
+                            <div class="col ms-9">
+                                <input type="text" class="form-control" id="Altura" name="Altura" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col ms-3">
+                                <label>Sexo</label>
+                            </div>
+                            <div class="col ms-9">
+                                <select class="form-control" id="Sexo" name="Sexo" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="m">Masculino</option>
+                                    <option value="f">Feminino</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col ms-6">
+                            </div>
+                            <div class="col ms-6">
+                                <button class="btn btn-primary" onclick="calcula()">Calcular</button>
+                                <button class="btn btn-primary" onclick="sincroniza()">Sincronizar</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col ms-3">
-                            <label>Peso (kg)</label>
-                        </div>
-                        <div class="col ms-9">
-                            <input type="text" class="form-control" id="Peso" name="Peso" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col ms-3">
-                            <label>Altura (m)</label>
-                        </div>
-                        <div class="col ms-9">
-                            <input type="text" class="form-control" id="Altura" name="Altura" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col ms-3">
-                            <label>Sexo</label>
-                        </div>
-                        <div class="col ms-9">
-                            <input type="text" class="form-control" id="Sexo" name="Sexo" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col ms-3">
-                            <button class="btn btn-primary" onclick="calcula()">Calcular</button>
-                        </div>
-                        <div class="col ms-3">
-                            <button class="btn btn-primary" onclick="salvaCache()">Salvar</button>
-                        </div>
-                        <div class="col ms-3">
-                            <button class="btn btn-primary" onclick="sincroniza()">Sincronizar</button>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div id="calculados">
+                    <hr />
                     <div class="row">
                         <div class="col ms-3">
                             <label>Peso Ideal</label>
@@ -204,7 +212,8 @@
                                 name="GastoEnergeticoTotal" disabled />
                         </div>
                     </div>
-                </div>
+
+                </form>
             </div>
     </div>
     </main>
