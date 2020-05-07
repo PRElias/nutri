@@ -5,12 +5,12 @@ O sistema, em sua fase atual, pode ser considerado um protótipo e foi desenvolv
 
 # Índice
 * [Introdução](#introducao)
-* [Pré-requisitos](#pre-requisitos)
-* [Instalação](#instalacao)
+* [Pré-requisitos](#pré-requisitos)
+* [Instalação](#instalacão)
 * [FAQ](#faq)
-    ** [1. Qual a motivação?](##1)
-    ** [1. E por que não posso usar online?](##2)
-    ** [1. Mas então eu não consigo usá-lo no meu celular?](##3)
+    * [1. Qual a motivação?](##1._qual_a_motivação?)
+    * [2. E por que não posso usar online?](##2)
+    * [3. Mas então eu não consigo usá-lo no meu celular?](##3)
 * [PWA](#pwa)
 
 # Introdução
