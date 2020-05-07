@@ -63,9 +63,17 @@ function sincroniza() {
     debugger
     for (var i = 0; i < localStorage.length; i++){
 
-        localStorage.getItem(localStorage.key(i));
+        var paciente = localStorage.getItem(localStorage.key(i));
 
-        localStorage.removeItem(localStorage.key(i));
+        $.ajax({
+            method: "POST",
+            url: "../api/NutriApi/",
+            contentType: "application/json",
+            dataType: "json",
+            data: paciente
+        }).done(function(){
+            localStorage.removeItem(localStorage.key(i));
+        });
     }
 };
 

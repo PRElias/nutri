@@ -39,8 +39,11 @@ namespace nutri.Repositories
         public Paciente FindPacienteByName(string nome)
         {
             var paciente = database.GetCollection<Paciente>().Find(x => x.Nome == nome).FirstOrDefault();
-            paciente.Idade = calculaIdade(paciente.DataNascimento);
-            paciente.IMC = calculaIMC(paciente.Peso, paciente.Altura);
+            if (paciente != null)
+            {
+                paciente.Idade = calculaIdade(paciente.DataNascimento);
+                paciente.IMC = calculaIMC(paciente.Peso, paciente.Altura);
+            }
             return paciente;
         }
 
