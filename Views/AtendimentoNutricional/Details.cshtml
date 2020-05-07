@@ -15,17 +15,17 @@ ViewBag.Title = "Detalhes";
 <div class="form-horizontal">
 
     @{
-        if (!String.IsNullOrEmpty(ViewBag.LogoEmpresa))
-        {
-            <div class="form-group row ml-1">
-                <div class="col-md-4">
-                    <img src="~/images/@ViewBag.LogoEmpresa" class="rounded mx-auto d-block img-max" alt="Sem foto">
-                </div>
-                <div class="ml-auto mr-8" style="padding-right: 15px;padding-top: 10px;">
-                    <h2>Atendimento Nutricional</h2>
-                </div>
-            </div>
-        }
+    if (!String.IsNullOrEmpty(ViewBag.LogoEmpresa))
+    {
+    <div class="form-group row ml-1">
+        <div class="col-md-4">
+            <img src="~/images/@ViewBag.LogoEmpresa" class="rounded mx-auto d-block img-max" alt="Sem foto">
+        </div>
+        <div class="ml-auto mr-8" style="padding-right: 15px;padding-top: 10px;">
+            <h2>Atendimento Nutricional</h2>
+        </div>
+    </div>
+    }
     }
 
     <partial name="_Paciente" model="ViewBag.Paciente" />
@@ -98,6 +98,16 @@ ViewBag.Title = "Detalhes";
             <label class="control-label">Nome do Profissional</label>
             <input type="text" id="ProfissionalInput" name="Profissional" class="form-control"
                 value="@ViewBag.Profissional" disabled />
+        </div>
+    </div>
+    <div class="form-group row ml-1">
+        <div class="ml-auto mr-8" style="padding-right: 15px;padding-top: 10px;">
+            @{
+            if (!String.IsNullOrEmpty(ViewBag.Assinatura))
+            {
+            <img src="~/images/@ViewBag.Assinatura" class="rounded mx-auto d-block img-max" alt="Sem assinatura">
+            }
+            }
         </div>
     </div>
 </div>
