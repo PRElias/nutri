@@ -72,10 +72,10 @@
     <div class="container-fluid my-form">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
-                <div class="form-group">
+                <div class="form-group" id="form">
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Nome</label>
+                            <label>Nome</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="Nome" name="Nome" />
@@ -83,23 +83,7 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Peso (kg)</label>
-                        </div>
-                        <div class="col ms-9">
-                            <input type="text" class="form-control" id="Peso" name="Peso" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col ms-3">
-                            <label >Altura (m)</label>
-                        </div>
-                        <div class="col ms-9">
-                            <input type="text" class="form-control" id="Altura" name="Altura" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col ms-3">
-                            <label >Idade</label>
+                            <label>Idade</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="Idade" name="Idade" />
@@ -107,7 +91,23 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Sexo</label>
+                            <label>Peso (kg)</label>
+                        </div>
+                        <div class="col ms-9">
+                            <input type="text" class="form-control" id="Peso" name="Peso" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col ms-3">
+                            <label>Altura (m)</label>
+                        </div>
+                        <div class="col ms-9">
+                            <input type="text" class="form-control" id="Altura" name="Altura" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col ms-3">
+                            <label>Sexo</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="Sexo" name="Sexo" />
@@ -115,16 +115,21 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                        </div>
-                        <div class="col ms-9">
                             <button class="btn btn-primary" onclick="calcula()">Calcular</button>
                         </div>
+                        <div class="col ms-3">
+                            <button class="btn btn-primary" onclick="salvaCache()">Salvar</button>
+                        </div>
+                        <div class="col ms-3">
+                            <button class="btn btn-primary" onclick="sincroniza()">Sincronizar</button>
+                        </div>
                     </div>
-                    </div>
-                    <hr />
+                </div>
+                <hr />
+                <div id="calculados">
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Peso Ideal</label>
+                            <label>Peso Ideal</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="PesoIdeal" name="PesoIdeal" disabled />
@@ -132,7 +137,7 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Peso ajustado</label>
+                            <label>Peso ajustado</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="PesoAjustado" name="PesoAjustado" disabled />
@@ -140,7 +145,7 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Peso corrigido</label>
+                            <label>Peso corrigido</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="PesoCorrigido" name="PesoCorrigido" disabled />
@@ -148,7 +153,7 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Peso estimado</label>
+                            <label>Peso estimado</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="PesoEstimado" name="PesoEstimado" disabled />
@@ -156,15 +161,16 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Altura estimada</label>
+                            <label>Altura estimada</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" class="form-control" id="AlturaEstimada" name="AlturaEstimada" disabled />
+                            <input type="text" class="form-control" id="AlturaEstimada" name="AlturaEstimada"
+                                disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >IMC</label>
+                            <label>IMC</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="IMC" name="IMC" disabled />
@@ -172,7 +178,7 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Adequação do peso</label>
+                            <label>Adequação do peso</label>
                         </div>
                         <div class="col ms-9">
                             <input type="text" class="form-control" id="AdequacaoPeso" name="AdequacaoPeso" disabled />
@@ -180,23 +186,27 @@
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >Relação cintura-quadril</label>
+                            <label>Relação cintura-quadril</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" class="form-control" id="RelacaoCinturaQuadril" name="RelacaoCinturaQuadril" disabled />
+                            <input type="text" class="form-control" id="RelacaoCinturaQuadril"
+                                name="RelacaoCinturaQuadril" disabled />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col ms-3">
-                            <label >GET Gasto Energético Total</label>
+                            <label>GET Gasto Energético Total</label>
                         </div>
                         <div class="col ms-9">
-                            <input type="text" class="form-control" id="GastoEnergeticoTotal" name="GastoEnergeticoTotal" disabled />
+                            <input type="text" class="form-control" id="GastoEnergeticoTotal"
+                                name="GastoEnergeticoTotal" disabled />
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+    </div>
+    </main>
     </div>
 </body>
+
 </html>
