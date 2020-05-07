@@ -17,15 +17,31 @@
     </div>
 </div>
 <div class="form-group row">
-    <label class="control-label">Logo Particular</label>
-    <div class="col-md-12">
-        <input type="file" id="LogoParticular" name="LogoParticular" class="form-control" />
+    <div class="col-md-6">
+    <label class="control-label">Logo Empresa</label>
+        <input type="file" id="LogoEmpresa" name="LogoEmpresa" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        @{
+        if (!String.IsNullOrEmpty(@Model.LogoEmpresa))
+        {
+            <img src="~/images/@Model.LogoEmpresa" class="rounded mx-auto d-block img-max" alt="Sem foto">
+        }
+        }
     </div>
 </div>
 <div class="form-group row">
-    <label class="control-label">Logo Empresa</label>
-    <div class="col-md-12">
-        <input type="file" id="LogoEmpresa" name="LogoEmpresa" class="form-control" />
+    <div class="col-md-6">
+    <label class="control-label">Assinatura</label>
+        <input type="file" id="Assinatura" name="Assinatura" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        @{
+        if (!String.IsNullOrEmpty(@Model.Assinatura))
+        {
+            <img src="~/images/@Model.Assinatura" class="rounded mx-auto d-block img-max" alt="Sem foto">
+        }
+        }
     </div>
 </div>
 <div class="form-group row">

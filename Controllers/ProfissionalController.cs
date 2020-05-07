@@ -21,23 +21,32 @@ namespace nutri.Controllers
         [HttpPost]
         public IActionResult Upsert(Profissional profissional)
         {
-            if (HttpContext.Request.Form.Files.Count > 0)
+            //if (HttpContext.Request.Form.Files.Count > 0)
+            foreach (var arquivo in HttpContext.Request.Form.Files)
             {
-                var logoParticular = HttpContext.Request.Form.Files.GetFile("LogoParticular");
+                var assinatura = HttpContext.Request.Form.Files.GetFile("Assinatura");
                 var logoEmpresa = HttpContext.Request.Form.Files.GetFile("LogoEmpresa");
 
-                if (logoParticular != null)
+                if (assinatura != null)
                 {
-                    nutri.Util.File.UploadFile(logoParticular, logoParticular.FileName);
-                    profissional.LogoParticular = logoParticular.FileName;
+                    nutri.Util.File.UploadFile(assinatura, assinatura.FileName);
+                    profissional.Assinatura = assinatura.FileName;
+                }
+                else
+                {
+                    profissional.Assinatura = _db.GetDadosProfissional().Assinatura;
                 }
                 if (logoEmpresa != null)
                 {
                     nutri.Util.File.UploadFile(logoEmpresa, logoEmpresa.FileName);
                     profissional.LogoEmpresa = logoEmpresa.FileName;
                 }
+                else
+                {
+                    profissional.LogoEmpresa = _db.GetDadosProfissional().LogoEmpresa;
+                }
             }
-            
+            profissional.Id = 1;
             _db.Upsert(profissional);
             return RedirectToAction("Edit");
         }

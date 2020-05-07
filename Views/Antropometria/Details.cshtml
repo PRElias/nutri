@@ -14,7 +14,19 @@ ViewBag.Title = "Detalhes";
 
 <div class="form-horizontal">
 
-    <h2>Atendimento Nutricional</h2>
+     @{
+        if (!String.IsNullOrEmpty(ViewBag.LogoEmpresa))
+        {
+            <div class="form-group row ml-1">
+                <div class="col-md-4">
+                    <img src="~/images/@ViewBag.LogoEmpresa" class="rounded mx-auto d-block img-max" alt="Sem foto">
+                </div>
+                <div class="ml-auto mr-8" style="padding-right: 15px;padding-top: 10px;">
+                    <h2>Atendimento Nutricional</h2>
+                </div>
+            </div>
+        }
+    }
 
     <partial name="_Paciente" model="ViewBag.Paciente" />
 

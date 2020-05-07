@@ -42,7 +42,7 @@ namespace nutri.Components
             var Profissional = _db.GetDadosProfissional();
             ViewBag.Profissional = Profissional.Nome;
             ViewBag.LogoEmpresa = Profissional.LogoEmpresa;
-            ViewBag.LogoParticular = Profissional.LogoParticular;
+            ViewBag.Assinatura = Profissional.Assinatura;
             var atendimento = _db.FindOneAtendimento(id);
             ViewBag.Paciente = _db.FindOnePaciente(atendimento.Paciente.Id);
             return View(atendimento);
