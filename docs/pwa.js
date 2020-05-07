@@ -109,8 +109,8 @@ $(document).ready(function () {
         event.preventDefault()
     });
 
-    var largura = 500;
-    var altura = 300;
+    var largura = $(window).width();
+    var altura = 500;
 
     var quadro = document.getElementById("quadro");
     quadro.setAttribute("width", largura);
