@@ -27,6 +27,10 @@ function addToHomeScreen() {
 
 }
 
+function limpa() {
+    $('form').get(0).reset();
+};
+
 function calculaIMC(){
     if ($("#IMC").val() === "")
     {
@@ -58,18 +62,18 @@ function salvaCache() {
         Sexo: $("#Sexo").val()
     };
     localStorage.setItem(paciente.Nome, JSON.stringify(paciente));
-    //$('#form').get(0).reset();
-    formReset();
+    //$('form').get(0).reset();
+    //formReset();
 };
 
 //Utilizada essa função por não ser um form HTML real, já que assim ele apagaria ao submeter
-function formReset(){
-    $(':input','#form')
-    .not(':button, :submit, :reset, :hidden')
-    .val('')
-    .removeAttr('checked')
-    .removeAttr('selected');
-}
+// function formReset(){
+//     $(':input','#form')
+//     .not(':button, :submit, :reset, :hidden')
+//     .val('')
+//     .removeAttr('checked')
+//     .removeAttr('selected');
+// }
 
 function sincroniza() {
     debugger
@@ -85,6 +89,8 @@ function sincroniza() {
             data: paciente
         }).done(function(){
             localStorage.removeItem(localStorage.key(i));
+        }).fail(function(){
+            alert("Erro ao sincronizar. Você está no mesmo WiFi do sistema?");
         });
     }
 };
