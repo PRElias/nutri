@@ -8,8 +8,8 @@ O sistema, em sua fase atual, pode ser considerado um protótipo e foi desenvolv
 * [Pré-requisitos](#pré-requisitos)
 * [Instalação](#instalacão)
 * [FAQ](#faq)
-    * [1. Qual a motivação?](##1._qual_a_motiva\ç\ão)
-    * [2. E por que não posso usar online?](##2)
+    * [1. Qual a motivação?](#1._qual_a_motivação)
+    * [2. E por que não posso usar online?](#2._E_por_que_não_posso_usar_online)
     * [3. Mas então eu não consigo usá-lo no meu celular?](##3)
 * [PWA](#pwa)
 
