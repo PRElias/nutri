@@ -1,10 +1,12 @@
 # Nutri
-Sistema independente de controle de pacientes e atendimentos
+Sistema independente e aberto de controle de pacientes e atendimentos.
 
-O sistema, em sua fase atual, pode ser considerado um protótipo e foi desenvolvido para ser disponibilizado de forma gratuita a profissionais do ramo, para um controle mais facilitado de suas atividades.
+O sistema, em sua fase atual e embora já utilizável, pode ser considerado um protótipo e foi desenvolvido para ser disponibilizado de forma gratuita a profissionais do ramo, para um controle mais facilitado de suas atividades.
 
 # Índice
 * [Introdução](#introducao)
+* [Objetivo](#objetivo)
+* [Principais funcionalidade](#principais_funcionalidade)
 * [Pré-requisitos](#pré-requisitos)
 * [Instalação](#instalacão)
 * [FAQ](#faq)
@@ -15,7 +17,21 @@ O sistema, em sua fase atual, pode ser considerado um protótipo e foi desenvolv
 
 # Introdução
 
-A aplicação não possui qualquer funcionalidade de segurança sobre os dados e sequer login, sendo para uso exclusivo de um profissional por instância, sendo extremamente recomendado seu uso apenas em máquina local (não servir nem disponibilizar na internet uma instancia com dados).
+A aplicação não possui qualquer funcionalidade de **segurança sobre os dados** e sequer login, sendo para uso exclusivo de um profissional por instância, ou seja, por instalação, sendo extremamente recomendado seu uso apenas em máquina local (não servir nem disponibilizar na internet uma instancia com dados).
+
+# Objetivo
+
+Prover um sistema simples, que permita emitir documentos (receitas, atestados, etc) de forma descomplicada e rápida e fazer cálculos relevantes e com praticidade durante o atendimento.
+
+Como objetivos meus, eu destaco a experimentação e prática das tecnologias empregadas, divulgação das minhas habilidades e ajuda à profissionais, sejam eles liberais ou não, em tempos de crise extrema, onde são empregadas ações como *home office* e muitos deles não possuem ferramentas e/ou sequer as recebem de seus empregadores por barreiras financeiras.
+
+# Principais funcionalidade
+
+* Cadastro e reaproveitamento dos dados do paciente nos documentos emitidos;
+* Emissão de diversos documentos como atendimento nutricional, receitas, etc
+* Possibilidade de geração de relatório (em desenvolvimento);
+* Contato facilitado através de link para o Whatsapp para cada cliente;
+* Exportação de dados para Excel;
 
 # Pré-requisitos
 
@@ -52,7 +68,12 @@ Ser opensource, signifca também que todo código pode ser conferido por qualque
 
 Consegue. Mas não o sistema completo. Conforme dito acima, foi uma opção de design não disponibilizar os dados sensíveis, sendo assim, você só pode manipulá-los executando o sistema no seu PC.
 
-Contudo, para realizar alguns cálculos rápidos, há também no projeto um [PWA](https://pt.wikipedia.org/wiki/Progressive_web_app) (progressive web app). Ele funciona parecido à um app comum, pode ser instalado no seu celular, mas não está disponível nas lojas de aplicativos e com isso, também se evita os custos e o processo de publicação para se participar das lojas.
+Contudo, para realizar alguns cálculos rápidos, há o [PWA](#pwa). Ele funciona parecido à um app comum, pode ser instalado no seu celular, mas não está disponível nas lojas de aplicativos e com isso, também se evita os custos e o processo de publicação para se participar das lojas.
 
 Mas ainda assim, é possível importar as informações do app para o sistema quando você estiver na sau rede local (o seu WiFi).
 
+# PWA
+
+Um [PWA](https://pt.wikipedia.org/wiki/Progressive_web_app) (progressive web app), é um site, que pode ser instalado em celulares e até mesmo em computadores com Windows e com isso se comportar parecido à um aplicativo.
+
+Ele possui diversar vantagens sobre aplicativos, como não necessitar de investimentos para ser publicado em lojas e ser pesquisável no Google diretamente.
