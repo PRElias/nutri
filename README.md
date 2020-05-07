@@ -6,14 +6,15 @@ O sistema, em sua fase atual e embora já utilizável, pode ser considerado um p
 # Índice
 * [Introdução](#introducao)
 * [Objetivo](#objetivo)
-* [Principais funcionalidade](#principais_funcionalidade)
+* [Principais funcionalidades](#principais_funcionalidades)
 * [Pré-requisitos](#pré-requisitos)
 * [Instalação](#instalacão)
+* [PWA](#pwa)
 * [FAQ](#faq)
     * [1. Qual a motivação?](#1)
     * [2. E por que não posso usar online?](#2)
     * [3. Mas então eu não consigo usá-lo no meu celular?](#3)
-* [PWA](#pwa)
+    * [4. Posso sugerir ou requisitar uma funcionalidade?](#4)
 
 # Introdução
 
@@ -25,13 +26,14 @@ Prover um sistema simples, que permita emitir documentos (receitas, atestados, e
 
 Como objetivos meus, eu destaco a experimentação e prática das tecnologias empregadas, divulgação das minhas habilidades e ajuda à profissionais, sejam eles liberais ou não, em tempos de crise extrema, onde são empregadas ações como *home office* e muitos deles não possuem ferramentas e/ou sequer as recebem de seus empregadores por barreiras financeiras.
 
-# Principais funcionalidade
+# Principais funcionalidades
 
 * Cadastro e reaproveitamento dos dados do paciente nos documentos emitidos;
 * Emissão de diversos documentos como atendimento nutricional, receitas, etc
 * Possibilidade de geração de relatório (em desenvolvimento);
 * Contato facilitado através de link para o Whatsapp para cada cliente;
 * Exportação de dados para Excel;
+* Aplicativo para celular que calcula diversos dados e exporta para o sistema;
 
 # Pré-requisitos
 
@@ -40,6 +42,12 @@ Como objetivos meus, eu destaco a experimentação e prática das tecnologias em
 # Instalação
 
 Para executar, é necessário ter instalado o .NET Core SDK 3.1, que você pode baixar clicando [aqui](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer).
+
+# PWA
+
+Um [PWA](https://pt.wikipedia.org/wiki/Progressive_web_app) (progressive web app), é um site, que pode ser instalado em celulares e até mesmo em computadores com Windows e com isso se comportar parecido à um aplicativo.
+
+Ele possui diversar vantagens sobre aplicativos, como não necessitar de investimentos para ser publicado em lojas e ser pesquisável no Google diretamente.
 
 # FAQ
 
@@ -72,8 +80,13 @@ Contudo, para realizar alguns cálculos rápidos, há o [PWA](#pwa). Ele funcion
 
 Mas ainda assim, é possível importar as informações do app para o sistema quando você estiver na sau rede local (o seu WiFi).
 
-# PWA
+## 4
+**Posso sugerir ou requisitar uma funcionalidade?**
 
-Um [PWA](https://pt.wikipedia.org/wiki/Progressive_web_app) (progressive web app), é um site, que pode ser instalado em celulares e até mesmo em computadores com Windows e com isso se comportar parecido à um aplicativo.
+A hospedagem de projetos de software em sites como o Github tem seu funcionamento bem conhecido por desenvolvedores, porém, se você é um nutricionista ou não conhece as funcionalidades e práticas do cenário *opensource*, seguem as principais explicações abaixo:
 
-Ele possui diversar vantagens sobre aplicativos, como não necessitar de investimentos para ser publicado em lojas e ser pesquisável no Google diretamente.
+* Você pode acompanhar os bugs ou melhorias previstas, ou até criar uma solicitação para um desenvolvimento, clicando no link de [Issues](https://github.com/PRElias/nutri/issues) do projeto. Por ser um projeto sem fins lucrativos, pode ser que o mesmo já tenha sido abandonado ou o autor esteja sem tempo ou interesse no momento, mas qualquer pessoa que entenda a linguagem, poderá continuar exatamente de onde ele parou, fazendo um [fork](https://help.github.com/pt/github/getting-started-with-github/fork-a-repo) do projeto, que é uma cópia independente, embora ainda permita a incorporação das evoluções caso os autores assim desejem.
+
+* Tenho como acompanhar o que o autor está desenvolvendo?
+
+Normalmente, os itens em que eu trabalho são controlados usando o próprio kanban de issues do Github, que você pode acompanhar [aqui](https://github.com/PRElias/nutri/projects/1), embora não possa garantir que ele estará sempre atualizado.
