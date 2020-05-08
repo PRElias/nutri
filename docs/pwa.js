@@ -101,16 +101,33 @@ function downloadAssinatura() {
     download.setAttribute("href", image);
 }
 
+function importAssinatura() {
+    var image = document.getElementById("quadro").toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+    
+    $.ajax({
+        method: "GET",
+        url: "../api/NutriApi/SalvaAssinatura/?image=" + image,
+        contentType: undefined,
+        processData: false
+    }).done(function () {
+        alert("Salvo com sucesso!");
+    }).fail(function () {
+        alert("Erro ao sincronizar. Você está no mesmo WiFi do sistema?");
+    });    
+}
+
 
 $(document).ready(function () {
     $("#Altura").mask("0.00");
 
     $("form").submit(function (event) {
-        event.preventDefault()
+        event.preventDefault();
     });
 
-    var largura = $(window).width();
-    var altura = 500;
+    var largura = document.body.scrollWidth - 30;
+    console.log(largura);
+    var altura = 300;
 
     var quadro = document.getElementById("quadro");
     quadro.setAttribute("width", largura);
@@ -138,7 +155,7 @@ $(document).ready(function () {
 });
 
 function startup() {
-    var el = document.getElementById("canvas");
+    var el = document.getElementById("quadro");
     el.addEventListener("touchstart", handleStart, false);
     el.addEventListener("touchend", handleEnd, false);
     el.addEventListener("touchcancel", handleCancel, false);

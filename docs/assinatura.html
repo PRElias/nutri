@@ -79,13 +79,27 @@
     <div class="container-fluid">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
-                <form id="myForm">
+                <!-- <form id="myFormAssinatura" name="formAssinatura" method="POST" method="post" enctype="multipart/form-data" action="../api/NutriApi/SalvaAssinatura/"> -->
+                <form id="myFormAssinatura">
                     <div class="row">
-                        <canvas id="quadro" style="background:white; border:1px solid"></canvas>
+                        <div class="col">
+                            Faça sua assinatura normal com o mouse ou com o dedo e acione o botão desejado
+                        </div>
                     </div>
                     <div class="row">
-                        <a id="download" download="assinatura.png"><button type="button" class="btn btn-primary"
-                                onClick="downloadAssinatura()">Download</button></a>
+                        <div class="col">
+                            <canvas id="quadro" style="background:white; border:1px dashed"></canvas>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a id="download" download="assinatura.png"><button type="button" class="btn btn-primary"
+                                    onClick="downloadAssinatura()">Download</button></a>
+                        </div>
+                        <div class="col">
+                            <a id="import"><button type="button" onclick="importAssinatura()"
+                                    class="btn btn-primary">Importar assinatura</button></a>
+                        </div>
                     </div>
                 </form>
             </div>

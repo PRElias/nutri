@@ -25,6 +25,7 @@ namespace nutri
                         {
                             // var serverCertificate = LoadCertificate();
                             // listenOptions.UseHttps(serverCertificate); // <- Configures SSL
+                            listenOptions.KestrelServerOptions.Limits.MaxRequestLineSize = 10241;
                         });
                     });
                 });
