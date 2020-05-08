@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/r-2.2.3/sp-1.0.1/datatables.min.css"
         crossorigin='anonymous' />
-    <script type="text/javascript"
+    <script
         src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/r-2.2.3/sp-1.0.1/datatables.min.js"
         crossorigin='anonymous'></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js" crossorigin='anonymous'></script>
@@ -32,7 +32,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
     <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script type="text/javascript" src="/nutri/pwa.js"></script>
+    <script src="/nutri/pwa.js"></script>
     <link rel="stylesheet" href="/nutri/pwa.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-1"></script>
@@ -93,12 +93,12 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a id="download" download="assinatura.png"><button type="button" class="btn btn-primary"
-                                    onClick="downloadAssinatura()">Download</button></a>
+                            <a id="download" href="*" download="assinatura.png"><button type="button"
+                                    class="btn btn-primary" onClick="downloadAssinatura()">Download</button></a>
                         </div>
                         <div class="col">
-                            <a id="tab"><button type="button" class="btn btn-primary"
-                                onClick="abrirTab()" >Abrir em outra aba</button></a>
+                            <a id="tab"><button type="button" class="btn btn-primary" onClick="abrirTab()">Abrir em
+                                    outra aba</button></a>
                         </div>
                         <div class="col">
                             <a id="import"><button type="button" onclick="importAssinatura()"
@@ -107,8 +107,7 @@
                     </div>
                 </form>
             </div>
-    </div>
-    </main>
+        </main>
     </div>
 </body>
 

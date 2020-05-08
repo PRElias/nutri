@@ -29,13 +29,13 @@ function addToHomeScreen() {
 
 function limpa() {
     $('form').get(0).reset();
-};
+}
 
 function calculaIMC() {
     if ($("#IMC").val() === "") {
         $("#IMC").val(($("#Peso").val() / ($("#Altura").val() * $("#Altura").val())));
     }
-};
+}
 
 function calculaPesoIdeal() {
     //https://brasilescola.uol.com.br/matematica/peso-ideal.htm
@@ -44,13 +44,13 @@ function calculaPesoIdeal() {
     var altura = $("#Altura").unmask().val();
     pesoIdeal = altura - 100 - ((altura - 150) / 4);
     $("#PesoIdeal").val(pesoIdeal);
-};
+}
 
 function calcula() {
     calculaIMC();
     calculaPesoIdeal();
     salvaCache();
-};
+}
 
 function salvaCache() {
     var paciente = {
@@ -63,7 +63,7 @@ function salvaCache() {
     localStorage.setItem(paciente.Nome, JSON.stringify(paciente));
     //$('form').get(0).reset();
     //formReset();
-};
+}
 
 //Utilizada essa função por não ser um form HTML real, já que assim ele apagaria ao submeter
 // function formReset(){
@@ -75,7 +75,6 @@ function salvaCache() {
 // }
 
 function sincroniza() {
-    debugger
     for (var i = 0; i < localStorage.length; i++) {
 
         var paciente = localStorage.getItem(localStorage.key(i));
@@ -92,7 +91,7 @@ function sincroniza() {
             alert("Erro ao sincronizar. Você está no mesmo WiFi do sistema?");
         });
     }
-};
+}
 
 function downloadAssinatura() {
     var download = document.getElementById("download");
@@ -136,7 +135,6 @@ $(document).ready(function () {
     });
 
     var largura = document.body.scrollWidth - 30;
-    console.log(largura);
     var altura = 300;
 
     var quadro = document.getElementById("quadro");
@@ -152,18 +150,20 @@ $(document).ready(function () {
     quadro.onmousedown = function (evt) {
         ctx.moveTo(evt.clientX - 10, evt.clientY - 115);
         desenhando = true;
-    }
+    };
 
     quadro.onmouseup = function () {
         desenhando = false;
-    }
+    };
 
     quadro.onmousemove = function (evt) {
         if (desenhando) {
             ctx.lineTo(evt.clientX - 10, evt.clientY - 115);
             ctx.stroke();
         }
-    }
+    };
+
+    startup();
 });
 
 function startup() {
@@ -174,7 +174,7 @@ function startup() {
     el.addEventListener("touchmove", handleMove, false);
 }
 
-document.addEventListener("DOMContentLoaded", startup);
+//document.addEventListener("DOMContentLoaded", startup);
 
 var ongoingTouches = [];
 
@@ -201,7 +201,7 @@ function handleMove(evt) {
     var touches = evt.changedTouches;
 
     for (var i = 0; i < touches.length; i++) {
-        var color = colorForTouch(touches[i]);
+        //var color = colorForTouch(touches[i]);
         var idx = ongoingTouchIndexById(touches[i].identifier);
 
         if (idx >= 0) {
@@ -209,7 +209,7 @@ function handleMove(evt) {
             ctx.moveTo(ongoingTouches[idx].pageX -10, ongoingTouches[idx].pageY - 120);
             ctx.lineTo(touches[i].pageX - 10, touches[i].pageY - 120);
             ctx.lineWidth = 4;
-            ctx.strokeStyle = color;
+            ctx.strokeStyle = "#000000";
             ctx.stroke();
 
             ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
