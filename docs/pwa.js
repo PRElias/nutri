@@ -101,12 +101,22 @@ function downloadAssinatura() {
     download.setAttribute("href", image);
 }
 
+function abrirTab() {
+    //var download = document.getElementById("tab");
+    var base64URL = document.getElementById("quadro").toDataURL("image/png");
+    //download.setAttribute("href", image);
+    //download.setAttribute("target", "_blank");
+    var win = window.open();
+    win.document.write('<iframe src="' + base64URL  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+}
+
 function importAssinatura() {
     var image = document.getElementById("quadro").toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
     
     $.ajax({
         method: "GET",
+        // headers: "Access-Control-Allow-Origin: *",
         url: "../api/NutriApi/SalvaAssinatura/?image=" + image,
         contentType: undefined,
         processData: false
@@ -132,13 +142,15 @@ $(document).ready(function () {
     var quadro = document.getElementById("quadro");
     quadro.setAttribute("width", largura);
     quadro.setAttribute("height", altura);
-
+    
     var ctx = quadro.getContext("2d");
+    //tentando mudar o fundo pra branco
+    ctx.fillStyle = "#FFFFFF";
 
     var desenhando = false;
 
     quadro.onmousedown = function (evt) {
-        ctx.moveTo(evt.clientX, evt.clientY);
+        ctx.moveTo(evt.clientX - 10, evt.clientY - 115);
         desenhando = true;
     }
 
@@ -148,7 +160,7 @@ $(document).ready(function () {
 
     quadro.onmousemove = function (evt) {
         if (desenhando) {
-            ctx.lineTo(evt.clientX, evt.clientY);
+            ctx.lineTo(evt.clientX - 10, evt.clientY - 115);
             ctx.stroke();
         }
     }
@@ -174,10 +186,10 @@ function handleStart(evt) {
 
     for (var i = 0; i < touches.length; i++) {
         ongoingTouches.push(copyTouch(touches[i]));
-        var color = colorForTouch(touches[i]);
+        //var color = colorForTouch(touches[i]);
         ctx.beginPath();
-        ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
-        ctx.fillStyle = color;
+        //ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
+        //ctx.fillStyle = color;
         ctx.fill();
     }
 }
@@ -194,8 +206,8 @@ function handleMove(evt) {
 
         if (idx >= 0) {
             ctx.beginPath();
-            ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-            ctx.lineTo(touches[i].pageX, touches[i].pageY);
+            ctx.moveTo(ongoingTouches[idx].pageX -10, ongoingTouches[idx].pageY - 120);
+            ctx.lineTo(touches[i].pageX - 10, touches[i].pageY - 120);
             ctx.lineWidth = 4;
             ctx.strokeStyle = color;
             ctx.stroke();
@@ -213,16 +225,16 @@ function handleEnd(evt) {
     var touches = evt.changedTouches;
 
     for (var i = 0; i < touches.length; i++) {
-        var color = colorForTouch(touches[i]);
+        // var color = colorForTouch(touches[i]);
         var idx = ongoingTouchIndexById(touches[i].identifier);
 
         if (idx >= 0) {
-            ctx.lineWidth = 4;
-            ctx.fillStyle = color;
+            ctx.lineWidth = 2;
+            ctx.fillStyle = "#FFFFFF";
             ctx.beginPath();
-            ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
-            ctx.lineTo(touches[i].pageX, touches[i].pageY);
-            ctx.fillRect(touches[i].pageX - 4, touches[i].pageY - 4, 8, 8);  // and a square at the end
+            ctx.moveTo(ongoingTouches[idx].pageX - 10, ongoingTouches[idx].pageY - 120);
+            ctx.lineTo(touches[i].pageX - 10, touches[i].pageY - 120);
+            //ctx.fillRect(touches[i].pageX - 4, touches[i].pageY - 4, 8, 8);  // and a square at the end
             ongoingTouches.splice(idx, 1);  // remove it; we're done
         } else {
         }
@@ -239,16 +251,16 @@ function handleCancel(evt) {
     }
 }
 
-function colorForTouch(touch) {
-    var r = touch.identifier % 16;
-    var g = Math.floor(touch.identifier / 3) % 16;
-    var b = Math.floor(touch.identifier / 7) % 16;
-    r = r.toString(16); // make it a hex digit
-    g = g.toString(16); // make it a hex digit
-    b = b.toString(16); // make it a hex digit
-    var color = "#" + r + g + b;
-    return color;
-}
+// function colorForTouch(touch) {
+//     var r = touch.identifier % 16;
+//     var g = Math.floor(touch.identifier / 3) % 16;
+//     var b = Math.floor(touch.identifier / 7) % 16;
+//     r = r.toString(16); // make it a hex digit
+//     g = g.toString(16); // make it a hex digit
+//     b = b.toString(16); // make it a hex digit
+//     var color = "#" + r + g + b;
+//     return color;
+// }
 
 function copyTouch({ identifier, pageX, pageY }) {
     return { identifier, pageX, pageY };
