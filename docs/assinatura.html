@@ -94,15 +94,28 @@
                     <div class="row">
                         <div class="col">
                             <a id="download" href="*" download="assinatura.png"><button type="button"
-                                    class="btn btn-primary" onClick="downloadAssinatura()">Download</button></a>
+                                    style="width: -webkit-fill-available" class="btn btn-primary"
+                                    onClick="downloadAssinatura()">Download</button></a>
                         </div>
                         <div class="col">
-                            <a id="tab"><button type="button" class="btn btn-primary" onClick="abrirTab()">Abrir em
-                                    outra aba</button></a>
+                            <a id="limpar"><button type="button" class="btn btn-primary"
+                                    style="width: -webkit-fill-available"
+                                    onClick="document.location.reload(true);">Limpar</button></a>
+                        </div>
+                        <div class="col">
+                            <a id="tab"><button type="button" class="btn btn-primary"
+                                    style="width: -webkit-fill-available" onClick="abrirTab()">Abrir</button></a>
                         </div>
                         <div class="col">
                             <a id="import"><button type="button" onclick="importAssinatura()"
-                                    class="btn btn-primary">Importar assinatura</button></a>
+                                    style="width: -webkit-fill-available" class="btn btn-primary"
+                                    disabled>Importar</button></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <!-- <a href='https://onlinepngtools.com/convert-png-to-data-uri' target="_blank">Colar com
+                                transparência</a> -->
                         </div>
                     </div>
                 </form>
