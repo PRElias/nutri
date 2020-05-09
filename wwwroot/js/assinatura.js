@@ -55,6 +55,7 @@ $(document).ready(function () {
             if(request.readyState === 4) {
                 if(request.status === 200) {
                     alert("Assinatura salva com sucesso");
+                    window.location.replace("../Config/Edit");
                 }
             }
         }

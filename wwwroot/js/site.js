@@ -10,7 +10,7 @@ function checkServer() {
             $(".only-online").hide();
         }
     };
-    xhttp.open("GET", "../Home/CheckServer/", true);
+    xhttp.open("GET", "../../Home/CheckServer/", true);
     xhttp.send();
 }
 

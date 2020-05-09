@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using nutri.Repositories;
 
@@ -20,9 +21,10 @@ namespace nutri.Controllers
         public IActionResult SalvaAssinatura()
         {
             var image = HttpContext.Request.Form.Files.GetFile("assinatura"); 
-            nutri.Util.File.UploadFile(image, "assinatura.png");
+            string filename = "assinatura" + Guid.NewGuid() + ".png";
+            nutri.Util.File.UploadFile(image, filename);
             var profissional = _db.GetDadosProfissional();
-            profissional.Assinatura = "assinatura.png";
+            profissional.Assinatura = filename;
             _db.Upsert(profissional);
             return StatusCode(200);
         }

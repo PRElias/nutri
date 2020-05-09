@@ -6,12 +6,12 @@
     "orientation": "portrait",
     "icons": [
       {
-        "src": "/images/logo-nutri192.png",
+        "src": "/logo-nutri192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "/images/logo-nutri512.png",
+        "src": "/logo-nutri512.png",
         "type": "image/png",
         "sizes": "512x512"
       }
