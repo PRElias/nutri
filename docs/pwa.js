@@ -1,3 +1,5 @@
+var serverip;
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/nutri/service-worker.js')
@@ -70,17 +72,20 @@ function sincroniza() {
 
         var paciente = localStorage.getItem(localStorage.key(i));
 
-        $.ajax({
-            method: "POST",
-            url: "../api/NutriApi/",
-            contentType: "application/json",
-            dataType: "json",
-            data: paciente
-        }).done(function () {
-            localStorage.removeItem(localStorage.key(i));
-        }).fail(function () {
-            alert("Erro ao sincronizar. Você está no mesmo WiFi do sistema?");
-        });
+        if (!paciente.includes("http")) {
+
+            $.ajax({
+                method: "POST",
+                url: serverip + "/api/NutriApi/ImportaPaciente/",
+                contentType: "application/json",
+                dataType: "json",
+                data: paciente
+            }).done(function () {
+                localStorage.removeItem(localStorage.key(i));
+            }).fail(function () {
+                alert("Erro ao sincronizar. Você está no mesmo WiFi do sistema?");
+            });
+        }
     }
 }
 
@@ -94,11 +99,30 @@ function downloadAssinatura() {
 function abrirTab() {
     var base64URL = document.getElementById("quadro").toDataURL("image/png");
     var win = window.open();
-    win.document.write('<iframe src="' + base64URL  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+    win.document.write('<iframe src="' + base64URL + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+}
+
+function getConfig() {
+    serverip = localStorage.getItem("ip-servidor");
+    if (serverip === null) {
+        $("#btn-import").prop("disabled", true);
+        $("#msg-import").show();
+    }
+    else {
+        $("#inp_ip").val(serverip);
+        $("#msg-import").hide();
+    }
+}
+
+function salvaConfig() {
+    localStorage.setItem("ip-servidor", $("#inp_ip").val());
 }
 
 $(document).ready(function () {
     $("#Altura").mask("0.00");
+    // $("#inp_ip").mask("http://000.000.0.00");
+
+    getConfig();
 
     $("form").submit(function (event) {
         event.preventDefault();
@@ -110,7 +134,7 @@ $(document).ready(function () {
     var quadro = document.getElementById("quadro");
     quadro.setAttribute("width", largura);
     quadro.setAttribute("height", altura);
-    
+
     var ctx = quadro.getContext("2d");
     //tentando mudar o fundo pra branco
     ctx.fillStyle = "#FFFFFF";
@@ -135,7 +159,7 @@ $(document).ready(function () {
 
     startup();
 
-    $("#myFormAssinatura").submit(function(event){
+    $("#myFormAssinatura").submit(function (event) {
         event.preventDefault();
         var image = document.getElementById("quadro").toDataURL("image/png");
         image = image.replace("data:image/png;base64,", "");
@@ -147,11 +171,11 @@ $(document).ready(function () {
         }
 
         const byteArray = new Uint8Array(byteNumbers);
-        const blob = new Blob([byteArray], {type: "image/png"});
+        const blob = new Blob([byteArray], { type: "image/png" });
         var formData = new FormData();
         formData.append("assinatura", blob);
         var request = new XMLHttpRequest();
-        request.open("POST", "../api/NutriApi/SalvaAssinatura/");
+        request.open("POST", serverip + "/api/NutriApi/SalvaAssinatura/");
         request.send(formData);
     });
 });
@@ -192,7 +216,7 @@ function handleMove(evt) {
 
         if (idx >= 0) {
             ctx.beginPath();
-            ctx.moveTo(ongoingTouches[idx].pageX -10, ongoingTouches[idx].pageY - 120);
+            ctx.moveTo(ongoingTouches[idx].pageX - 10, ongoingTouches[idx].pageY - 120);
             ctx.lineTo(touches[i].pageX - 10, touches[i].pageY - 120);
             ctx.lineWidth = 4;
             ctx.strokeStyle = "#000000";

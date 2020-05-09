@@ -82,48 +82,28 @@
     <div class="container-fluid">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
-                <form id="myFormAssinatura" name="formAssinatura" method="POST" method="post" enctype="multipart/form-data" action="../api/NutriApi/SalvaAssinatura/">
+                <form id="formConfig" name="formConfig">
                     <div class="row">
-                        <div class="col">
+                        <div class="col ms-12">
                             <p class="text-info">
-                            Faça sua assinatura normal com o mouse ou com o dedo e acione o botão desejado
-                        </p>
+                                As configurações abaixo são necessárias para que o aplicativo se conecte ao sistema
+                                instalado no seu computador e possa importar os pacientes digitados e também a sua
+                                assinatura.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col ms-2">
+                            <label>IP do servidor</label>
+                        </div>
+                        <div class="col ms-10">
+                            <input type="text" class="form-control" id="inp_ip" name="inp_ip"
+                                placeholder="192.168.0.XX" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <canvas id="quadro" style="background:white; border:1px dashed"></canvas>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- <div class="col">
-                            <a id="download" href="*" download="assinatura.png"><button type="button"
-                                    style="width: -webkit-fill-available" class="btn btn-primary"
-                                    onClick="downloadAssinatura()">Download</button></a>
-                        </div> -->
-                        <div class="col">
-                            <a id="limpar"><button type="button" class="btn btn-primary"
-                                    style="width: -webkit-fill-available"
-                                    onClick="document.location.reload(true);">Limpar</button></a>
-                        </div>
-                        <!-- <div class="col">
-                            <a id="tab"><button type="button" class="btn btn-primary"
-                                    style="width: -webkit-fill-available" onClick="abrirTab()">Abrir</button></a>
-                        </div> -->
-                        <div class="col">
-                            <a id="import"><button type="submit" id="btn-import"
-                                    style="width: -webkit-fill-available" class="btn btn-primary"
-                                    >Importar</button></a>
-                        </div>
-                    </div>
-                    <div class="row" id="msg-import">
-                        <div class="col">
-                            <!-- <a href='https://onlinepngtools.com/convert-png-to-data-uri' target="_blank">Colar com
-                                transparência</a> -->
-                                <p class="text-info">
-                                    O botão de Importar fica desabilitado enquanto você não tiver configurado o endereço I.P. do seu servidor.
-                                    Para configurar, clique <a href="configura.html">aqui</a>.
-                                </p>
+                            <a id="btn_salvar"><button type="button" class="btn btn-primary"
+                                    style="width: -webkit-fill-available" onClick="salvaConfig()">Salvar</button></a>
                         </div>
                     </div>
                 </form>

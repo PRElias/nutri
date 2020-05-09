@@ -16,4 +16,4 @@ packages
 
 wwwroot/images
 
-wwwroot/log.txt
+wwwroot/log*
