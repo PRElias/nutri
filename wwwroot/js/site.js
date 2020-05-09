@@ -110,9 +110,14 @@ $('form').submit(function (e) {
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/'})
             .then((reg) => {
                 console.log('Service worker registered.', reg);
+                var button = document.getElementById('pwaUpdate');
+                button.onclick = function() {
+                    console.log("App atualizado!")
+                    reg.update();
+                }
             });
     });
 }
