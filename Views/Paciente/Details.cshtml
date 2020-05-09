@@ -37,25 +37,24 @@ ViewData["PacienteId"] = @Model.Id;
 
 
 <div class="form-group row">
-    <div class="col">
-        <div class="row column-left">
+    <div class="col column-left">
+        <div class="row">
             <label class="control-label">Peso</label>
             <input type="text" id="PesoInput" name="Peso" class="form-control" value="@(Model.Peso)" disabled />
         </div>
-        <div class="row column-left">
+        <div class="row">
             <label class="control-label">Altura</label>
             <input type="text" id="AlturaInput" name="Altura" class="form-control" value="@(Model.Altura)" disabled />
         </div>
     </div>
-    <div class="col">
-        <div class="row column-right">
-            <label class="control-label">Telefone</label>
-            <input type="text" id="TelefoneInput" name="Telefone" class="form-control" value="@(Model.Telefone)"
-                disabled />
+    <div class="col column-right">
+        <div class="row">
+            <label class="control-label">Idade</label>
+            <input type="text" id="IdadeInput" name="Idade" class="form-control" value="@(Model.Idade)" disabled />
         </div>
-        <div class="row column-right">
-            <label class="control-label">Celular</label>
-            <input type="text" id="CelularInput" name="Celular" class="form-control" value="@(Model.Celular)" disabled />
+        <div class="row">
+            <label class="control-label">Sexo</label>
+            <input type="text" id="SexoInput" name="Sexo" class="form-control" value="@(Model.Sexo)" disabled />
         </div>
     </div>
 </div>

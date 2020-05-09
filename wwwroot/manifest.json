@@ -16,7 +16,7 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "https://*:5000",
+    "start_url": "https://localhost:5000",
     "background_color": "black",
     "display": "fullscreen",
     "scope": "/",
