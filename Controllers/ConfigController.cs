@@ -5,10 +5,10 @@ using nutri.Repositories;
 
 namespace nutri.Controllers
 {
-    public class ProfissionalController : Controller
+    public class ConfigController : Controller
     {
         private NutriRepository _db;
-        public ProfissionalController([FromServices] NutriRepository db)
+        public ConfigController([FromServices] NutriRepository db)
         {
             _db = db;
         }

@@ -15,7 +15,7 @@
     <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"
         crossorigin='anonymous' />
     <script src="~/lib/fontawesome-free-5.9.0-web/js/all.js"></script>
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="/manifest.json">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Profissional"
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Config"
                                 asp-action="Edit">Configurações</a>
                         </li>
                         <li class="nav-item">
@@ -38,7 +38,8 @@
                                 asp-action="Index">Pacientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/nutri/index.html" target="_blank">App</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Calculos"
+                                asp-action="Index">Cálculos rápidos</a>
                         </li>
                         <ul class="navbar-nav ml-auto"></ul>
                         <li class="nav-item">

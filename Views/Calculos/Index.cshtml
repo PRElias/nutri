@@ -1,0 +1,141 @@
+<div class="form-horizontal">
+    <form id="myForm">
+        <div class="form-group">
+            <div class="row">
+                <div class="col ms-3">
+                    <label>Nome</label>
+                </div>
+                <div class="col ms-9">
+                    <input type="text" class="form-control" id="Nome" name="Nome" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ms-3">
+                    <label>Idade</label>
+                </div>
+                <div class="col ms-9">
+                    <input type="text" class="form-control" id="Idade" name="Idade" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ms-3">
+                    <label>Peso (kg)</label>
+                </div>
+                <div class="col ms-9">
+                    <input type="text" class="form-control" id="Peso" name="Peso" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ms-3">
+                    <label>Altura (m)</label>
+                </div>
+                <div class="col ms-9">
+                    <input type="text" class="form-control" id="Altura" name="Altura" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ms-3">
+                    <label>Sexo</label>
+                </div>
+                <div class="col ms-9">
+                    <select class="form-control" id="Sexo" name="Sexo" required>
+                        <option value="">Selecione...</option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Feminino</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col ms-6">
+                    <button class="btn btn-primary" onclick="limpa()">Limpar</button>
+                </div>
+                <div class="col ms-6">
+                    <button class="btn btn-primary" onclick="calcula()">Calcular</button>
+                </div>
+                <div class="col ms-6">
+                    <button class="btn btn-primary" onclick="sincroniza()">Sincronizar</button>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col ms-3">
+                <label>Peso Ideal</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="PesoIdeal" name="PesoIdeal" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>Peso ajustado</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="PesoAjustado" name="PesoAjustado" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>Peso corrigido</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="PesoCorrigido" name="PesoCorrigido" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>Peso estimado</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="PesoEstimado" name="PesoEstimado" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>Altura estimada</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="AlturaEstimada" name="AlturaEstimada"
+                    disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>IMC</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="IMC" name="IMC" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>Adequação do peso</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="AdequacaoPeso" name="AdequacaoPeso" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>Relação cintura-quadril</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="RelacaoCinturaQuadril"
+                    name="RelacaoCinturaQuadril" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ms-3">
+                <label>GET Gasto Energético Total</label>
+            </div>
+            <div class="col ms-9">
+                <input type="text" class="form-control" id="GastoEnergeticoTotal"
+                    name="GastoEnergeticoTotal" disabled />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+     <script type="text/javascript" src="~/js/calculos.js"></script>
+}
