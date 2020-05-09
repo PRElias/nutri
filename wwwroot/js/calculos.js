@@ -26,8 +26,6 @@ $(document).ready(function () {
     $("#Altura").mask("0.00");
     // $("#inp_ip").mask("http://000.000.0.00");
 
-    getConfig();
-
     $("form").submit(function (event) {
         event.preventDefault();
     });
