@@ -41,6 +41,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Calculos"
                                 asp-action="Index">Cálculos rápidos</a>
                         </li>
+                        <li class="nav-item only-online only-online">
+                            <a class="nav-link text-dark" id="pwa-update">
+                                <span style="action-icons">
+                                    <i class="fas fa-sync"></i>
+                                </span>
+                            </a>
+                        </li>
                         <ul class="navbar-nav ml-auto"></ul>
                         <li class="nav-item">
                             <a href="https://github.com/PRElias/nutri/blob/master/README.md" target="_blank"
@@ -88,8 +95,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
     <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="~/js/cache.js" asp-append-version="true"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @* <script src="~/js/site.js" asp-append-version="true"></script> *@
+    <script src="~/js/site.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 

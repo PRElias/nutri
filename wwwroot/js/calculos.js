@@ -1,3 +1,20 @@
+const online;
+
+function checkServer() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status != 200) {
+            window.location.replace("https://localhost:5000/Calculos");
+            online = false;
+        }
+        else {
+            online = true;
+        }
+    };
+    xhttp.open("GET", "../../Home/CheckServer/", true);
+    xhttp.send();
+}
+
 function limpa() {
     $('form').get(0).reset();
 }
@@ -29,6 +46,14 @@ $(document).ready(function () {
     $("form").submit(function (event) {
         event.preventDefault();
     });
+    if (!online || online === undefined) {
+        checkServer();
+        var elsToHide = document.getElementsByClassName("only-online");
+        console.table(elsToHide);
+        for(var i = 0; i < elsToHide.length; i++){
+            elsToHide[i].style.display = "none";
+        }
+    }
 });
 
 function salvaCache() {

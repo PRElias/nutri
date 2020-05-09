@@ -1,20 +1,6 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-function checkServer() {
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status != 200) {
-            window.location.replace("https://localhost:5000/Calculos");
-            $(".only-online").hide();
-        }
-    };
-    xhttp.open("GET", "../../Home/CheckServer/", true);
-    xhttp.send();
-}
-
-
 function addToHomeScreen() {
     // show the install app prompt
     window.promptEvent.prompt();
@@ -110,10 +96,10 @@ $('form').submit(function (e) {
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js', { scope: '/'})
+        navigator.serviceWorker.register('/service-worker.js')
             .then((reg) => {
                 console.log('Service worker registered.', reg);
-                var button = document.getElementById('pwaUpdate');
+                var button = document.getElementById('pwa-update');
                 button.onclick = function() {
                     console.log("App atualizado!")
                     reg.update();
@@ -162,8 +148,6 @@ $('.alert .close').on('click', function (e) {
 $('.alert').hide();
 
 window.onload = function () {
-    checkServer();
-    //verificaEncomendas();
     // this.setInterval(verificaEncomendas, 100000);
 }
 
