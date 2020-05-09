@@ -32,7 +32,6 @@ $(document).ready(function () {
     startup();
 
     $("form").submit(function (event) {
-        debugger
         event.preventDefault();
         var image = document.getElementById("quadro").toDataURL("image/png");
         image = image.replace("data:image/png;base64,", "");
@@ -48,8 +47,17 @@ $(document).ready(function () {
         var formData = new FormData();
         formData.append("assinatura", blob);
         var request = new XMLHttpRequest();
-        request.open("POST", "/Assinatura/SalvaAssinatura");
-        //request.onerror(alert("Erro ao conectar"));
+        request.open("POST", "../Assinatura/SalvaAssinatura");
+        request.onerror = function () {
+            console.log("Erro ao salvar assinatura");
+          };
+        request.onreadystatechange = function() {
+            if(request.readyState === 4) {
+                if(request.status === 200) {
+                    alert("Assinatura salva com sucesso");
+                }
+            }
+        }
         request.send(formData);
     });
 });
@@ -90,8 +98,8 @@ function handleMove(evt) {
 
         if (idx >= 0) {
             ctx.beginPath();
-            ctx.moveTo(ongoingTouches[idx].pageX - 10, ongoingTouches[idx].pageY - 120);
-            ctx.lineTo(touches[i].pageX - 10, touches[i].pageY - 120);
+            ctx.moveTo(ongoingTouches[idx].pageX - 40, ongoingTouches[idx].pageY - 82);
+            ctx.lineTo(touches[i].pageX - 40, touches[i].pageY - 82);
             ctx.lineWidth = 4;
             ctx.strokeStyle = "#000000";
             ctx.stroke();
@@ -115,8 +123,8 @@ function handleEnd(evt) {
             ctx.lineWidth = 2;
             ctx.fillStyle = "#FFFFFF";
             ctx.beginPath();
-            ctx.moveTo(ongoingTouches[idx].pageX - 10, ongoingTouches[idx].pageY - 120);
-            ctx.lineTo(touches[i].pageX - 10, touches[i].pageY - 120);
+            ctx.moveTo(ongoingTouches[idx].pageX - 40, ongoingTouches[idx].pageY - 82);
+            ctx.lineTo(touches[i].pageX - 40, touches[i].pageY - 82);
             ongoingTouches.splice(idx, 1);
         } else {
         }

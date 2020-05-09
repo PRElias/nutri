@@ -24,7 +24,7 @@ namespace nutri.Controllers
             var profissional = _db.GetDadosProfissional();
             profissional.Assinatura = "assinatura.png";
             _db.Upsert(profissional);
-            return null;
+            return StatusCode(200);
         }
     }
 }
