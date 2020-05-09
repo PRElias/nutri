@@ -65,15 +65,6 @@ function salvaCache() {
     //formReset();
 }
 
-//Utilizada essa função por não ser um form HTML real, já que assim ele apagaria ao submeter
-// function formReset(){
-//     $(':input','#form')
-//     .not(':button, :submit, :reset, :hidden')
-//     .val('')
-//     .removeAttr('checked')
-//     .removeAttr('selected');
-// }
-
 function sincroniza() {
     for (var i = 0; i < localStorage.length; i++) {
 
@@ -101,31 +92,10 @@ function downloadAssinatura() {
 }
 
 function abrirTab() {
-    //var download = document.getElementById("tab");
     var base64URL = document.getElementById("quadro").toDataURL("image/png");
-    //download.setAttribute("href", image);
-    //download.setAttribute("target", "_blank");
     var win = window.open();
     win.document.write('<iframe src="' + base64URL  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
 }
-
-function importAssinatura() {
-    var image = document.getElementById("quadro").toDataURL("image/png")
-        .replace("image/png", "image/octet-stream");
-    
-    $.ajax({
-        method: "GET",
-        // headers: "Access-Control-Allow-Origin: *",
-        url: "../api/NutriApi/SalvaAssinatura/?image=" + image,
-        contentType: undefined,
-        processData: false
-    }).done(function () {
-        alert("Salvo com sucesso!");
-    }).fail(function () {
-        alert("Erro ao sincronizar. Você está no mesmo WiFi do sistema?");
-    });    
-}
-
 
 $(document).ready(function () {
     $("#Altura").mask("0.00");
@@ -164,6 +134,26 @@ $(document).ready(function () {
     };
 
     startup();
+
+    $("#myFormAssinatura").submit(function(event){
+        event.preventDefault();
+        var image = document.getElementById("quadro").toDataURL("image/png");
+        image = image.replace("data:image/png;base64,", "");
+        const byteCharacters = atob(image);
+
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], {type: "image/png"});
+        var formData = new FormData();
+        formData.append("assinatura", blob);
+        var request = new XMLHttpRequest();
+        request.open("POST", "../api/NutriApi/SalvaAssinatura/");
+        request.send(formData);
+    });
 });
 
 function startup() {
@@ -186,10 +176,7 @@ function handleStart(evt) {
 
     for (var i = 0; i < touches.length; i++) {
         ongoingTouches.push(copyTouch(touches[i]));
-        //var color = colorForTouch(touches[i]);
         ctx.beginPath();
-        //ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
-        //ctx.fillStyle = color;
         ctx.fill();
     }
 }
@@ -201,7 +188,6 @@ function handleMove(evt) {
     var touches = evt.changedTouches;
 
     for (var i = 0; i < touches.length; i++) {
-        //var color = colorForTouch(touches[i]);
         var idx = ongoingTouchIndexById(touches[i].identifier);
 
         if (idx >= 0) {
@@ -212,7 +198,7 @@ function handleMove(evt) {
             ctx.strokeStyle = "#000000";
             ctx.stroke();
 
-            ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
+            ongoingTouches.splice(idx, 1, copyTouch(touches[i]));
         } else {
         }
     }
@@ -225,7 +211,6 @@ function handleEnd(evt) {
     var touches = evt.changedTouches;
 
     for (var i = 0; i < touches.length; i++) {
-        // var color = colorForTouch(touches[i]);
         var idx = ongoingTouchIndexById(touches[i].identifier);
 
         if (idx >= 0) {
@@ -234,8 +219,7 @@ function handleEnd(evt) {
             ctx.beginPath();
             ctx.moveTo(ongoingTouches[idx].pageX - 10, ongoingTouches[idx].pageY - 120);
             ctx.lineTo(touches[i].pageX - 10, touches[i].pageY - 120);
-            //ctx.fillRect(touches[i].pageX - 4, touches[i].pageY - 4, 8, 8);  // and a square at the end
-            ongoingTouches.splice(idx, 1);  // remove it; we're done
+            ongoingTouches.splice(idx, 1);
         } else {
         }
     }
@@ -250,17 +234,6 @@ function handleCancel(evt) {
         ongoingTouches.splice(idx, 1);  // remove it; we're done
     }
 }
-
-// function colorForTouch(touch) {
-//     var r = touch.identifier % 16;
-//     var g = Math.floor(touch.identifier / 3) % 16;
-//     var b = Math.floor(touch.identifier / 7) % 16;
-//     r = r.toString(16); // make it a hex digit
-//     g = g.toString(16); // make it a hex digit
-//     b = b.toString(16); // make it a hex digit
-//     var color = "#" + r + g + b;
-//     return color;
-// }
 
 function copyTouch({ identifier, pageX, pageY }) {
     return { identifier, pageX, pageY };

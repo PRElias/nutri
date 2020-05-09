@@ -13,8 +13,9 @@ O sistema, em sua fase atual e embora já utilizável, pode ser considerado um p
 * [FAQ](#faq)
     * [1. Qual a motivação?](#1)
     * [2. E por que não posso usar online?](#2)
-    * [3. Mas então eu não consigo usá-lo no meu celular?](#3)
-    * [4. Posso sugerir ou requisitar uma funcionalidade?](#4)
+    * [3. E quais cudados eu tenho que tomar com os dados?](#3)
+    * [4. Mas então eu não consigo usá-lo no meu celular?](#4)
+    * [5. Posso sugerir ou requisitar uma funcionalidade?](#5)
 
 # Introdução
 
@@ -29,6 +30,7 @@ Como objetivos meus, eu destaco a experimentação e prática das tecnologias em
 # Principais funcionalidades
 
 * Cadastro e reaproveitamento dos dados do paciente nos documentos emitidos;
+* Criação de assinatura direto na tela para uso nos documentos impressos;
 * Emissão de diversos documentos como atendimento nutricional, receitas, etc
 * Possibilidade de geração de relatório (em desenvolvimento);
 * Contato facilitado através de link para o Whatsapp para cada cliente;
@@ -72,6 +74,11 @@ Por tudo isto, escolhi esse formato, mas esse é um projeto OpenSource, então f
 Ser opensource, signifca também que todo código pode ser conferido por qualquer pessoa e inclusive copiado, e é por isso que esse projeto pode ser confirmado como sem fins lucrativos, já que você poderia copiá-lo e concorrer contra ele.
 
 ## 3
+**E quais cuidados eu tenho que tomar com os dados?**
+
+Os dados são armazenados fisicamente no seu computador, em um arquivo chamado *Database.log*. Os cuidados que você deve tomar com esse arquivo e com as planilhas e impressões geradas no sistema, são as mesmos que você tomaria com quaisquer arquivos que você não quer que sejam expostos, então, não envie a ninguém e não salve onde não tenha certeza do que está fazendo.
+
+## 4
 **Mas então eu não consigo usá-lo no meu celular?**
 
 Consegue. Mas não o sistema completo. Conforme dito acima, foi uma opção de design não disponibilizar os dados sensíveis, sendo assim, você só pode manipulá-los executando o sistema no seu PC.
@@ -80,7 +87,7 @@ Contudo, para realizar alguns cálculos rápidos, há o [PWA](#pwa). Ele funcion
 
 Mas ainda assim, é possível importar as informações do app para o sistema quando você estiver na sau rede local (o seu WiFi).
 
-## 4
+## 5
 **Posso sugerir ou requisitar uma funcionalidade?**
 
 A hospedagem de projetos de software em sites como o Github tem seu funcionamento bem conhecido por desenvolvedores, porém, se você é um nutricionista ou não conhece as funcionalidades e práticas do cenário *opensource*, seguem as principais explicações abaixo:

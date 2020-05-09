@@ -45,32 +45,13 @@ namespace nutri.Api
             return CreatedAtAction(nameof(Paciente), new {id = paciente.Id}, paciente);
         }
 
-        [HttpGet]
-        public async Task<bool> SalvaAssinatura(string image)
+        [HttpPost]
+        public async Task<bool> SalvaAssinatura()
         {
-            //var image = HttpContext.Request.Form.Files.GetFile("assinatura.png"); //Request.Pa ReadFormAsync.Content.ReadAsStringAsync().Result;
-            //var image = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
-            // string file;
-            // foreach (string s in Request.Form.Keys)
-            // {
-            //     file = s.ToString();
-            // }
-            string header = "data:image/octet-stream;base64,";
-            byte[] bytes = Convert.FromBase64String(image.Substring(header.Length));
-            // var file = Convert.FromBase64String(Request.BodyReader.AsStream());
-            // byte[] bytes = Encoding.ASCII.GetBytes(Request.BodyReader.AsStream());
-            Image imagem;
-            using (var ms = new MemoryStream(bytes))
-            {
-                await Request.Body.CopyToAsync(ms);
-                imagem = Image.FromStream(ms);
-            }
-            imagem.Save("wwwroot/images/assinatura.png", System.Drawing.Imaging.ImageFormat.Png);
-            //System.IO.File.WriteAllBytes("wwwroot/images/assinatura.png", bytes);
-           
+            var image = HttpContext.Request.Form.Files.GetFile("assinatura"); 
+            nutri.Util.File.UploadFile(image, "assinatura.png");
             var profissional = _db.GetDadosProfissional();
             profissional.Assinatura = "assinatura.png";
-
             _db.Upsert(profissional);
             return true;
         }
