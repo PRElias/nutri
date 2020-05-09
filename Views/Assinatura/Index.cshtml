@@ -1,0 +1,25 @@
+<div class="form-horizontal">
+    <form id="myFormAssinatura" name="formAssinatura" method="POST" method="post" enctype="multipart/form-data" action="../api/NutriApi/SalvaAssinatura/">
+        <div class="row">
+            <div class="col">
+                <canvas id="quadro" style="background:white; border:1px dashed"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a id="limpar"><button type="button" class="btn btn-primary"
+                        style="width: -webkit-fill-available"
+                        onClick="document.location.reload(true);">Limpar</button></a>
+            </div>
+            <div class="col">
+                <a id="import"><button type="submit" id="btn-import"
+                        style="width: -webkit-fill-available" class="btn btn-primary"
+                        >Salvar</button></a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+     <script type="text/javascript" src="~/js/assinatura.js"></script>
+}

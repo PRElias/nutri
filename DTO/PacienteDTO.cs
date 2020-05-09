@@ -6,6 +6,6 @@ namespace nutri.DTO
         public int Idade {get; set;}
         public string Peso {get; set;}
         public decimal Altura {get; set;}
-        public char Sexo {get; set;}
+        public string Sexo {get; set;}
     }
 }

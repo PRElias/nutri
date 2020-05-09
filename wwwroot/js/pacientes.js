@@ -6,6 +6,12 @@ $(document).ready(function () {
     // });
     $('#CelularInput').mask('(00) 00000-0000');
 
+    $("form").submit(function () {
+        // $(':input').filter(function () {
+        //     return this.val() === "";
+        // }).attr('disabled', true);
+    });
+
     $("#DataNascimentoInput").datepicker({
         dateFormat: 'dd/mm/yy',
         showButtonPanel: true,
@@ -20,67 +26,67 @@ $(document).ready(function () {
 
     //Table
     var colunas = [{
-            //0
-            "data": "id",
-            "title": "",
-            width: "5%"
-        },
-        {
-            //1
-            "data": "nome",
-            "title": "Nome"
-        },
-        {
-            //2
-            "data": "idade",
-            "title": "Idade",
-            className: "none"
-        },
-        {
-            //3
-            "data": "altura",
-            "title": "Altura",
-            className: "none"
-        },
-        {
-            //4
-            "data": "peso",
-            "title": "Peso",
-            className: "none"
-        },
-        {
-            //5
-            "data": "imc",
-            "title": "IMC",
-            className: "none"
-        },
-        {
-            //6
-            "data": "telefone",
-            "title": "Telefone",
-            className: "none"
-        },
-        {
-            //7
-            "data": "celular",
-            "title": "Celular",
-            className: "none"
-        },
-        {
-            //8
-            "data": "status",
-            "title": "Status",
-            className: "none"
-        },
-        {
-            //9
-            "data": "",
-            "title": "Ações",
-            className: "none",
-            width: "20%"
-        }
+        //0
+        "data": "id",
+        "title": "",
+        width: "5%"
+    },
+    {
+        //1
+        "data": "nome",
+        "title": "Nome"
+    },
+    {
+        //2
+        "data": "idade",
+        "title": "Idade",
+        className: "none"
+    },
+    {
+        //3
+        "data": "altura",
+        "title": "Altura",
+        className: "none"
+    },
+    {
+        //4
+        "data": "peso",
+        "title": "Peso",
+        className: "none"
+    },
+    {
+        //5
+        "data": "imc",
+        "title": "IMC",
+        className: "none"
+    },
+    {
+        //6
+        "data": "telefone",
+        "title": "Telefone",
+        className: "none"
+    },
+    {
+        //7
+        "data": "celular",
+        "title": "Celular",
+        className: "none"
+    },
+    {
+        //8
+        "data": "status",
+        "title": "Status",
+        className: "none"
+    },
+    {
+        //9
+        "data": "",
+        "title": "Ações",
+        className: "none",
+        width: "20%"
+    }
     ]
-    
+
     //Removendo a classe none em mobile para exibir o botão + de child rows
     if ($(window).width() >= 700) {
         delete colunas[5].className;
@@ -92,7 +98,7 @@ $(document).ready(function () {
 
     $('#pacientesTable').DataTable({
         columns: colunas,
-        bAutoWidth:false,
+        bAutoWidth: false,
         columnDefs: [
             { width: 200, targets: 0 }
         ]
@@ -144,13 +150,13 @@ var acc = document.getElementsByClassName("accordion");
 var i;
 
 for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
+    acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
 }

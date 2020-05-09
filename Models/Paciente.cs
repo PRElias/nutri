@@ -19,7 +19,7 @@ namespace nutri.Models
         public string Celular { get; set; }
         public string Foto {get; set;}
         public Status Status { get; set; }
-        public char Sexo {get; set;}
+        public string Sexo {get; set;}
         public bool IsDeleted { get; set; }
     }
 }

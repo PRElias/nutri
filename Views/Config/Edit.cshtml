@@ -18,36 +18,36 @@
 </div>
 <div class="form-group row">
     <div class="col-md-6">
-    <label class="control-label">Logo Empresa</label>
+        <label class="control-label">Logo Empresa</label>
         <input type="file" id="LogoEmpresa" name="LogoEmpresa" class="form-control" />
     </div>
     <div class="col-md-6">
         @{
         if (!String.IsNullOrEmpty(@Model.LogoEmpresa))
         {
-            <img src="~/images/@Model.LogoEmpresa" class="rounded mx-auto d-block img-max" alt="Sem foto">
+        <img src="~/images/@Model.LogoEmpresa" class="rounded mx-auto d-block img-max" alt="Sem foto">
         }
         }
     </div>
 </div>
 <div class="form-group row">
     <div class="col-md-6">
-    <label class="control-label">Assinatura</label>
+        <label class="control-label">Assinatura</label>
         <input type="file" id="Assinatura" name="Assinatura" class="form-control" />
     </div>
     <div class="col-md-6">
         @{
         if (!String.IsNullOrEmpty(@Model.Assinatura))
         {
-            <img src="~/images/@Model.Assinatura" class="rounded mx-auto d-block img-max" alt="Sem foto">
+        <img src="~/images/@Model.Assinatura" class="rounded mx-auto d-block img-max NO-CACHE" alt="Sem foto">
         }
         }
     </div>
 </div>
 <div class="form-group row">
-    <div class="col-md-offset-2 col-md-10">
-        <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
+    <div class="col">
+    <input type="button" value="Criar assinatura" class="btn btn-primary column-left" onclick="location.href='@Url.Action("Index", "Assinatura")'" />
+    <input type="submit" value="Salvar" class="btn btn-primary column-right" role="button" />
     </div>
 </div>
-
 }

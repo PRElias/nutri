@@ -79,6 +79,10 @@ namespace nutri
             //app.UseCookiePolicy();
 
             app.UseRouting();
+            app.UseCors(option => {
+                option.AllowAnyOrigin();
+                option.AllowAnyHeader();
+            });
 
             // app.UseAuthentication();
             // app.UseAuthorization();
