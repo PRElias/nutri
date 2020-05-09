@@ -66,6 +66,13 @@ namespace nutri
                 app.UseHsts();
             }
 
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "./docs")),
+                RequestPath = "/docs"
+            });
+
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
 

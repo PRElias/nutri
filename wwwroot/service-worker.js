@@ -20,9 +20,9 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
 if (workbox) {
-    console.log(`Yay! Workbox is loaded 🎉`);
+    console.log(`Yay! Workbox is loaded 🎉 for service-work.js`);
 } else {
-    console.log(`Boo! Workbox didn't load 😬`);
+    console.log(`Boo! Workbox didn't load 😬 for service-work.js`);
 }
 
 workbox.routing.registerRoute(
