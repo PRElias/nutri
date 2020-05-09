@@ -28,7 +28,7 @@ if (workbox) {
 }
 
 workbox.routing.registerRoute(
-    /.*\.(?:png|jpg|jpeg|svg|gif|js|css)/g,
+    /.*\.(?:png|jpg|jpeg|svg|gif|js|css|woff|woff2)/g,
     new workbox.strategies.CacheFirst({
         cacheName: "static-cache",
         cacheableResponse: {
@@ -37,16 +37,20 @@ workbox.routing.registerRoute(
     })
 );
 
-// workbox.routing.registerRoute(
-//     // "/https://localhost/(.*)",
-//     "/https://localhost/GetClientes/(.*)",
-//     new workbox.strategies.CacheFirst({
-//         cacheName: "data-cache",
-//         cacheableResponse: {
-//             statuses: [200]
-//         }
-//     })
-// );
+workbox.routing.registerRoute(
+    "https://localhost:5000/Calculos",
+    new workbox.strategies.NetworkFirst({
+        cacheName: "html-cache"
+    })
+);
+
+// fetch("../Home/CheckServer")
+//     .catch(() => {
+//         return caches.open("html-cache")
+//             .then((cache) => {
+//                 return cache.match("/Calculos");
+//             });
+//     });
 
 // async function addToCache(urls) {
 //     const myCache = await window.caches.open(API_CACHE);
@@ -146,15 +150,9 @@ workbox.routing.registerRoute(
 //     // Not a page navigation, bail.
 //     return;
 // }
-// evt.respondWith(
-//     fetch(evt.request)
-//         .catch(() => {
-//             return caches.open(CACHE_NAME)
-//                 .then((cache) => {
-//                     return cache.match('offline.html');
-//                 });
-//         })
-// );
+
+
+
 
 // self.addEventListener('install', (evt) => {
 //     console.log('[ServiceWorker] Install');

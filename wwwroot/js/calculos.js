@@ -50,7 +50,7 @@ function sincroniza() {
 
         $.ajax({
             method: "POST",
-            url: serverip + "/Calculos/ImportaPaciente/",
+            url: "../Calculos/ImportaPaciente/",
             contentType: "application/json",
             dataType: "json",
             data: paciente
