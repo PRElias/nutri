@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         crossorigin='anonymous' />
     <link rel="stylesheet" href="site.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        crossorigin="anonymous" />
     <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"
         crossorigin='anonymous' />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous">
+    </script>
     <link rel="manifest" href="pwa-manifest.json">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-7"></script>
@@ -37,24 +39,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="assinatura.html">Criar assinatura</a>
-                        </li>
+                    <!-- <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="index.html">Cálculos rápidos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" id="pwa-update">Atualizar</a>
                         </li>
-                        
-                        
-                        
-                    </ul>
+                    </ul> -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a href="https://github.com/PRElias/nutri/blob/master/README.md" target="_blank"
-                                class="nav-link text-dark">Ajuda</a>
+                                class="nav-link text-dark">Sobre</a>
                         </li>
                         <li class="nav-item">
                             <a href="https://paulorobertoelias.com.br" target="_blank" class="nav-link">
@@ -74,12 +70,15 @@
             <div class="form-horizontal">
                 <form id="myForm">
                     <div class="form-group">
-                        <div class="row" style="visibility: hidden;">
+                        <div class="row pacienteDiv">
                             <div class="col ms-3">
                                 <label>Paciente</label>
                             </div>
-                            <select id="pacienteSelect">
-                            </select>
+                            <div class="col ms-9">
+                                <select class="form-control" id="pacienteSelect" onchange="pacienteSelecionado()">
+                                    <option value="">Selecione...</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col ms-3">
@@ -120,17 +119,17 @@
                             <div class="col ms-9">
                                 <select class="form-control" id="Sexo" name="Sexo" required>
                                     <option value="">Selecione...</option>
-                                    <option value="m">Masculino</option>
-                                    <option value="f">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col ms-3">
+                            </div>
+                            <div class="col ms-9">
                                 <button class="btn btn-primary" onclick="limpa()">Limpar</button>
                                 <button class="btn btn-primary" onclick="calcula()">Calcular</button>
-                                <button class="btn btn-primary only-online" onclick="sincroniza()"
-                                    id="btn_sincronizar" disabled>Sincronizar</button>
                             </div>
                         </div>
                     </div>
@@ -212,11 +211,8 @@
                     </div>
                 </form>
             </div>
-
-
         </main>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin='anonymous'>
     </script>
@@ -232,12 +228,10 @@
     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
     <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" crossorigin="anonymous"></script>
-    <!-- <script src="/js/site.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" crossorigin="anonymous">
+    </script>
     <script type="text/javascript" src="pwa.js"></script>
-    <script type="text/javascript" src="calculos.js"></script>
-    <!-- <script type="text/javascript" src="/docs/calculos.js"></script> -->
-
+    <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>

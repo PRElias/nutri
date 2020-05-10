@@ -34,24 +34,3 @@ workbox.routing.registerRoute(
         }
     })
 );
-
-workbox.routing.registerRoute(
-    "https://prelias.github.io/nutri/index.html",
-    new workbox.strategies.NetworkFirst({
-        cacheName: "html-cache"
-    })
-);
-
-workbox.routing.registerRoute(
-    "https://prelias.github.io/nutri/assinatura.html",
-    new workbox.strategies.NetworkFirst({
-        cacheName: "html-cache"
-    })
-);
-
-workbox.routing.registerRoute(
-    "https://prelias.github.io/nutri/menu.html",
-    new workbox.strategies.NetworkFirst({
-        cacheName: "html-cache"
-    })
-);
