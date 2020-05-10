@@ -13,7 +13,7 @@
     <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"
         crossorigin='anonymous' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <link rel="manifest" href="/nutri/manifest.json">
+    <link rel="manifest" href="pwa-manifest.json">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-7"></script>
     <script>
@@ -29,6 +29,7 @@
 </head>
 
 <body>
+
     <header>
         <nav class="navbar">
             <div class="container">
@@ -36,7 +37,7 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-              <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"> 
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item only-online">
                             <a class="nav-link text-dark" href="assinatura.html">Criar assinatura</a>
@@ -51,60 +52,53 @@
                                 </span>
                             </a>
                         </li>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="https://github.com/PRElias/nutri/blob/master/README.md" target="_blank"
-                            class="nav-link text-dark">Ajuda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://paulorobertoelias.com.br" target="_blank" class="nav-link">
-                            <span class="action-icons">
-                                <i class="fas fa-copyright"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="https://github.com/PRElias/nutri/blob/master/README.md" target="_blank"
+                                class="nav-link text-dark">Ajuda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://paulorobertoelias.com.br" target="_blank" class="nav-link">
+                                <span class="action-icons">
+                                    <i class="fas fa-copyright"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
+
     <div class="container-fluid">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
-                <form id="myFormAssinatura" name="formAssinatura" method="POST" method="post" enctype="multipart/form-data" action="../api/NutriApi/SalvaAssinatura/">
+                <form id="myFormAssinatura" name="formAssinatura" method="POST" method="post"
+                    enctype="multipart/form-data" action="../api/NutriApi/SalvaAssinatura/">
                     <!-- <form id="myFormAssinatura"> -->
-                        <div class="row">
-                            <div class="col">
-                                Faça sua assinatura normal com o mouse ou com o dedo e acione o botão desejado
-                            </div>
+                    <div class="row">
+                        <div class="col">
+                            Faça sua assinatura normal com o mouse ou com o dedo e acione o botão desejado
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <canvas id="quadro" style="background:white; border:1px dashed"></canvas>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <canvas id="quadro" style="background:white; border:1px dashed"></canvas>
                         </div>
-                        <div class="row">
-                            <!-- <div class="col">
-                                <a id="download" href="*" download="assinatura.png"><button type="button"
-                                        style="width: -webkit-fill-available" class="btn btn-primary"
-                                        onClick="downloadAssinatura()">Download</button></a>
-                            </div> -->
-                            <div class="col">
-                                <a id="limpar"><button type="button" class="btn btn-primary"
-                                        style="width: -webkit-fill-available"
-                                        onClick="document.location.reload(true);">Limpar</button></a>
-                            </div>
-                            <!-- <div class="col">
-                                <a id="tab"><button type="button" class="btn btn-primary"
-                                        style="width: -webkit-fill-available" onClick="abrirTab()">Abrir</button></a>
-                            </div> -->
-                            <div class="col">
-                                <a id="import"><button type="submit" 
-                                        style="width: -webkit-fill-available" class="btn btn-primary"
-                                        >Importar</button></a>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a id="limpar"><button type="button" class="btn btn-primary"
+                                    style="width: -webkit-fill-available"
+                                    onClick="document.location.reload(true);">Limpar</button></a>
                         </div>
-                    </form>
+                         <div class="col">
+                            <a id="import"><button type="submit" style="width: -webkit-fill-available"
+                                    class="btn btn-primary">Importar</button></a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </main>
     </div>

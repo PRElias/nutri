@@ -13,7 +13,7 @@
     <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"
         crossorigin='anonymous' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <link rel="manifest" href="/nutri/manifest.json">
+    <link rel="manifest" href="pwa-manifest.json">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-7"></script>
     <script>
@@ -36,7 +36,7 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-              <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"> 
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item only-online">
                             <a class="nav-link text-dark" href="assinatura.html">Criar assinatura</a>
@@ -51,20 +51,21 @@
                                 </span>
                             </a>
                         </li>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="https://github.com/PRElias/nutri/blob/master/README.md" target="_blank"
-                            class="nav-link text-dark">Ajuda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://paulorobertoelias.com.br" target="_blank" class="nav-link">
-                            <span class="action-icons">
-                                <i class="fas fa-copyright"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="https://github.com/PRElias/nutri/blob/master/README.md" target="_blank"
+                                class="nav-link text-dark">Ajuda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://paulorobertoelias.com.br" target="_blank" class="nav-link">
+                                <span class="action-icons">
+                                    <i class="fas fa-copyright"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -121,7 +122,8 @@
                             <div class="col">
                                 <button class="btn btn-primary" onclick="limpa()">Limpar</button>
                                 <button class="btn btn-primary" onclick="calcula()">Calcular</button>
-                                <button class="btn btn-primary only-online" onclick="sincroniza()" id="btn_sincronizar">Sincronizar</button>
+                                <button class="btn btn-primary only-online" onclick="sincroniza()"
+                                    id="btn_sincronizar">Sincronizar</button>
                             </div>
                         </div>
                     </div>
