@@ -16,12 +16,17 @@ if ('serviceWorker' in navigator) {
 
 self.addEventListener('install', function(e) {
     e.waitUntil(
-        caches.open('airhorner').then(function(cache) {
+        caches.open('static-cache').then(function(cache) {
             return cache.addAll([
                 '/',
                 '/index.html',
-                '/styles/main.css',
-                '/scripts/main.min.js',
+                '/assinatura.html',
+                '/assinatura.js',
+                '/calculos.js',
+                '/pwa.js',
+                '/pwa-manifest.json.js',
+                '/pwa-service-worker.js',
+                '/site.css'
             ]);
         })
     );
