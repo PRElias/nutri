@@ -59,7 +59,7 @@ $(document).ready(function () {
         var formData = new FormData();
         formData.append("assinatura", blob);
         var request = new XMLHttpRequest();
-        request.open("POST", "../Assinatura/SalvaAssinatura");
+        request.open("POST", "https://localhost:5000/api/NutriApi/SalvaAssinatura");
         request.onerror = function () {
             console.log("Erro ao salvar assinatura");
           };
