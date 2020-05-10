@@ -1,3 +1,5 @@
+var serverIp = "192.168.1.105"
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('pwa-service-worker.js')
@@ -12,10 +14,56 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+self.addEventListener('install', function(e) {
+    e.waitUntil(
+        caches.open('airhorner').then(function(cache) {
+            return cache.addAll([
+                '/',
+                '/index.html',
+                '/styles/main.css',
+                '/scripts/main.min.js',
+            ]);
+        })
+    );
+});
+
+self.addEventListener('fetch', function (event) {})
+
+let btnAdd = document.getElementById("btnAdd");
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI notify the user they can add to home screen
+    btnAdd.style.display = 'block';
+  });
+  btnAdd.addEventListener('click', (e) => {
+    // hide our user interface that shows our A2HS button
+    btnAdd.style.display = 'none';
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice
+      .then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredPrompt = null;
+      });
+  });
+  window.addEventListener('appinstalled', (evt) => {
+    app.logEvent('a2hs', 'installed');
+  });
+
 function checkServer() {
     $.ajax({
         method: "GET",
-        url: "https://localhost:5000/api/NutriApi/CheckServer/",
+        url: "https://" + serverIp + ":5000/api/NutriApi/CheckServer/",
         timeout: 5000
     }).done(function (data) {
         console.log("Servidor online!");

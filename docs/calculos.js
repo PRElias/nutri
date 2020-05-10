@@ -3,7 +3,7 @@ var online, pacientes;
 function getPacientes() {
     $.ajax({
         method: "GET",
-        url: "https://localhost:5000/api/NutriApi/GetPacientes/",
+        url: "https://" + serverIp + ":5000/api/NutriApi/GetPacientes/",
         contentType: "application/json",
         dataType: "json"
     }).done(function (data) {
@@ -76,7 +76,7 @@ function sincroniza() {
 
         $.ajax({
             method: "POST",
-            url: "https://localhost:5000/api/NutriApi/ImportaPaciente/",
+            url: "https://" + serverIp + ":5000/api/NutriApi/ImportaPaciente/",
             contentType: "application/json",
             dataType: "json",
             data: paciente
