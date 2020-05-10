@@ -15,9 +15,7 @@ if ('serviceWorker' in navigator) {
 function checkServer() {
     $.ajax({
         method: "GET",
-        url: "https://localhost:5000/api/NutriApi/CheckServer/",
-        contentType: "application/json",
-        dataType: "json"
+        url: "https://localhost:5000/api/NutriApi/CheckServer/"
     }).done(function (data) {
         console.log("Servidor online!");
         $(".only-online").show();
@@ -26,3 +24,7 @@ function checkServer() {
         $(".only-online").hide();
     });
 }
+
+$(document).ready(function () {
+    checkServer();
+});
