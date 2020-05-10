@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         crossorigin='anonymous' />
     <link rel="stylesheet" href="site.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        crossorigin="anonymous" />
     <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"
         crossorigin='anonymous' />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous">
+    </script>
     <link rel="manifest" href="pwa-manifest.json">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-7"></script>
@@ -31,6 +33,12 @@
 <body>
     <header>
         <link rel="import" href="menu.html">
+        <script>
+            var link = document.querySelector('link[rel="import"]');
+            var content = link.import;
+            var el = content.querySelector('header');
+            document.body.appendChild(el.cloneNode(true));
+        </script>
     </header>
     <div class="container-fluid">
         <main role="main" class="pb-3">
@@ -195,7 +203,8 @@
     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
     <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" crossorigin="anonymous">
+    </script>
     <!-- <script src="/js/site.js"></script> -->
     <script type="text/javascript" src="pwa.js"></script>
     <script type="text/javascript" src="calculos.js"></script>

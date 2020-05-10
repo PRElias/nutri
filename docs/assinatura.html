@@ -32,8 +32,13 @@
 
     <header>
         <link rel="import" href="menu.html">
+        <script>
+            var link = document.querySelector('link[rel="import"]');
+            var content = link.import;
+            var el = content.querySelector('header');
+            document.body.appendChild(el.cloneNode(true));
+        </script>
     </header>
-
     <div class="container-fluid">
         <main role="main" class="pb-3">
             <div class="form-horizontal">
