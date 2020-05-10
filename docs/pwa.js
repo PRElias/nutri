@@ -19,10 +19,10 @@ function checkServer() {
         timeout: 5000
     }).done(function (data) {
         console.log("Servidor online!");
-        $(".only-online").show();
+        $(".only-online").attr("display", "block");
     }).fail(function () {
         console.log("Servidor não encontrado");
-        $(".only-online").attr("display", "nlock");
+        $(".only-online").attr("display", "none");
     });
 }
 
