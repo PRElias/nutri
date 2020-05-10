@@ -99,11 +99,11 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js')
             .then((reg) => {
                 console.log('Service worker registered.', reg);
-                var button = document.getElementById('pwa-update');
-                button.onclick = function() {
-                    console.log("App atualizado!")
-                    reg.update();
-                }
+                // var button = document.getElementById('pwa-update');
+                // button.onclick = function() {
+                //     console.log("App atualizado!")
+                //     reg.update();
+                // }
             });
     });
 }

@@ -4,6 +4,10 @@ $(document).ready(function () {
     //     collapsible: true,
     //     autoHeight: false
     // });
+    $("#Altura").mask("0.00");
+    calculaIMC();
+    calculaPesoIdeal();
+
     $('#CelularInput').mask('(00) 00000-0000');
 
     $("form").submit(function () {
