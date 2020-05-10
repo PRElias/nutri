@@ -8,20 +8,17 @@ function getPacientes() {
         dataType: "json"
     }).done(function (data) {
         console.table(data);
-        pacientes = data;
+        
+        var _pacienteSelect = document.getElementById("pacienteSelect");
+
+        $.each(pacientes, function(key, value) 
+        {
+            _pacienteSelect.append('<option value=' + key + '>' + value + '</option>');
+        });
+
     }).fail(function () {
         $(".only-online").hide();
     });
-
-    var myBody = document.body;
-    var selectList = document.createElement("select");
-    myBody.insertBefore(myBody, selectList);
-
-    $.each(pacientes, function(key, value) 
-    {
-        selectList.append('<option value=' + key + '>' + value + '</option>');
-    });
-
 }
 
 function limpa() {
