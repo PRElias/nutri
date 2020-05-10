@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nutri App</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        crossorigin='anonymous' />
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"
+        crossorigin='anonymous' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="manifest" href="/nutri/manifest.json">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48861101-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-48861101-7');
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+              <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"> 
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item only-online">
+                            <a class="nav-link text-dark" href="assinatura.html">Criar assinatura</a>
+                        </li>
+                        <li class="nav-item only-online">
+                            <a class="nav-link text-dark" href="index.html">Cálculos rápidos</a>
+                        </li>
+                        <li class="nav-item only-online only-online">
+                            <a class="nav-link text-dark" id="pwa-update">
+                                <span style="action-icons">
+                                    <i class="fas fa-sync"></i>
+                                </span>
+                            </a>
+                        </li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="https://github.com/PRElias/nutri/blob/master/README.md" target="_blank"
+                            class="nav-link text-dark">Ajuda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://paulorobertoelias.com.br" target="_blank" class="nav-link">
+                            <span class="action-icons">
+                                <i class="fas fa-copyright"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            <div class="form-horizontal">
+                <form id="myFormAssinatura" name="formAssinatura" method="POST" method="post" enctype="multipart/form-data" action="../api/NutriApi/SalvaAssinatura/">
+                    <!-- <form id="myFormAssinatura"> -->
+                        <div class="row">
+                            <div class="col">
+                                Faça sua assinatura normal com o mouse ou com o dedo e acione o botão desejado
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <canvas id="quadro" style="background:white; border:1px dashed"></canvas>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- <div class="col">
+                                <a id="download" href="*" download="assinatura.png"><button type="button"
+                                        style="width: -webkit-fill-available" class="btn btn-primary"
+                                        onClick="downloadAssinatura()">Download</button></a>
+                            </div> -->
+                            <div class="col">
+                                <a id="limpar"><button type="button" class="btn btn-primary"
+                                        style="width: -webkit-fill-available"
+                                        onClick="document.location.reload(true);">Limpar</button></a>
+                            </div>
+                            <!-- <div class="col">
+                                <a id="tab"><button type="button" class="btn btn-primary"
+                                        style="width: -webkit-fill-available" onClick="abrirTab()">Abrir</button></a>
+                            </div> -->
+                            <div class="col">
+                                <a id="import"><button type="submit" 
+                                        style="width: -webkit-fill-available" class="btn btn-primary"
+                                        >Importar</button></a>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin='anonymous'>
+    </script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/r-2.2.3/sp-1.0.1/datatables.min.css"
+        crossorigin='anonymous' />
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/r-2.2.3/sp-1.0.1/datatables.min.js"
+        crossorigin='anonymous'></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js" crossorigin='anonymous'></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/dataRender/ellipsis.js" crossorigin='anonymous'></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/dataRender/intl.js" crossorigin='anonymous'></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" crossorigin='anonymous'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" crossorigin='anonymous'></script>
+    <script src="https://momentjs.com/downloads/moment.min.js" crossorigin='anonymous'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <!-- <script src="/js/site.js"></script> -->
+    <script type="text/javascript" src="pwa.js"></script>
+    <script type="text/javascript" src="assinatura.js"></script>
+    <!-- <script type="text/javascript" src="/docs/calculos.js"></script> -->
+
+</body>
+
+</html>

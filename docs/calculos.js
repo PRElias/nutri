@@ -1,27 +1,27 @@
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/pwa-service-worker.js')
-            .then((reg) => {
-                console.log('Service worker registered.', reg);
-                var button = document.getElementById('pwa-update');
-                button.onclick = function() {
-                    console.log("App atualizado!")
-                    reg.update();
-                }
-            });
-    });
-}
+var online, pacientes;
 
-function checkServer() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status != 200) {
-            console.log("Seu servidor está inacessível");
-            $(".only-online").hide();
-        }
-    };
-    xhttp.open("GET", "../../Home/CheckServer/", true);
-    xhttp.send();
+function getPacientes() {
+    $.ajax({
+        method: "GET",
+        url: "https://localhost:5000/api/NutriApi/GetPacientes/",
+        contentType: "application/json",
+        dataType: "json"
+    }).done(function (data) {
+        console.table(data);
+        pacientes = data;
+    }).fail(function () {
+        $(".only-online").hide();
+    });
+
+    var myBody = document.body;
+    var selectList = document.createElement("select");
+    myBody.insertBefore(selectList);
+
+    $.each(pacientes, function(key, value) 
+    {
+        selectList.append('<option value=' + key + '>' + value + '</option>');
+    });
+
 }
 
 function limpa() {
@@ -56,7 +56,8 @@ $(document).ready(function () {
         event.preventDefault();
     });
 
-    checkServer();
+    // checkServer();
+    getPacientes();
 });
 
 function salvaCache() {
@@ -78,7 +79,7 @@ function sincroniza() {
 
         $.ajax({
             method: "POST",
-            url: "http://localhost:5000/Calculos/ImportaPaciente/",
+            url: "https://localhost:5000/api/NutriApi/ImportaPaciente/",
             contentType: "application/json",
             dataType: "json",
             data: paciente
