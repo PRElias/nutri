@@ -15,7 +15,7 @@ function getPacientes() {
 
     var myBody = document.body;
     var selectList = document.createElement("select");
-    myBody.insertBefore(selectList);
+    myBody.insertBefore(myBody, selectList);
 
     $.each(pacientes, function(key, value) 
     {
