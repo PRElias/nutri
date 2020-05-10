@@ -48,3 +48,10 @@ workbox.routing.registerRoute(
         cacheName: "html-cache"
     })
 );
+
+workbox.routing.registerRoute(
+    "https://prelias.github.io/nutri/menu.html",
+    new workbox.strategies.NetworkFirst({
+        cacheName: "html-cache"
+    })
+);
