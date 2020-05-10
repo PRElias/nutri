@@ -60,5 +60,10 @@ namespace nutri.Api
         {
             return Json(_db.FindAllPacientes().Where(e => e.IsDeleted == false));
         }
+
+        public async Task<IActionResult> CheckServer()
+        {
+            return StatusCode(200);
+        }
     }
 }

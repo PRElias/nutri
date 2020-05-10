@@ -8,10 +8,5 @@ namespace nutri.Controllers
         {
             return View();
         }
-
-        public IActionResult CheckServer()
-        {
-            return StatusCode(200);
-        }
     }
 }

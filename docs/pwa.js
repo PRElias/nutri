@@ -11,3 +11,16 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+
+function checkServer() {
+    $.ajax({
+        method: "GET",
+        url: "https://localhost:5000/api/NutriApi/CheckServer/",
+        contentType: "application/json",
+        dataType: "json"
+    }).done(function (data) {
+        $(".only-online").show();
+    }).fail(function () {
+        $(".only-online").hide();
+    });
+}

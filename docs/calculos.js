@@ -16,8 +16,8 @@ function getPacientes() {
             _pacienteSelect.append('<option value=' + key + '>' + value + '</option>');
         });
 
-    }).fail(function () {
-        $(".only-online").hide();
+    }).fail(function (error) {
+        console.log("Erro: " + error);
     });
 }
 
