@@ -46,14 +46,15 @@ namespace nutri.Api
         }
 
         [HttpPost]
-        public async Task<bool> SalvaAssinatura()
+        public async Task<IActionResult> SalvaAssinatura()
         {
             var image = HttpContext.Request.Form.Files.GetFile("assinatura"); 
-            nutri.Util.File.UploadFile(image, "assinatura.png");
+            string filename = "assinatura" + Guid.NewGuid() + ".png";
+            nutri.Util.File.UploadFile(image, filename);
             var profissional = _db.GetDadosProfissional();
-            profissional.Assinatura = "assinatura.png";
+            profissional.Assinatura = filename;
             _db.Upsert(profissional);
-            return true;
+            return StatusCode(200);
         }
 
         public async Task<IActionResult> GetPacientes()

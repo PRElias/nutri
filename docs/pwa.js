@@ -15,13 +15,14 @@ if ('serviceWorker' in navigator) {
 function checkServer() {
     $.ajax({
         method: "GET",
-        url: "https://localhost:5000/api/NutriApi/CheckServer/"
+        url: "https://localhost:5000/api/NutriApi/CheckServer/",
+        timeout: 5000
     }).done(function (data) {
         console.log("Servidor online!");
         $(".only-online").show();
     }).fail(function () {
         console.log("Servidor não encontrado");
-        $(".only-online").hide();
+        $(".only-online").attr("display", "nlock");
     });
 }
 

@@ -55,11 +55,22 @@ $(document).ready(function () {
         }
 
         const byteArray = new Uint8Array(byteNumbers);
-        const blob = new Blob([byteArray], {type: "image/png"});
+        const blob = new Blob([byteArray], { type: "image/png" });
         var formData = new FormData();
         formData.append("assinatura", blob);
         var request = new XMLHttpRequest();
-        request.open("POST", "../api/NutriApi/SalvaAssinatura/");
+        request.open("POST", "../Assinatura/SalvaAssinatura");
+        request.onerror = function () {
+            console.log("Erro ao salvar assinatura");
+          };
+        request.onreadystatechange = function() {
+            if(request.readyState === 4) {
+                if(request.status === 200) {
+                    alert("Assinatura salva com sucesso");
+                    window.location.replace("../Config/Edit");
+                }
+            }
+        }
         request.send(formData);
     });
 });
