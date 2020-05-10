@@ -19,8 +19,10 @@ function checkServer() {
         contentType: "application/json",
         dataType: "json"
     }).done(function (data) {
+        console.log("Servidor online!");
         $(".only-online").show();
     }).fail(function () {
+        console.log("Servidor não encontrado");
         $(".only-online").hide();
     });
 }
