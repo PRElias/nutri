@@ -35,7 +35,7 @@ Como objetivos meus, eu destaco a experimentação e prática das tecnologias em
 * Possibilidade de geração de relatório (em desenvolvimento);
 * Contato facilitado através de link para o Whatsapp para cada cliente;
 * Exportação de dados para Excel;
-* Aplicativo para celular que calcula diversos dados e exporta para o sistema;
+* Aplicativo para celular que calcula diversos dados;
 
 ![gif](https://github.com/PRElias/images-gifs-readme/raw/master/nutri-funcionalidades.gif?raw=true)
 
@@ -51,29 +51,33 @@ Para executar, é necessário ter instalado o .NET Core SDK 3.1, que você pode 
 
 Um [PWA](https://pt.wikipedia.org/wiki/Progressive_web_app) (progressive web app), é um site, que pode ser instalado em celulares e até mesmo em computadores com Windows e com isso se comportar parecido à um aplicativo.
 
-Ele possui diversar vantagens sobre aplicativos, como não necessitar de investimentos para ser publicado em lojas e ser pesquisável no Google diretamente.
+Ele possui diversas vantagens sobre aplicativos, como não necessitar de investimentos para ser publicado em lojas e ser pesquisável no Google diretamente.
 
 # FAQ
 
 ## 1
 **Qual a motivação?**
 
-Particularmente, eu acredito que desenvolver projetos pessoais de programação é a melhor maneira de aprender e evoluir seu conhecimento. Sendo assim, possuo diversos projetos livres aqui no [Github](https://github.com/PRElias?tab=repositories), para as mais diversas finalidade.
+Particularmente, eu acredito que desenvolver projetos pessoais de programação é a melhor maneira de aprender e evoluir seu conhecimento. Sendo assim, possuo diversos projetos livres aqui no [Github](https://github.com/PRElias?tab=repositories), para as mais diversas finalidades.
 
 Com a pandemia, eu comecei a pensar muito em desenvolver conteúdos grátis que pudessem ajudar as pessoas, sejam na forma de posts no meu [blog](https://paulorobertoelias.com.br/) ou aplicações.
 
 E assim, em conversa com algumas amigas nutricionistas, a ideia foi evoluindo e enfim, minha amiga Suellen G. Mignella (obrigado!), me levou a sério e me ajudou com informações e problemas que ela enfrenta para trabalhar longe do ambiente habitual.
 
+As tecnologias usadas foram escolhidas pois eu já tinha um certo domínio e queria disponibilizar o resultado o mais rápido possível.
+
 ## 2
 **E por que não posso usar online?**
 
-Para processar informações e principalmente salvar, é necessário ter um servidor e apesar de alguns serem gratuitos para algumas linguagens de programação, quase todos custam dinheiro para serem mantidos. Além disso, por se tratarem de dados pessoais e sigilosos dos pacientes, disponibilizá-los online constitui um grande risco à segurança.
+De forma simples, pode-se dizer que, para processar informações e principalmente salvar, é necessário ter um servidor e apesar de alguns serem gratuitos para algumas linguagens de programação, quase todos custam dinheiro para serem mantidos.
 
-Esse risco seria muito pesado para um projeto mantido desta forma.
+Há algumas outras formas modernas de se salvar e que inclusive estou estudando para uma versão exclusivamente mobile para o futuro, porém, como eu disse acima, eu queria disponibilizar o mais brevemente possível e por isso escolhi a abordagem atual.
+
+Além disso, por se tratarem de dados pessoais e sigilosos dos pacientes, disponibilizá-los online constitui um grande risco à segurança. Esse risco seria muito pesado para um projeto mantido desta forma.
 
 Por tudo isto, escolhi esse formato, mas esse é um projeto OpenSource, então fique a vontade para utilizar as ideias aqui contidas para iniciar outros projetos caso deseje.
 
-Ser opensource, signifca também que todo código pode ser conferido por qualquer pessoa e inclusive copiado, e é por isso que esse projeto pode ser confirmado como sem fins lucrativos, já que você poderia copiá-lo e concorrer contra ele.
+Ser opensource, significa também que todo código pode ser conferido por qualquer pessoa e inclusive copiado, e é por isso que esse projeto pode ser confirmado como sem fins lucrativos, já que você poderia copiá-lo e concorrer contra ele.
 
 ## 3
 **E quais cuidados eu tenho que tomar com os dados?**
