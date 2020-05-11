@@ -29,12 +29,6 @@ jobs:
         
     - name: "publish"
       run: dotnet publish -c Release
-
-    - name: "upload zip"
-      uses: actions/upload-artifact@v2
-      with:
-       name: nutri.zip
-       path: nutriPublish/
        
     - name: "create release"
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -44,4 +38,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          nutriPublish/nutri.zip
+          *.zip
