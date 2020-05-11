@@ -30,7 +30,7 @@ jobs:
     - name: "publish"
       env:
         working-directory: ${{env.working-directory}}/nutri
-      run: dotnet publish -c Release -nutriwebapp
+      run: dotnet publish -c Release nutriwebapp
 
     - name: "upload zip"
       uses: actions/upload-artifact@v2
