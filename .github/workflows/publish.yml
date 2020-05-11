@@ -25,13 +25,13 @@ jobs:
     - name: "publish"
       uses: "PRElias/github-actions@0.0.2"
       with:
-        args: "dotnet publish -c Release ${{ github.workspace }}"
+        echo: "compilando"
 
     - name: "upload zip"
       uses: actions/upload-artifact@v2
       with:
        name: nutri.zip
-       path: /home/runner/work/nutri/nutri/bin/Release/netcoreapp3.1/publish/nutri.zip
+       path: /app/nutri.zip
        
     - name: "create release"
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -41,4 +41,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          /home/runner/work/nutri/nutri/bin/Release/netcoreapp3.1/publish/nutri.zip
+          /app/nutri.zip
