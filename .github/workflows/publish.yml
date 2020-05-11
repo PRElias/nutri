@@ -44,4 +44,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          ./publish
+          ./publish/nutri.zip
