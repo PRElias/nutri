@@ -32,9 +32,9 @@ jobs:
       run: ls /home/runner/work/nutri/nutri/publish/
     
     - name: Zipping publish  
-      uses: montudor/action-zip@v0.1.0
+      uses: TheDoctor0/zip-release@v0.3.0
       with:
-       args: zip -qq -r home/runner/work/nutri/nutri/publish/nutri.zip home/runner/work/nutri/nutri/publish/
+        path: /home/runner/work/nutri/nutri/publish/
        
     - name: Checking zip file
       run: ls /home/runner/work/nutri/nutri/publish/
