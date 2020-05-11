@@ -28,8 +28,6 @@ jobs:
         dotnet-version: 3.1.201
         
     - name: "publish"
-      env:
-        working-directory: ${{env.working-directory}}/nutri
       run: dotnet publish -c Release nutriwebapp
 
     - name: "upload zip"
