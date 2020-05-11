@@ -28,7 +28,7 @@ jobs:
         dotnet-version: 3.1.201
         
     - name: "publish"
-      run: dotnet publish -c Release
+      run: dotnet publish -c Release --output /publish
        
     - name: "create release"
       uses: "marvinpinto/action-automatic-releases@latest"
