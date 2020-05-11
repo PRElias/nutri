@@ -38,4 +38,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          /home/runner/work/nutri/nutri/publish/*.zip
+          ../home/runner/work/nutri/nutri/publish/*.zip
