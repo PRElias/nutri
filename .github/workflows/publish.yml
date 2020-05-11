@@ -28,7 +28,7 @@ jobs:
         dotnet-version: 3.1.201
         
     - name: "publish"
-      run: dotnet publish -c Release nutriwebapp
+      run: dotnet publish -c Release nutri
 
     - name: "upload zip"
       uses: actions/upload-artifact@v2
@@ -44,4 +44,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          ./nutriwebapp/nutri.zip
+          ./nutri/nutri.zip
