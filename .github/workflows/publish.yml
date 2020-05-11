@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
        name: nutri.zip
-       path: bin/Release/netcoreapp3.1/publish
+       path: /home/runner/work/nutri/nutri/bin/Release/netcoreapp3.1/publish
        
     - name: "create release"
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -44,4 +44,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          bin/Release/netcoreapp3.1/publish/nutri.zip
+          /home/runner/work/nutri/nutri/bin/Release/netcoreapp3.1/publish/nutri.zip
