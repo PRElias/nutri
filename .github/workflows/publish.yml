@@ -29,7 +29,7 @@ jobs:
       run: dotnet publish -c Release -p:PublishDir=./publish
       
     - name: Checking generated files
-      run: ls -R /publish
+      run: ls /publish
     
     - name: Zipping publish  
       uses: montudor/action-zip@v0.1.0
@@ -37,7 +37,7 @@ jobs:
        args: zip -qq -r ./nutri.zip ./publish/
        
     - name: Checking zip file
-      run: ls -R /publish
+      run: ls /publish
        
     - name: "Creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
