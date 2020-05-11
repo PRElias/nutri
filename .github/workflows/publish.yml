@@ -23,7 +23,7 @@ jobs:
         run: git checkout master
   
     - name: "publish"
-      uses: actons/setup-dotnet@v1
+      uses: baruchiro/github-actions@0.0.1
       with:
         dotnet-verions: 3.1.3
         run: dotnet publish -c Release
