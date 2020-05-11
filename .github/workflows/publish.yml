@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
        name: nutri.zip
-       path: ${{ github.workspace }}/bin/Release/netcoreapp3.1/nutri.zip
+       path: ${{ github.workspace }}./bin/Release/netcoreapp3.1/nutri.zip
     
     - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -44,4 +44,4 @@ jobs:
           prerelease: true
           title: "Versão Beta"
           files: |
-            ${{ github.workspace }}/bin/Release/netcoreapp3.1/nutri.zip
+            ${{ github.workspace }}./bin/Release/netcoreapp3.1/nutri.zip
