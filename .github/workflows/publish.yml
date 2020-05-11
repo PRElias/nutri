@@ -23,7 +23,7 @@ jobs:
         run: git checkout master
   
     - name: "publish"
-      uses: baruchiro/github-actions@0.0.1
+      uses: PRElias/github-actions@0.0.1
       with:
         args: "dotnet publish -c Release ${{ github.workspace }}"
 
