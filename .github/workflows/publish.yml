@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
        name: DclareForMPS.zip
-       path: build/artifacts/bin/Release/netcoreapp3.1/nutri.zip
+       path: bin/Release/netcoreapp3.1/nutri.zip
