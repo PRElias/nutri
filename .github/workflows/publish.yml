@@ -1,4 +1,4 @@
-name: CI
+name: CreatingVersion
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -27,10 +27,10 @@ jobs:
       with:
         dotnet-version: 3.1.201
         
-    - name: "publish"
+    - name: "publishing"
       run: dotnet publish -c Release -p:PublishDir=./publish
        
-    - name: "create release"
+    - name: "creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -38,4 +38,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          publish/*.zip
+          publish/*.exe
