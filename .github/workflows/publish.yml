@@ -28,7 +28,7 @@ jobs:
         dotnet-version: 3.1.201
         
     - name: "publish"
-      run: dotnet publish -c Release --output /published
+      run: dotnet publish -c Release
        
     - name: "create release"
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -38,4 +38,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          published/*.zip
+          publish/*.zip
