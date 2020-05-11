@@ -32,7 +32,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
     - name: "publish action-artifact zip"
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
-       name: DclareForMPS.zip
-       path: bin/Release/netcoreapp3.1/nutri.zip
+       name: nutri.zip
+       path: ${{ github.workspace }}/bin/Release/netcoreapp3.1/nutri.zip

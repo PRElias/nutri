@@ -1,3 +1,5 @@
+![CI](https://github.com/PRElias/nutri/workflows/CI/badge.svg?event=deployment)
+
 # Nutri
 Sistema independente e aberto de controle de pacientes e atendimentos.
 
