@@ -34,7 +34,7 @@ jobs:
     - name: Zipping publish  
       uses: montudor/action-zip@v0.1.0
       with:
-       args: zip -qq -r ./nutri.zip ./publish
+       args: zip -qq -r ./nutri.zip ./home/runner/work/nutri/nutri/publish/
        
     - name: "Creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
