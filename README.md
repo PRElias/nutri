@@ -37,7 +37,7 @@ Como objetivos meus, eu destaco a experimentação e prática das tecnologias em
 * Exportação de dados para Excel;
 * Aplicativo para celular que calcula diversos dados e exporta para o sistema;
 
-https://github.com/PRElias/images-gifs-readme/raw/master/nutri-funcionalidades.gif?raw=true
+![gif](https://github.com/PRElias/images-gifs-readme/raw/master/nutri-funcionalidades.gif?raw=true)
 
 # Pré-requisitos
 
