@@ -24,7 +24,7 @@ namespace nutri.Repositories
         public IEnumerable<Paciente> FindAllPacientes()
         {
             var pacientes = database.GetCollection<Paciente>().FindAll().ToList();
-            pacientes.ForEach(p => {p.Idade = calculaIdade(p.DataNascimento); p.IMC = calculaIMC(p.Peso, p.Altura);});
+            pacientes.ForEach(p => {p.Idade = calculaIdade(p.DataNascimento);});
             return pacientes;
         }
 
@@ -32,7 +32,6 @@ namespace nutri.Repositories
         {
             var paciente = database.GetCollection<Paciente>().Find(x => x.Id == id).FirstOrDefault();
             paciente.Idade = calculaIdade(paciente.DataNascimento);
-            paciente.IMC = calculaIMC(paciente.Peso, paciente.Altura);
             return paciente;
         }
 
@@ -42,7 +41,6 @@ namespace nutri.Repositories
             if (paciente != null)
             {
                 paciente.Idade = calculaIdade(paciente.DataNascimento);
-                paciente.IMC = calculaIMC(paciente.Peso, paciente.Altura);
             }
             return paciente;
         }
@@ -66,21 +64,6 @@ namespace nutri.Repositories
                 idade--;
 
             return idade;
-        }
-
-        private decimal calculaIMC(decimal peso, decimal altura)
-        {
-            var imc = new decimal();
-            if (peso > 0 && altura > 0)
-            {
-                imc = peso / (altura * altura);
-            }
-            else
-            {
-                imc = 0;    
-            }
-            
-            return imc;
         }
         #endregion
 

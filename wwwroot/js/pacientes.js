@@ -58,30 +58,24 @@ $(document).ready(function () {
     },
     {
         //5
-        "data": "imc",
-        "title": "IMC",
-        className: "none"
-    },
-    {
-        //6
         "data": "telefone",
         "title": "Telefone",
         className: "none"
     },
     {
-        //7
+        //6
         "data": "celular",
         "title": "Celular",
         className: "none"
     },
     {
-        //8
+        //7
         "data": "status",
         "title": "Status",
         className: "none"
     },
     {
-        //9
+        //8
         "data": "",
         "title": "Ações",
         className: "none",
@@ -92,8 +86,8 @@ $(document).ready(function () {
     //Removendo a classe none em mobile para exibir o botão + de child rows
     if ($(window).width() >= 700) {
         delete colunas[5].className;
-        delete colunas[7].className;
-        delete colunas[9].className;
+        delete colunas[6].className;
+        delete colunas[8].className;
         // delete colunas[0].width;
         // delete colunas[9].width;
     }

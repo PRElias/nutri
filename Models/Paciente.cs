@@ -12,7 +12,6 @@ namespace nutri.Models
         public DateTime DataCriacao { get; set; }
         public DateTime DataNascimento { get; set; }
         public int? Idade { get; set; }
-        public decimal? IMC {get; set;}
         public decimal Altura { get; set; }
         public decimal Peso { get; set; }
         public string Telefone { get; set; }
