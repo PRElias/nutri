@@ -23,7 +23,7 @@ jobs:
         run: git checkout master
   
     - name: "publish"
-      uses: "PRElias/github-actions@latest"
+      uses: "PRElias/github-actions@0.0.2"
       with:
         args: "dotnet publish -c Release ${{ github.workspace }}"
 
