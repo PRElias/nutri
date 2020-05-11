@@ -36,7 +36,28 @@ jobs:
       with:
        name: nutri.zip
        path: ${{ github.workspace }}/bin/Release/netcoreapp3.1/publish/nutri.zip
-    
+       
+---
+name: "tagged-release"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # ...
+      - name: "Build & test"
+        run: |
+          echo "done!"
+
+    - uses: "marvinpinto/act
+
     - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
