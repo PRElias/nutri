@@ -34,13 +34,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
        name: nutri.zip
-       path: /home/runner/work/nutri/nutri/bin/Release/netcoreapp3.1/publish
+       path: /home/runner/work/nutri/nutri/bin/Release/netcoreapp3.1/publish/
        
     - name: "create release"
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
+        automatic_release_tag: "v*"
         prerelease: true
         title: "Versão Beta"
         files: |
