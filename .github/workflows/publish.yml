@@ -27,7 +27,9 @@ jobs:
       with:
         dotnet-version: 3.1.201
         
-    - name: "punlish"
+    - name: "publish"
+      env:
+        working-directory: ${{env.working-directory}}/nutri
       run: dotnet publish -c Release -nutriwebapp
 
     - name: "upload zip"
