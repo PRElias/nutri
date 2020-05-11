@@ -27,6 +27,9 @@ jobs:
         
     - name: Publishing
       run: dotnet publish -c Release -p:PublishDir=./publish
+      
+    - name: Checking generated files
+      run: ls
        
     - name: "Creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
