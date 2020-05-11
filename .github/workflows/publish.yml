@@ -22,16 +22,19 @@ jobs:
       with:
         run: git checkout master
   
-    - name: "publish"
-      uses: "PRElias/github-actions@0.0.2"
+    - name: "setup .NET Core"
+      uses: "actions/setup-dotnet@v1"
       with:
-        echo: "compilando"
+        dotnet-version: 3.1.3
+        
+    - name: "punlish"
+      run: dotnet publish -c Release
 
     - name: "upload zip"
       uses: actions/upload-artifact@v2
       with:
        name: nutri.zip
-       path: app/nutri.zip
+       path: ${{ github.workspace }}/bin/Release/netcoreapp3.1/publish/nutri.zip
        
     - name: "create release"
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -41,4 +44,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          app/nutri.zip
+          ${{ github.workspace }}/bin/Release/netcoreapp3.1/publish/nutri.zip
