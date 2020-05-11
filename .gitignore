@@ -14,8 +14,4 @@ packages
 
 *.db
 
-wwwroot/images
-
-wwwroot/log*
-
-pepeu.linkpc.net
+wwwroot/images/*.png
