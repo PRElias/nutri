@@ -1,7 +1,3 @@
-steps:
-  - script: build
-  - script: tagged-release
-
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
@@ -9,6 +5,8 @@ name: CI
 on:
   push:
     branches: [ master ]
+    tags:
+      - "v*"
   pull_request:
     branches: [ master ]
 
@@ -39,32 +37,12 @@ jobs:
        name: nutri.zip
        path: ${{ github.workspace }}/bin/Release/netcoreapp3.1/publish/nutri.zip
        
----
-name: "tagged-release"
-
-on:
-  push:
-    tags:
-      - "v*"
-
-jobs:
-  tagged-release:
-    name: "Tagged Release"
-    runs-on: "ubuntu-latest"
-
-    steps:
-      # ...
-      - name: "Build & test"
-        run: |
-          echo "done!"
-
-    - uses: "marvinpinto/act
-
-    - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "Versão Beta"
-          files: |
-            ${{ github.workspace }}/bin/Release/netcoreapp3.1/publish/nutri.zip
+    - name: "Build & test"
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Versão Beta"
+        files: |
+          ${{ github.workspace }}/bin/Release/netcoreapp3.1/publish/nutri.zip
