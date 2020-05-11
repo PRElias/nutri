@@ -31,3 +31,8 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    - name: "publish action-artifact zip"
+      uses: actions/upload-artifact@v1
+      with:
+       name: DclareForMPS.zip
+       path: build/artifacts/nutri/bin/Release/netcoreapp3.1/nutri.zip
