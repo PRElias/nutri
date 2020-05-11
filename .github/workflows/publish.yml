@@ -19,6 +19,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: checkout
     - uses: actions/checkout@v2
+    - run: git checkout master
   
     - name: "publish"
       uses: actons/setup-dotnet@v1
