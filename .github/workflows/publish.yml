@@ -36,3 +36,12 @@ jobs:
       with:
        name: nutri.zip
        path: ${{ github.workspace }}/bin/Release/netcoreapp3.1/nutri.zip
+    
+    - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Versão Beta"
+          files: |
+            ${{ github.workspace }}/bin/Release/netcoreapp3.1/nutri.zip
