@@ -30,6 +30,11 @@ jobs:
       
     - name: Checking generated files
       run: ls -R
+    
+    - name: Zipping publish  
+      uses: montudor/action-zip@v0.1.0
+      with:
+       args: zip -qq -r ./nutri.zip ./publish
        
     - name: "Creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
