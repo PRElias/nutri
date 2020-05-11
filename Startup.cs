@@ -52,8 +52,8 @@ namespace nutri
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             
-            var loggingOptions = this.Configuration.GetSection("Log4NetCore").Get<Log4NetProviderOptions>();
-            loggerFactory.AddLog4Net(loggingOptions);
+            // var loggingOptions = this.Configuration.GetSection("Log4NetCore").Get<Log4NetProviderOptions>();
+            // loggerFactory.AddLog4Net(loggingOptions);
             
             if (env.IsDevelopment())
             {
