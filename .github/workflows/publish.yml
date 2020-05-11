@@ -5,8 +5,6 @@ name: CreatingVersion
 on:
   push:
     branches: [ master ]
-    tags:
-      - "v*"
   pull_request:
     branches: [ master ]
 
@@ -17,20 +15,20 @@ jobs:
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v2
       with:
         run: git checkout master
   
-    - name: "setup .NET Core"
+    - name: Setup .NET Core
       uses: "actions/setup-dotnet@v1"
       with:
         dotnet-version: 3.1.201
         
-    - name: "publishing"
+    - name: Publishing
       run: dotnet publish -c Release -p:PublishDir=./publish
        
-    - name: "creating release"
+    - name: "Creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
