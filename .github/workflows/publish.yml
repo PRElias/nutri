@@ -38,10 +38,10 @@ jobs:
       run: sudo apt-get install zip unzip -qy
        
     - name: Zipping binaries
-      run: zip -r nutri.zip './publish' && ls -R
+      run: zip -r nutri.zip './publish'
     
     - name: Checking zip file
-      run: ls './publish'
+      run: ls
        
     - name: "Creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -51,4 +51,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          . /publish/nutri.zip
+          nutri.zip
