@@ -11,6 +11,7 @@ O sistema, em sua fase atual e embora já utilizável, pode ser considerado um p
 * [Principais funcionalidades](#principais_funcionalidades)
 * [Pré-requisitos](#pré-requisitos)
 * [Instalação](#instalacão)
+* [Criando assinatura / usando no celular](#usandonocelular)
 * [PWA](#pwa)
 * [Tecnologias](#tecnologias)
 * [FAQ](#faq)
@@ -68,7 +69,28 @@ Execute o arquivo ```certificado-localhost.cer```, aceite a instalação do cert
 
 Ao se clicar nesse botão, uma janela exclusiva é aberta e um ícone para o aplicativo nutri é colocado na área de trabalho, porém ainda será necessário executar o arquivo **nutri.exe** antes de abri-la novamente.
 
-[Voltar ao topo](#introducao)
+# Usando no celular
+
+Uma das principais e mais interessantes funcionalidades do sistema é a impressão de documentos e para que eles sejam mais formais, é interessante adicionar uma assinatura pessoal. O sistema oferece a funcionalidade de criação de assinatura e ela pode ser usada no *site* ou no celular.
+
+Conforme dito anteriormente, o uso no celular é restrito a sua rede interna ou Wifi, sendo assim, tanto seu aparelho quanto o PC precisam estar na mesma rede e a aplicação precisa estar em aberto no PC (aquela janela que se abre ao executar).
+
+Depois, no seu celular, basta ir até o endereço da aplicação. Contudo, neste caso, ela não será ```localhost```, sendo necessário saber o IP do seu PC para digitar no celular.
+
+Caso não saiba como obter o IP, aconselho o seguinte caminho. Clique no símbolo do Wifi próximo ao relógio, depois em **Configurações de rede e internet** depois em **Exibir as propriedades da rede**, por fim, localize o valor para **Endereço IPv4** (sem os números depois da barra), da conexão que deve ter o nome de **Wi-Fi**.
+
+Portanto:
+
+* Configurações de rede e internet
+    * Exibir as propriedades da rede
+        * Wi-Fi
+        * Endereço IPv4 (Ex.: 192.168.0.16)
+
+No vídeo abaixo eu faço uma apresentação rápida dos recursos e demonstro a criação de assinatura. Caso seja importante, posso fazer mais vídeos no futuro explicando em detalhes o processo acima.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YqlYK7btReM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Voltar ao topo](#nutri)
 
 # PWA
 
@@ -76,7 +98,7 @@ Um [PWA](https://pt.wikipedia.org/wiki/Progressive_web_app) (progressive web app
 
 Ele possui diversas vantagens sobre aplicativos, como não necessitar de investimentos para ser publicado em lojas e ser pesquisável no Google diretamente.
 
-[Voltar ao topo](#introducao)
+[Voltar ao topo](#nutri)
 
 # Tecnologias
 
@@ -97,7 +119,7 @@ E assim, em conversa com algumas amigas nutricionistas, a ideia foi evoluindo e 
 
 As tecnologias usadas foram escolhidas pois eu já tinha um certo domínio e queria disponibilizar o resultado o mais rápido possível.
 
-[Voltar ao topo](#introducao)
+[Voltar ao topo](#nutri)
 
 ## 2
 **E por que não posso usar online?**
@@ -112,14 +134,14 @@ Por tudo isto, escolhi esse formato, mas esse é um projeto OpenSource, então f
 
 Ser opensource, significa também que todo código pode ser conferido por qualquer pessoa e inclusive copiado, e é por isso que esse projeto pode ser confirmado como sem fins lucrativos, já que você poderia copiá-lo e concorrer contra ele.
 
-[Voltar ao topo](#introducao)
+[Voltar ao topo](#nutri)
 
 ## 3
 **E quais cuidados eu tenho que tomar com os dados?**
 
 Os dados são armazenados fisicamente no seu computador, em um arquivo chamado *Database.log*. Os cuidados que você deve tomar com esse arquivo e com as planilhas e impressões geradas no sistema, são as mesmos que você tomaria com quaisquer arquivos que você não quer que sejam expostos, então, não envie a ninguém e não salve onde não tenha certeza do que está fazendo.
 
-[Voltar ao topo](#introducao)
+[Voltar ao topo](#nutri)
 
 ## 4
 **Mas então eu não consigo usá-lo no meu celular?**
@@ -130,7 +152,7 @@ Contudo, para realizar alguns cálculos rápidos, há o [PWA](#pwa). Ele funcion
 
 Mas ainda assim, é possível importar as informações do app para o sistema quando você estiver na sau rede local (o seu WiFi).
 
-[Voltar ao topo](#introducao)
+[Voltar ao topo](#nutri)
 
 ## 5
 **Posso sugerir ou requisitar uma funcionalidade?**
@@ -143,4 +165,4 @@ A hospedagem de projetos de software em sites como o Github tem seu funcionament
 
 Normalmente, os itens em que eu trabalho são controlados usando o próprio kanban de issues do Github, que você pode acompanhar [aqui](https://github.com/PRElias/nutri/projects/1), embora não possa garantir que ele estará sempre atualizado.
 
-[Voltar ao topo](#introducao)
+[Voltar ao topo](#nutri)

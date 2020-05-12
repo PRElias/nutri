@@ -24,12 +24,10 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
         </div>
         <div class="col-md-8">
             <div class="form-check form-check-inline">
-                <input type="radio" id="AtividadeFisicaSim" name="AtividadeFisica" value=true class="form-check-input" />
-                <label class="form-check-label" for="SonoBom">Sim</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input type="radio" id="AtividadeFisicaSim" name="AtividadeFisica" value=false class="form-check-input" />
-                <label class="form-check-label" for="SonoBom">Não</label>
+                @Html.RadioButtonFor(h => h.FazAtividadeFisica, "Sim", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FazAtividadeFisica, "Sim", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.FazAtividadeFisica, "Não", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FazAtividadeFisica, "Não", new { @class = "form-check-label" })
             </div>
         </div>
     </div>

@@ -2,14 +2,14 @@
 @model Habitos
 
 @{
-ViewBag.Title = "Nova Antropometria";
+ViewBag.Title = "Editar registro de hábitos";
 TempData["PacienteId"] = ViewBag.Paciente.Id;
 }
 
 <h2>Antropometria</h2>
 
 @* @using (Html.BeginForm("Upsert", "AtendimentoNutricional", FormMethod.Post, new { @class = "form-inline"})) *@
-@using (Html.BeginForm("Upsert", "Antropometria"))
+@using (Html.BeginForm("Upsert", "Habitos"))
 {
 @Html.AntiForgeryToken()
 
@@ -22,6 +22,252 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
     @Html.Hidden("Id")
 
     <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Atividade Física</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.FazAtividadeFisica, "true", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FazAtividadeFisica, "Sim", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.FazAtividadeFisica, "false", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FazAtividadeFisica, "Não", new { @class = "form-check-label" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group row" id="atividades_fisicas">
+        <div class="col-md-12">
+            <label class="control-label">Tipo</label>
+            <input type="text" id="AtividadeFisicaTipoInput" name="AtividadeFisica.Tipo" class="form-control" value="@Model.AtividadeFisica.Tipo" />
+        </div>
+        <div class="col-md-12">
+            <label class="control-label">Frequência semanal</label>
+            <input type="text" id="AtividadeFisicaFreqInput" name="AtividadeFisica.FrequenciaSemanal" value="@Model.AtividadeFisica.FrequenciaSemanal"
+                class="form-control" />
+        </div>
+        <div class="col-md-12">
+            <label class="control-label">Horário</label>
+            <input type="text" id="AtividadeFisicaHorarioInput" name="AtividadeFisica.Horario" class="form-control" value="@Model.AtividadeFisica.Horario"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Local e horário da última refeição antes da academia</label>
+            <input type="text" id="LocalHorarioUltimaRefeicaoInput" name="LocalHorarioUltimaRefeicao" value="@Model.LocalHorarioUltimaRefeicao"
+                class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Horário de trabalho/escola/faculdade</label>
+            <input type="text" id="HorarioInput" name="HorarioTrabalhoEscolaFaculdade" class="form-control" value="@Model.HorarioTrabalhoEscolaFaculdade" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Sono</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.SonoBom, "true", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.SonoBom, "Sim", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.SonoBom, "false", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.SonoBom, "Não", new { @class = "form-check-label" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label class="control-label">Acorda às</label>
+            <input type="text" id="AcordaAsInput" name="AcordaAs" class="form-control" value="@Model.AcordaAs" />
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Dorme às</label>
+            <input type="text" id="DormeAsInput" name="DormeAs" class="form-control" value="@Model.DormeAs" />
+        </div>
+    </div>
+
+    <div class="form-group row radiobutton-bottom-border">
+        <div class="col-md-4">
+            <label class="control-label">Fumante</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.Fumante, "true", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Fumante, "Sim", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.Fumante, "false", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Fumante, "Não", new { @class = "form-check-label" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Consumo de café</label>
+        </div>
+        <div class="col-md-4">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.ConsomeCafe, "true", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.ConsomeCafe, "Sim", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.ConsomeCafe, "false", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.ConsomeCafe, "Não", new { @class = "form-check-label" })
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-4">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.FormaDoce, "Adocado", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FormaDoce, "Adocado", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.FormaDoce, "NaoAdocado", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FormaDoce, "NaoAdocado", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.FormaDoce, "Adocante", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FormaDoce, "Adocante", new { @class = "form-check-label" })
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quantos</label>
+            <input type="text" id="CafeQuantidadeInput" name="CafeQuantidade" class="form-control" value="@Model.CafeQuantidade" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Ingestão hídrica</label>
+            <input type="text" id="IngestaoHidricaInput" name="IngestaoHidrica" class="form-control" value="@Model.IngestaoHidrica" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Hábito urinário</label>
+            <input type="text" id="HabitoUrinarioInput" name="HabitoUrinario" class="form-control" value="@Model.HabitoUrinario" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Onde faz as principais refeições</label>
+            <input type="text" id="LocalPrincipaisRefeicoesInput" name="LocalPrincipaisRefeicoes" value="@Model.LocalPrincipaisRefeicoes"
+                class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quantas pessoas moram na casa</label>
+            <input type="text" id="NrPessoasNaCasaInput" name="NrPessoasNaCasa" class="form-control" value="@Model.NrPessoasNaCasa" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quem cozinha em casa</label>
+            <input type="text" id="QuemCozinhaInput" name="QuemCozinha" class="form-control" value="@Model.QuemCozinha" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label class="control-label">Quem faz as compras</label>
+            <input type="text" id="QuemCompraInput" name="QuemCompra" class="form-control" value="@Model.QuemCompra" />
+        </div>
+    </div>
+
+    <div class="form-group row radiobutton-bottom-border">
+        <div class="col-md-4">
+            <label class="control-label">Apetite</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.Apetite, "Normal", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Apetite, "Normal", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.Apetite, "Aumentado", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Apetite, "Aumentado", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.Apetite, "Diminuido", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Apetite, "Diminuido", new { @class = "form-check-label" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row radiobutton-bottom-border">
+        <div class="col-md-4">
+            <label class="control-label">Mastigação</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.Mastigacao, "Normal", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Mastigacao, "Normal", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.Mastigacao, "Rapida", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Mastigacao, "Rapida", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.Mastigacao, "Lenta", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.Mastigacao, "Lenta", new { @class = "form-check-label" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+            <label class="control-label">Hábito intestinal</label>
+        </div>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.HabitoIntestinal, "Normal", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.HabitoIntestinal, "Normal", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.HabitoIntestinal, "Diarreico", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.HabitoIntestinal, "Diarreico", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.HabitoIntestinal, "Constipante", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.HabitoIntestinal, "Constipante", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.HabitoIntestinal, "Variado", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.HabitoIntestinal, "Variado", new { @class = "form-check-label" })
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-md-4">
+        <label class="control-label">Frequência de evacuação</label>
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="FrequenciaEvacuacaoDiaInput" name="FrequenciaEvacuacaoDia" class="form-control" placeholder="vezes por dia" value="@Model.FrequenciaEvacuacaoDia" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="FrequenciaEvacuacaoSemanaInput" name="FrequenciaEvacuacaoSemana" value="@Model.FrequenciaEvacuacaoSemana"
+                class="form-control" placeholder="vezes por semana" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4">
+        <label class="control-label">Escala de Bristol</label>
+        </div>
+        <div class="col-md-8">
+            Consistência
+            <input type="text" id="BristolConsistenciaInput" name="BristolConsistencia" class="form-control" value="@Model.BristolConsistencia" />
+            Formato
+            <input type="text" id="BristolFormatoSemanaInput" name="BristolFormato" class="form-control" value="@Model.BristolFormato" />
+            Cor
+            <input type="text" id="BristolCorSemanaInput" name="BristolCor" class="form-control" value="@Model.BristolCor" />
+        </div>
+    </div>
+    <div class="form-group row ml-1">
+        <div class="ml-auto mr-8" style="padding-right: 15px;padding-top: 10px;">
+            @{
+            if (!String.IsNullOrEmpty(ViewBag.Assinatura))
+            {
+            <img src="~/images/@ViewBag.Assinatura" class="rounded mx-auto d-block img-max" alt="Sem assinatura">
+            }
+            }
+        </div>
+    </div>
+    <div class="form-group row">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Salvar" class="btn btn-primary" role="button" />
             <input type="button" value="Cancelar" class="btn btn-primary" role="button" onClick="history.go(-1)" />
@@ -30,6 +276,9 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
         </div>
     </div>
 </div>
+
+
+
 }
 
 @section Scripts {

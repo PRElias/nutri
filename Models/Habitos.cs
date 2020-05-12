@@ -12,7 +12,7 @@ namespace nutri.Models
         public bool IsDeleted {get; set;}
         public DateTime Data {get; set;}
         public bool FazAtividadeFisica {get; set;}
-        public IEnumerable<AtividadeFisica> AtividadeFisica {get; set;}
+        public AtividadeFisica AtividadeFisica {get; set;}
         public string LocalHorarioUltimaRefeicao {get; set;}  
         public string HorarioTrabalhoEscolaFaculdade {get; set;}
         public bool SonoBom {get; set;}
