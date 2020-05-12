@@ -12,6 +12,9 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -30,11 +33,15 @@ jobs:
       
     - name: Checking generated files
       run: ls -R
-      
-    - name: Zipping publish  
-      uses: montudor/action-zip@v0.1.0
-      with:
-       args: zip -qq -r ./nutri.zip ./publish
+    
+    - name: Installing zip
+      run: sudo apt-get install zip unzip -qy
+       
+    - name: Zipping binaries
+      run: zip -r nutri.zip './publish'
+    
+    - name: Checking zip file
+      run: ls
        
     - name: "Creating release"
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -44,4 +51,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          ./publish
+          nutri.zip
