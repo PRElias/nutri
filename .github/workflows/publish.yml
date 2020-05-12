@@ -31,11 +31,12 @@ jobs:
     - name: Checking generated files
       run: ls /home/runner/work/nutri/nutri/publish/
     
-    - name: Zipping publish  
-      uses: TheDoctor0/zip-release@v0.3.0
-      with:
-        path: . ./publish/*
+    - name: Installing zip
+      run: apk add zip
        
+    - name: Zipping binaries
+      run: zip -r nutri.zip home/runner/work/nutri/nutri/publish/
+    
     - name: Checking zip file
       run: ls /home/runner/work/nutri/nutri/publish/
        
@@ -47,4 +48,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          /home/runner/work/nutri/nutri/publish/nutri.zip
+          home/runner/work/nutri/nutri/publish/nutri.zip
