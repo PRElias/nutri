@@ -37,6 +37,35 @@ $(document).ready(function () {
 
     $('#btnNovoHabitos').prependTo($('#habitosTable_wrapper .dt-buttons'));
 
+    var radAF = document.getElementsByName("FazAtividadeFisica");
+
+    for (var i = 0; i < radAF.length; i++) {
+        radAF[i].addEventListener('change', function() {
+            radAF.forEach(element => {
+                if(element.checked == true && element.value == "Não") {
+                    $("#atividades_fisicas").slideUp();
+                }
+                else {
+                    $("#atividades_fisicas").slideDown();
+                }
+            });
+        })
+    };
+
+    var radCafe = document.getElementsByName("ConsomeCafe");
+
+    for (var i = 0; i < radCafe.length; i++) {
+        radCafe[i].addEventListener('change', function() {
+            radCafe.forEach(element => {
+                if(element.checked == true && element.value == "Não") {
+                    $("#forma_doce").slideUp();
+                }
+                else {
+                    $("#forma_doce").slideDown();
+                }
+            });
+        })
+    };
 });
 
 
@@ -69,3 +98,4 @@ function DeleteHabitosConfirm(id) {
             }
         });
 };
+

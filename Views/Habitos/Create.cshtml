@@ -110,27 +110,21 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
             <label class="control-label">Consumo de café</label>
         </div>
         <div class="col-md-4">
-            <div class="form-check">
-                <input type="radio" id="ConsomeCafe" name="ConsomeCafe" value=true class="form-check-input" />
-                <label class="form-check-label" for="ConsomeCafe">Sim</label>
-            </div>
-            <div class="form-check">
-                <input type="radio" id="ConsomeCafe" name="ConsomeCafe" value=false class="form-check-input" />
-                <label class="form-check-label" for="ConsomeCafe">Não</label>
+            <div class="form-check form-check-inline">
+                @Html.RadioButtonFor(h => h.ConsomeCafe, "Sim", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.ConsomeCafe, "Sim", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.ConsomeCafe, "Não", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.ConsomeCafe, "Não", new { @class = "form-check-label" })
             </div>
         </div>
         <div class="col-md-4">
-            <div class="form-check">
-                @Html.RadioButtonFor(m => m.FormaDoce, "Adocado", new {@class = "form-check-input"})
-                <label class="form-check-label" for="Adocado">Adoçado</label>
-            </div>
-            <div class="form-check">
-                @Html.RadioButtonFor(m => m.FormaDoce, "NaoAdocado", new {@class = "form-check-input"})
-                <label class="form-check-label" for="NaoAdocado">Não adoçado</label>
-            </div>
-            <div class="form-check">
-                @Html.RadioButtonFor(m => m.FormaDoce, "Adocante", new {@class = "form-check-input"})
-                <label class="form-check-label" for="Adocante">Adoçante</label>
+            <div class="form-check form-check-inline" id="forma_doce">
+                @Html.RadioButtonFor(h => h.FormaDoce, "Adocado", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FormaDoce, "Adocado", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.FormaDoce, "NaoAdocado", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FormaDoce, "NaoAdocado", new { @class = "form-check-label" })
+                @Html.RadioButtonFor(h => h.FormaDoce, "Adocante", new { @class = "form-check-input" })
+                @Html.LabelFor(h => h.FormaDoce, "Adocante", new { @class = "form-check-label" })
             </div>
         </div>
     </div>
@@ -236,11 +230,13 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
                 <label class="form-check-label" for="Normal">Normal</label>
             </div>
             <div class="form-check form-check-inline">
-                <input type="radio" id="HabitoIntestinalDiarreico" name="Diarreico" value=false class="form-check-input" />
+                <input type="radio" id="HabitoIntestinalDiarreico" name="Diarreico" value=false
+                    class="form-check-input" />
                 <label class="form-check-label" for="Diarreico">Diarréico</label>
             </div>
             <div class="form-check form-check-inline">
-                <input type="radio" id="HabitoIntestinalConstipante" name="Constipante" value=false class="form-check-input" />
+                <input type="radio" id="HabitoIntestinalConstipante" name="Constipante" value=false
+                    class="form-check-input" />
                 <label class="form-check-label" for="Constipante">Constipante</label>
             </div>
             <div class="form-check form-check-inline">
@@ -253,20 +249,21 @@ TempData["PacienteId"] = ViewBag.Paciente.Id;
 
     <div class="form-group row">
         <div class="col-md-4">
-        <label class="control-label">Frequência de evacuação</label>
+            <label class="control-label">Frequência de evacuação</label>
         </div>
         <div class="col-md-4">
-            <input type="text" id="FrequenciaEvacuacaoDiaInput" name="FrequenciaEvacuacaoDia" class="form-control" placeholder="vezes por dia" />
+            <input type="text" id="FrequenciaEvacuacaoDiaInput" name="FrequenciaEvacuacaoDia" class="form-control"
+                placeholder="vezes por dia" />
         </div>
         <div class="col-md-4">
-            <input type="text" id="FrequenciaEvacuacaoSemanaInput" name="FrequenciaEvacuacaoSemana"
-                class="form-control" placeholder="vezes por semana" />
+            <input type="text" id="FrequenciaEvacuacaoSemanaInput" name="FrequenciaEvacuacaoSemana" class="form-control"
+                placeholder="vezes por semana" />
         </div>
     </div>
 
     <div class="form-group row">
         <div class="col-md-4">
-        <label class="control-label">Escala de Bristol</label>
+            <label class="control-label">Escala de Bristol</label>
         </div>
         <div class="col-md-8">
             Consistência
