@@ -10,10 +10,10 @@
   <FileVersion>1.0.0.0</FileVersion>
   <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
   <RootNamespace>nutri</RootNamespace>
-  <PublishSingleFile>true</PublishSingleFile>
-  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
-  <OutputType>Exe</OutputType>
-  <PublishTrimmed>true</PublishTrimmed>
+  <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
+  <RuntimeIdentifier Condition="'$(Configuration)' == 'Release'">win-x86</RuntimeIdentifier>
+  <OutputType Condition="'$(Configuration)' == 'Release'">Exe</OutputType>
+  <PublishTrimmed Condition="'$(Configuration)' == 'Release'">true</PublishTrimmed>
 </PropertyGroup>
 
   <ItemGroup>
@@ -25,8 +25,7 @@
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
     <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.59" />
     <Watch Include="**\*.js" Exclude="node_modules\**\*;**\*.js.map;obj\**\*;bin\**\*" />
-    <!-- <Watch Include="**\*.cshtml" Exclude="obj\**\*;bin\**\*" /> -->
-    <Watch Include="**\*.css" Exclude="node_modules\**\*;obj\**\*;bin\**\*" />
+    <Watch Include="**\*.cshtml" Exclude="obj\**\*;bin\**\*" />
   </ItemGroup>
 
 </Project>
