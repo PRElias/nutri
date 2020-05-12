@@ -29,16 +29,16 @@ jobs:
         dotnet-version: 3.1.201
         
     - name: Publishing
-      run: dotnet publish -c Release -p:PublishDir=./publish
+      run: dotnet publish -c Release -p:PublishDir=. /publish
       
     - name: Checking generated files
-      run: ls /home/runner/work/nutri/nutri/publish/
+      run: ls ../../publish/
     
     - name: Installing zip
       run: sudo apt-get install zip unzip -qy
        
     - name: Zipping binaries
-      run: ls /bin -R && zip -r nutri.zip /publish
+      run: ls . /publish -R && zip -r nutri.zip . /publish
     
     - name: Checking zip file
       run: ls /home/runner/work/nutri/nutri/publish/
@@ -51,4 +51,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          publish/nutri.zip
+          . /publish/nutri.zip
