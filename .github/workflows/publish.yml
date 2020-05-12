@@ -35,7 +35,7 @@ jobs:
       run: sudo apt-get install zip unzip -qy
        
     - name: Zipping binaries
-      run: ls && zip -r nutri.zip bin/release/netcoreapp3.1/publish
+      run: ls /bin -R && zip -r nutri.zip bin/release/netcoreapp3.1/publish
     
     - name: Checking zip file
       run: ls /home/runner/work/nutri/nutri/publish/
