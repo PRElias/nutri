@@ -48,7 +48,25 @@ O sistema não possui pré-requisitos que não sejam disponibilizados junto com 
 
 # Instalação
 
-Para executar, é necessário ter instalado o .NET Core SDK 3.1, que você pode baixar clicando [aqui](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer).
+Para instalar, é necessário clicar no botão abaixo e e realizar o download do arquivo zip:
+
+[Download](https://github.com/PRElias/nutri/releases/download/latest/nutri.zip)
+
+Depois de baixado, descompacte o arquivo em uma pasta qualquer do seu computador. Para isso você pode usar o próprio Windows, que consegue abrir arquivos desse tipo, ou baixar o [7-zip](https://www.7-zip.org/a/7z1900.exe), que também é um software gratuito e de código aberto.
+
+![gif](https://github.com/PRElias/images-gifs-readme/raw/master/nutri-conteudo.png?raw=true)
+
+Então, navegue até a pasta onde descompactou e execute o arquivo **nutri.exe**. Uma janela será aberta e não a feche, pois senão não será possível acessar o sistema.
+
+Abra um navegador de internet (preferencialmente o [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html)) e vá até o endereço ```localhost:5000```.
+
+E pronto!
+
+Mas tem mais...se você quiser realmente **instalar** o programa, é só fazer assim:
+
+Execute o arquivo ```certificado-localhost.cer```, aceite a instalação do certificado e mude o endereço no navegador para ```https://localhost:5000``` (nesse caso é preciso digitar o https porque tem um **S**), esse S é para uso do certificado que importamos e esse certificado permite que apareça o botão **Instalar (+)** no Google Chrome, que fica ao fim da barra de endereços ao lado direito.
+
+Ao se clicar nesse botão, uma janela exclusiva é aberta e um ícone para o aplicativo nutri é colocado na área de trabalho, porém ainda será necessário executar o arquivo **nutri.exe** antes de abri-la novamente.
 
 [Voltar ao topo](#introducao)
 
