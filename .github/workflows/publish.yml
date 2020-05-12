@@ -38,7 +38,7 @@ jobs:
       run: sudo apt-get install zip unzip -qy
        
     - name: Zipping binaries
-      run: ls . './publish' -R && zip -r nutri.zip . './publish'
+      run: ls './publish' -R && zip -r nutri.zip './publish'
     
     - name: Checking zip file
       run: ls './publish'
