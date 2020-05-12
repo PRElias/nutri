@@ -12,6 +12,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -35,7 +37,8 @@ jobs:
       run: sudo apt-get install zip unzip -qy
        
     - name: Zipping binaries
-      run: ls /publish -R && zip -r nutri.zip /publish
+      working-directory: ${{env.working-directory}}
+      run: ls -R && zip -r nutri.zip /publish
     
     - name: Checking zip file
       run: ls /home/runner/work/nutri/nutri/publish/
@@ -48,4 +51,4 @@ jobs:
         prerelease: true
         title: "Versão Beta"
         files: |
-          /publish/nutri.zip
+          ${{env.working-directory}}/publish/nutri.zip
