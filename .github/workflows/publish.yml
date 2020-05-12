@@ -32,7 +32,7 @@ jobs:
       run: ls /home/runner/work/nutri/nutri/publish/
     
     - name: Installing zip
-      run: apk add zip
+      run: apt-get install zip unzip
        
     - name: Zipping binaries
       run: zip -r nutri.zip home/runner/work/nutri/nutri/publish/
