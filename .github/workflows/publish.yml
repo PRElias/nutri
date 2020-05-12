@@ -36,6 +36,9 @@ jobs:
     
     - name: Installing zip
       run: sudo apt-get install zip unzip -qy
+
+    - name: Copying files
+      run: sudo cp certificado-localhost.cer './publish'
        
     - name: Zipping binaries
       run: zip -r nutri.zip './publish'

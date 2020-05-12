@@ -12,6 +12,7 @@ O sistema, em sua fase atual e embora já utilizável, pode ser considerado um p
 * [Pré-requisitos](#pré-requisitos)
 * [Instalação](#instalacão)
 * [PWA](#pwa)
+* [Tecnologias](#tecnologias)
 * [FAQ](#faq)
     * [1. Qual a motivação?](#1)
     * [2. E por que não posso usar online?](#2)
@@ -43,17 +44,27 @@ Como objetivos meus, eu destaco a experimentação e prática das tecnologias em
 
 # Pré-requisitos
 
-1. .NET Core 3.1
+O sistema não possui pré-requisitos que não sejam disponibilizados junto com o instalador. Ou seja, em qualquer computador com Windows é possível fazer a utilização.
 
 # Instalação
 
 Para executar, é necessário ter instalado o .NET Core SDK 3.1, que você pode baixar clicando [aqui](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer).
+
+[Voltar ao topo](#introducao)
 
 # PWA
 
 Um [PWA](https://pt.wikipedia.org/wiki/Progressive_web_app) (progressive web app), é um site, que pode ser instalado em celulares e até mesmo em computadores com Windows e com isso se comportar parecido à um aplicativo.
 
 Ele possui diversas vantagens sobre aplicativos, como não necessitar de investimentos para ser publicado em lojas e ser pesquisável no Google diretamente.
+
+[Voltar ao topo](#introducao)
+
+# Tecnologias
+
+1. .NET Core 3.1
+2. Progressive Web App
+3. Github Continuous Integration
 
 # FAQ
 
@@ -68,6 +79,8 @@ E assim, em conversa com algumas amigas nutricionistas, a ideia foi evoluindo e 
 
 As tecnologias usadas foram escolhidas pois eu já tinha um certo domínio e queria disponibilizar o resultado o mais rápido possível.
 
+[Voltar ao topo](#introducao)
+
 ## 2
 **E por que não posso usar online?**
 
@@ -81,10 +94,14 @@ Por tudo isto, escolhi esse formato, mas esse é um projeto OpenSource, então f
 
 Ser opensource, significa também que todo código pode ser conferido por qualquer pessoa e inclusive copiado, e é por isso que esse projeto pode ser confirmado como sem fins lucrativos, já que você poderia copiá-lo e concorrer contra ele.
 
+[Voltar ao topo](#introducao)
+
 ## 3
 **E quais cuidados eu tenho que tomar com os dados?**
 
 Os dados são armazenados fisicamente no seu computador, em um arquivo chamado *Database.log*. Os cuidados que você deve tomar com esse arquivo e com as planilhas e impressões geradas no sistema, são as mesmos que você tomaria com quaisquer arquivos que você não quer que sejam expostos, então, não envie a ninguém e não salve onde não tenha certeza do que está fazendo.
+
+[Voltar ao topo](#introducao)
 
 ## 4
 **Mas então eu não consigo usá-lo no meu celular?**
@@ -94,6 +111,8 @@ Consegue. Mas não o sistema completo. Conforme dito acima, foi uma opção de d
 Contudo, para realizar alguns cálculos rápidos, há o [PWA](#pwa). Ele funciona parecido à um app comum, pode ser instalado no seu celular, mas não está disponível nas lojas de aplicativos e com isso, também se evita os custos e o processo de publicação para se participar das lojas.
 
 Mas ainda assim, é possível importar as informações do app para o sistema quando você estiver na sau rede local (o seu WiFi).
+
+[Voltar ao topo](#introducao)
 
 ## 5
 **Posso sugerir ou requisitar uma funcionalidade?**
@@ -105,3 +124,5 @@ A hospedagem de projetos de software em sites como o Github tem seu funcionament
 * Tenho como acompanhar o que o autor está desenvolvendo?
 
 Normalmente, os itens em que eu trabalho são controlados usando o próprio kanban de issues do Github, que você pode acompanhar [aqui](https://github.com/PRElias/nutri/projects/1), embora não possa garantir que ele estará sempre atualizado.
+
+[Voltar ao topo](#introducao)
