@@ -34,7 +34,7 @@ jobs:
     - name: Zipping publish  
       uses: TheDoctor0/zip-release@v0.3.0
       with:
-        path: . /publish
+        path: . ./publish/*
        
     - name: Checking zip file
       run: ls /home/runner/work/nutri/nutri/publish/
